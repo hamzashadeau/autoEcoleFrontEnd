@@ -1,0 +1,68 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span class="span" id="span"> <i class="fas fa-user-plus    "></i>ajouter un client </span>
+    <button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
+      class="fas fa-window-close "></i> </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<form class="normal-form">
+  <div class="container-fluid">
+    <div class="controles-container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="controles-container">
+            <mat-form-field>
+              <input matInput placeholder="nom *" [(ngModel)]="clientAjout.NOM_CLI" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="prenom *" [(ngModel)]="clientAjout.PRENOM_CLI" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="categorie *" [defaultValue]="categorie">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="controles-container">
+            <mat-form-field>
+              <input matInput placeholder="Entreprise *" [(ngModel)]="clientAjout.ENTREPRISE_CLI" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Adresse" [(ngModel)]="clientAjout.ADR_CLI" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Email *" [(ngModel)]="clientAjout.EMAIL_CLI" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Num Tele" [(ngModel)]="clientAjout.NUMTEL_CLI" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="card-header" style="text-align: center">
+        infromation de login
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="controles-container">
+              <mat-form-field>
+                <input matInput placeholder="login *" [(ngModel)]="clientAjout.LOGIN_USER" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="mot de passe" [(ngModel)]="clientAjout.PASS_USER" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder=" confirmation de mot de passe" [(ngModel)]="clientAjout.PASS_USERCONFIRM" [ngModelOptions]="{standalone: true}">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="button-row">
+        <button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" (click)="ajouterUnclient()"> <i
+          class="fas fa-check-circle"></i> Ajouter</button>
+      </div>
+    </div>
+  </div>
+</form>

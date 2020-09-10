@@ -1,0 +1,54 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span class="span" id="span"> <i class="fas fa-user-plus    "></i>ajouter une Reservation </span>
+    <button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
+      class="fas fa-window-close "></i> </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<form class="normal-form">
+  <div class="container-fluid">
+    <div class="controles-container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="controles-container">
+            <mat-form-field>
+              <input matInput placeholder="title *" [(ngModel)]="reserverAjout.TITLE" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="montant payé *" [(ngModel)]="reserverAjout.MONTANT_PAYE" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+             <mat-form-field>
+              <input matInput placeholder="heure début (Ex: HH:MM) *" [(ngModel)]="reserverAjout.START" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="controles-container">
+            <mat-form-field>
+              <input matInput placeholder="Id_client *" [(ngModel)]="reserverAjout.ID_CLI" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="id_salle" [(ngModel)]="reserverAjout.ID_SALLE" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="heure fin (Ex: HH:MM) *" [(ngModel)]="reserverAjout.END" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+          </div>
+        </div>
+        
+        <div class="col-md-12">
+          <div class="controles-container">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker101" placeholder="date" [(ngModel)]="reserverAjout.DATE" [ngModelOptions]="{standalone: true}" type="date">
+           <mat-datepicker-toggle matSuffix [for]="picker101"></mat-datepicker-toggle>
+           <mat-datepicker #picker101></mat-datepicker>
+         </mat-form-field>
+         </div>
+         </div>
+      </div>
+      <div class="button-row">
+        <button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" (click)="ajouterReservation()"> <i
+          class="fas fa-check-circle"></i> Ajouter</button>          </div>
+    </div>
+  </div>
+</form>
