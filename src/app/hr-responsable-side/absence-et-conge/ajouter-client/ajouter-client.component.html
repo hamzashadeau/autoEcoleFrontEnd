@@ -139,7 +139,7 @@
                     <mat-form-field>
                       <mat-select placeholder="select a type de Permis" [(ngModel)]="clientAjout.permisDemande" [ngModelOptions]="{standalone: true}">
                         <mat-select-filter [array]="variables1" (filteredReturn)="filteredList2 =$event" ></mat-select-filter>
-                        <mat-option *ngFor="let item of filteredList1" [value]="item">
+                        <mat-option *ngFor="let item of filteredList2" [value]="item">
                           {{item}}
                         </mat-option>
                       </mat-select>
