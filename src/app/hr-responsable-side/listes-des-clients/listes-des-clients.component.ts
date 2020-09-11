@@ -7,6 +7,7 @@ import {clientService} from '../../controller/service/client.service';
 import {client} from '../../controller/model/client.model';
 import {AjouterClientComponent} from "../absence-et-conge/ajouter-client/ajouter-client.component";
 import {ClientDetailComponent} from "./client-detail/client-detail.component";
+import {AbsenceEtCongeComponent} from "../absence-et-conge/absence-et-conge.component";
 
 @Component({
   selector: 'app-listes-des-clients',
@@ -66,7 +67,7 @@ export class ListesDesClientsComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = '90%';
     dialogConfig.height = '100%';
-    this.dialog.open(ClientDetailComponent,
+    this.dialog.open(AbsenceEtCongeComponent,
       dialogConfig);
   }
 }

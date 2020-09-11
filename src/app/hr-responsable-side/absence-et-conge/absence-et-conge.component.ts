@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { client } from 'src/app/controller/model/client.model';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { clientService } from 'src/app/controller/service/client.service';
-import { AjouterClientComponent } from './ajouter-client/ajouter-client.component';
+import {clientService} from '../../controller/service/client.service';
+import {client} from '../../controller/model/client.model';
+import {PaimentDeClient} from '../../controller/model/paiment-de-client.model';
+import {HeureConduite} from '../../controller/model/heure-conduite.model';
 
 @Component({
   selector: 'app-absence-et-conge',
@@ -10,29 +10,23 @@ import { AjouterClientComponent } from './ajouter-client/ajouter-client.componen
   styleUrls: ['./absence-et-conge.component.css']
 })
 export class AbsenceEtCongeComponent implements OnInit {
-
-  constructor(private dialog :MatDialog,
-    private clientService: clientService,
-    ) { }
-
-ngOnInit(): void {
-  this.clientService.findAll();
-}
-get clientSearch(): client {
-  return this.clientService.clientSearch;
-}
-public chercher(){
-}
-public ajouterfournisseur() {
-const dialogConfig = new MatDialogConfig();
-dialogConfig.disableClose = true;
-dialogConfig.autoFocus = true;
-dialogConfig.width = '80%';
-dialogConfig.height = '80%';
-this.dialog.open(AjouterClientComponent,dialogConfig);
-}
-
-  get client(): Array<client> {
-    return this.clientService.client;
+  constructor(private ClientService: clientService) { }
+  get clientInfo(): client {
+    return this.ClientService.clientInfo;
+  }
+  get paimentsClient(): Array<PaimentDeClient> {
+    return this.ClientService.paimentsClient;
+  }
+  cols: any;
+  ngOnInit(): void {
+    this.ClientService.findBYHeureConduiteCinClient(this.clientInfo.cin);
+    this.ClientService.findBYCinClient(this.clientInfo.cin);
+    this.cols = [
+      { field: 'duree', header: 'Durée de la séeance'},
+      { field: 'date', header: 'date de la séance'},
+    ];
+  }
+  get heureConduites(): Array<HeureConduite> {
+    return this.ClientService.heureConduites;
   }
 }
