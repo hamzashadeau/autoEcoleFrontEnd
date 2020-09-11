@@ -196,14 +196,14 @@
           <div class="col-md-6">
             <div class="controles-container">
               <mat-form-field>
-                <input matInput placeholder="montant payé *" />
+                <input matInput placeholder="montant payé *" [(ngModel)]="paimentClientAjout.montantpaye" [ngModelOptions]="{standalone: true}" />
               </mat-form-field>
             </div>
           </div>
           <div class="col-md-6">
             <div class="controles-container">
               <mat-form-field>
-                <input matInput [matDatepicker]="picker24" placeholder="Date De naissance"
+                <input matInput [matDatepicker]="picker24" placeholder="Date De paiment" [(ngModel)]="paimentClientAjout.date" [ngModelOptions]="{standalone: true}"
                 >
                 <mat-datepicker-toggle matSuffix [for]="picker24"></mat-datepicker-toggle>
                 <mat-datepicker #picker24></mat-datepicker>
@@ -214,7 +214,7 @@
                   color="primary"
                   style="background-color: #3f8032"
                   class="btn-block"
-                >
+               (click)="ajouterPaimentClient()" >
                   <i class="fas fa-check-circle"></i> Ajouter
                 </button>
               </div>
@@ -274,14 +274,14 @@
           <div class="col-md-6">
             <div class="controles-container">
               <mat-form-field>
-                <input matInput placeholder="montant payé *" />
+                <input matInput placeholder="durée de conduite(min) *" [(ngModel)]="heureConduiteAjout.duree" [ngModelOptions]="{standalone: true}"/>
               </mat-form-field>
             </div>
           </div>
           <div class="col-md-6">
             <div class="controles-container">
               <mat-form-field>
-                <input matInput [matDatepicker]="picker24" placeholder="Date De naissance"
+                <input matInput [matDatepicker]="picker24" placeholder="Date De conduite" [(ngModel)]="heureConduiteAjout.date" [ngModelOptions]="{standalone: true}"
                 >
                 <mat-datepicker-toggle matSuffix [for]="picker24"></mat-datepicker-toggle>
                 <mat-datepicker #picker24></mat-datepicker>
@@ -292,7 +292,7 @@
                   color="primary"
                   style="background-color: #3f8032"
                   class="btn-block"
-                >
+                (click)="ajouterHeureConduite()">
                   <i class="fas fa-check-circle"></i> Ajouter
                 </button>
               </div>

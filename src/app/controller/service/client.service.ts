@@ -173,7 +173,57 @@ public genererCodeClient(){
         console.log('eroro');
       });
   }
+  public saveHeureConduite(){
+  this.heureConduiteAjout.client = this.clientInfo;
+    this.http.post<number>('http://localhost:8080/autoEcole-Api/heureConduite/save' , this.heureConduiteAjout).subscribe(
+      data => {
+        if (data != null ) {
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public savePaimentClient(){
+  this.paimentClientAjout.client = this.clientInfo;
+    this.http.post<number>('http://localhost:8080/autoEcole-Api/paimentDeClient/save' , this.paimentClientAjout).subscribe(
+      data => {
+        if (data != null ) {
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
   public copierClientInfo(cli: client){
     this.clientInfo = cli;
+  }
+
+
+
+  private _heureConduiteAjout: HeureConduite;
+  private _paimentClientAjout: PaimentDeClient;
+
+  get heureConduiteAjout(): HeureConduite {
+    if(this._heureConduiteAjout == null){
+      this._heureConduiteAjout = new HeureConduite();
+    }
+    return this._heureConduiteAjout;
+  }
+
+  set heureConduiteAjout(value: HeureConduite) {
+    this._heureConduiteAjout = value;
+  }
+
+  get paimentClientAjout(): PaimentDeClient {
+    if(this._paimentClientAjout == null){
+      this._paimentClientAjout = new PaimentDeClient();
+    }
+    return this._paimentClientAjout;
+  }
+
+  set paimentClientAjout(value: PaimentDeClient) {
+    this._paimentClientAjout = value;
   }
 }

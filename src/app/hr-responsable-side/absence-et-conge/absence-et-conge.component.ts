@@ -29,4 +29,18 @@ export class AbsenceEtCongeComponent implements OnInit {
   get heureConduites(): Array<HeureConduite> {
     return this.ClientService.heureConduites;
   }
+
+  get heureConduiteAjout(): HeureConduite {
+    return this.ClientService.heureConduiteAjout;
+  }
+
+  get paimentClientAjout(): PaimentDeClient {
+    return this.ClientService.paimentClientAjout;
+  }
+  public ajouterHeureConduite(){
+    this.ClientService.saveHeureConduite();
+  }
+  public ajouterPaimentClient(){
+    this.ClientService.savePaimentClient();
+  }
 }
