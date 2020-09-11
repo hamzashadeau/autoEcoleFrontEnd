@@ -22,12 +22,6 @@ get clientSearch(): client {
   return this.clientService.clientSearch;
 }
 public chercher(){
-  if(this.clientSearch.CODE_CLI === 'code'){
-    console.log('ha data'+this.clientSearch.CODE_CLI)
-    this.clientService.chercherUnclientParCode(this.clientSearch.ENTREPRISE_CLI);
-  }else{
-    this.clientService.chercherUnclientParNomDeEntrprise(this.clientSearch.ENTREPRISE_CLI);
-  }
 }
 public ajouterfournisseur() {
 const dialogConfig = new MatDialogConfig();

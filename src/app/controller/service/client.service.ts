@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Route, Router} from '@angular/router';
 import { fournisseur } from '../model/fournisseur.model';
 import { reserver } from '../model/reserver.model';
@@ -19,14 +19,14 @@ export class clientService {
   constructor(private http: HttpClient,
               private router: Router,
               ) { }
- url = 'http://localhost/confer/Admin/';
- 
+ url = 'http://localhost:8080/autoEcole-Api/client/';
+
   get client(): Array<client> {
-    if(this._client == new Array<client>() ==  null){
+    if(this._client  ==  null){
       this._client = new Array<client>();
       this._client.forEach(cli =>{
         cli = new client();
-      })
+      });
     }
     return this._client;
   }
@@ -36,7 +36,7 @@ export class clientService {
   }
 
   public findAll() {
-    this.http.get<Array<client>>(this.url + 'findAllClients').subscribe(
+    this.http.get<Array<client>>(this.url + 'findAll').subscribe(
       data => {
         if (data != null) {
           this.client = data;

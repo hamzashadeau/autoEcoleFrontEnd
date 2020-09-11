@@ -6,7 +6,9 @@
   width: 100%;
   padding: 5%;
 }
-
+#numero{
+  display: none;
+}
 .controles-container > * {
   width: 100%;
 }

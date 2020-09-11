@@ -31,7 +31,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 /* Autres  */
-import {FileUploadModule} from "primeng";
+import {FileUploadModule, TableModule} from "primeng";
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
 import {TabViewModule} from 'primeng/tabview';
 import {FieldsetModule} from 'primeng/fieldset';
@@ -48,6 +48,10 @@ import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personn
 
 import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/ajouter-client/ajouter-client.component';
 import { DetailsEmployesComponent } from './hr-responsable-side/gestion-personnel/details-employes/details-employes.component';
+import { ListesDesEmployeComponent } from './hr-responsable-side/listes-des-employe/listes-des-employe.component';
+import { ListesDesClientsComponent } from './hr-responsable-side/listes-des-clients/listes-des-clients.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectFilterModule} from "mat-select-filter";
 
 @NgModule({
   declarations: [
@@ -63,6 +67,8 @@ import { DetailsEmployesComponent } from './hr-responsable-side/gestion-personne
     AjoutFournisseurComponent,
     AjouterClientComponent,
     DetailsEmployesComponent,
+    ListesDesEmployeComponent,
+    ListesDesClientsComponent,
 
   ],
   imports: [
@@ -75,6 +81,7 @@ import { DetailsEmployesComponent } from './hr-responsable-side/gestion-personne
     HttpClientModule,
     MatSidenavModule,
     MatSelectModule,
+    MatSelectFilterModule,
     MatFormFieldModule,
     MatMenuModule,
     MatToolbarModule,
@@ -98,6 +105,9 @@ import { DetailsEmployesComponent } from './hr-responsable-side/gestion-personne
      MatCardModule,
      TabViewModule,
      FieldsetModule,
+    
+    
+     TableModule, MatStepperModule
 
   ],
   providers: [
@@ -113,6 +123,8 @@ import { DetailsEmployesComponent } from './hr-responsable-side/gestion-personne
     },
     MatDatepickerModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AjoutFournisseurComponent]
+
 })
 export class AppModule { }
