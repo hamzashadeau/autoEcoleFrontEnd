@@ -4,6 +4,7 @@ import {Route, Router} from '@angular/router';
 import { fournisseur } from '../model/fournisseur.model';
 import { reserver } from '../model/reserver.model';
 import { client } from '../model/client.model';
+import {PaimentDeClient} from "../model/paiment-de-client.model";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,19 @@ export class clientService {
   private _clientSearch: client;
   private _clientFound: client;
   private _clientAjout: client;
+  private _clientInfo: client;
+
+  get clientInfo(): client {
+    if(this._clientInfo == null){
+      this._clientFound = new client();
+    }
+    return this._clientInfo;
+  }
+
+  set clientInfo(value: client) {
+    this._clientInfo = value;
+  }
+
   private  options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 };
@@ -34,7 +48,9 @@ export class clientService {
   set client(value: Array<client>) {
     this._client = value;
   }
-
+public genererCodeClient(){
+  this.clientAjout.generatedcode = (this.client.length + 1 ) + '/' + new Date().getFullYear();
+}
   public findAll() {
     this.http.get<Array<client>>(this.url + 'findAll').subscribe(
       data => {
@@ -68,11 +84,28 @@ export class clientService {
         console.log('eroro');
       });
   }
-  public chercherUnclientParNomDeEntrprise(nom: string){
-    this.http.get<Array<client>>(this.url+'findClientsByName/'+ nom).subscribe(
+  private _paimentsClient: Array<PaimentDeClient>;
+
+  get paimentsClient(): Array<PaimentDeClient> {
+    if(this._paimentsClient == null){
+      this._paimentsClient = new Array<PaimentDeClient>();
+      this._paimentsClient.forEach(pay =>{
+        pay = new PaimentDeClient();
+        pay.client = new client();
+      });
+    }
+    return this._paimentsClient;
+  }
+
+  set paimentsClient(value: Array<PaimentDeClient>) {
+    this._paimentsClient = value;
+  }
+
+  public findBYCinClient(cin: string){
+    this.http.get<Array<PaimentDeClient>>('http://localhost:8080/autoEcole-Api/paimentDeClient/findByclientCin/' + cin).subscribe(
       data => {
         if (data != null ) {
-          this.client = data;
+          this.paimentsClient = data;
           console.log('ha data' + data);
         }
       }, eror => {
@@ -110,5 +143,8 @@ export class clientService {
 
   set clientAjout(value: client) {
     this._clientAjout = value;
+  }
+  public copierClientInfo(cli: client){
+    this.clientInfo = cli;
   }
 }

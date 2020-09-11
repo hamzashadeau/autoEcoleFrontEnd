@@ -61,6 +61,12 @@
             <input matInput placeholder="Lieu de naissance : " [(ngModel)]="employeAjout.lieuNaissance" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field>
+            <input matInput [matDatepicker]="picker14" placeholder="Date D'embauche"[(ngModel)]="employeAjout.dateEmbauche" [ngModelOptions]="{standalone: true}"
+            >
+            <mat-datepicker-toggle matSuffix [for]="picker14"></mat-datepicker-toggle>
+            <mat-datepicker #picker14></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
             <mat-label>Situation Familiale</mat-label>
             <mat-select [(ngModel)]="employeAjout.situationFamiliale" [ngModelOptions]="{standalone: true}">
               <mat-option value="Marie">Marié</mat-option>

@@ -3,6 +3,7 @@ import {EmployeServiceService} from '../../controller/service/employe-service.se
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {Employe} from '../../controller/model/employe.model';
 import {AjoutFournisseurComponent} from '../gestion-personnel/ajout-fournisseur.component';
+import {DetailsEmployesComponent} from "../gestion-personnel/details-employes/details-employes.component";
 
 @Component({
   selector: 'app-listes-des-employe',
@@ -46,6 +47,17 @@ export class ListesDesEmployeComponent implements OnInit {
     dialogConfig.width = '90%';
     dialogConfig.height = '100%';
     this.dialog.open(AjoutFournisseurComponent,
+      dialogConfig);
+  }
+  public InfoEmploye(emp: Employe) {
+    this.employeService.findpaimentEmployeByCInAndMois(emp.cin, (new Date().getMonth() + 1));
+    const dialogConfig = new MatDialogConfig();
+    this.employeService.conpierInfoEmploye(emp);
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '90%';
+    dialogConfig.height = '100%';
+    this.dialog.open(DetailsEmployesComponent,
       dialogConfig);
   }
 }

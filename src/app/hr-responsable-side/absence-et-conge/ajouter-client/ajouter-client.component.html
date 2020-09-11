@@ -17,6 +17,9 @@
                   <div class="col-md-6">
                     <div class="controles-container">
                       <mat-form-field>
+                        <input matInput placeholder="code client*" [(ngModel)]="clientAjout.generatedcode" [ngModelOptions]="{standalone: true}" [value]="clientAjout.generatedcode">
+                      </mat-form-field>
+                      <mat-form-field>
                         <input matInput placeholder="prenom FR*" [(ngModel)]="clientAjout.prenomFR" [ngModelOptions]="{standalone: true}">
                       </mat-form-field>
                       <mat-form-field>

@@ -52,6 +52,7 @@ import { ListesDesEmployeComponent } from './hr-responsable-side/listes-des-empl
 import { ListesDesClientsComponent } from './hr-responsable-side/listes-des-clients/listes-des-clients.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectFilterModule} from "mat-select-filter";
+import { ClientDetailComponent } from './hr-responsable-side/listes-des-Clients/client-detail/client-detail.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import {MatSelectFilterModule} from "mat-select-filter";
     DetailsEmployesComponent,
     ListesDesEmployeComponent,
     ListesDesClientsComponent,
+    ClientDetailComponent,
 
   ],
   imports: [

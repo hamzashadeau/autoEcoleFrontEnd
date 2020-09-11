@@ -1,3 +1,5 @@
+<button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
+  class="fas fa-window-close"></i></button>
 <p-tabView>
   <p-tabPanel>
     <ng-template pTemplate="header">
@@ -20,22 +22,49 @@
       </div>
       <div class="row">
         <div class="col-md-6">
-          <h5>Nom :</h5>
+          <h5>Nom FR: {{infoEmploye.nomFR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Prenom :</h5>
+          <h5>Nom AR: {{infoEmploye.nomAR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Adresse :</h5>
+          <h5>Prenom FR:{{infoEmploye.prenomFR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Emploi :</h5>
+          <h5>Prenom AR:{{infoEmploye.prenomAR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Sexe :</h5>
+          <h5>Adresse FR:{{infoEmploye.addresseFR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Ville :</h5>
+          <h5>Adresse AR:{{infoEmploye.adresseAR}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>cin : {{infoEmploye.cin}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Sexe : {{infoEmploye.gender}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>date de naissance :{{infoEmploye.dateNaissance}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>lieu de naissance :{{infoEmploye.lieuNaissance}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>email :{{infoEmploye.email}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>telephone :{{infoEmploye.telephone}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>situationFamiliale :{{infoEmploye.situationFamiliale}}</h5>
+        </div>
+        <div class="col-md-6" *ngIf="infoEmploye.situationFamiliale=='Marie'">
+          <h5>nombre d'enfant :{{infoEmploye.nbrEnfant}}</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>date d'embauche :{{infoEmploye.dateEmbauche}}</h5>
         </div>
       </div>
     </div>
@@ -45,20 +74,46 @@
       <i class="fas fa-money-check-alt"></i> Info sur l avance sur le
       salaire</ng-template
     >
-    <h6 style="text-align: center">Le mois : Octobre 2019</h6>
+    <h6 style="text-align: center">Le mois : {{mois}}</h6>
     <div class="container">
       <div class="row" style="text-align: center">
         <div class="col-md-6">
-          <h5>Salaire de Base :</h5>
+          <h5>Salaire de Base : {{infoEmploye.salaire}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Le Reste de Salaire :</h5>
+          <h5>Le Reste de Salaire :{{infoEmploye.salaire}}</h5>
         </div>
       </div>
     </div>
     <br />
     <hr />
-
+    <div class="container-fluid" style="padding-top: 10px;">
+      <div class="row">
+        <div class="col-md-12">
+          <p-table #dt [columns]="cols" [value]="paimentEmploye" dataKey="cin" [paginator]="true" [rows]="5">
+            <ng-template pTemplate="caption">
+              Liste des avancement de mois:{{this.mois}}
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th *ngFor="let col of columns">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr>
+                <td *ngFor="let col of columns">
+                  {{rowData[col.field]}}
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <hr/>
     <mat-toolbar>
       <mat-toolbar-row>
         <span class="span" id="span">

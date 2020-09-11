@@ -6,6 +6,7 @@ import {AjoutFournisseurComponent} from '../gestion-personnel/ajout-fournisseur.
 import {clientService} from '../../controller/service/client.service';
 import {client} from '../../controller/model/client.model';
 import {AjouterClientComponent} from "../absence-et-conge/ajouter-client/ajouter-client.component";
+import {ClientDetailComponent} from "./client-detail/client-detail.component";
 
 @Component({
   selector: 'app-listes-des-clients',
@@ -46,6 +47,7 @@ export class ListesDesClientsComponent implements OnInit {
     return this.employeService.employes;
   }
   public ajouterUnClient() {
+    this.clientService.genererCodeClient();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -56,5 +58,15 @@ export class ListesDesClientsComponent implements OnInit {
   }
   get clientAjout(): client {
     return this.clientService.clientAjout;
+  }
+  public InfoClient(cli: client){
+    this.clientService.copierClientInfo(cli);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '90%';
+    dialogConfig.height = '100%';
+    this.dialog.open(ClientDetailComponent,
+      dialogConfig);
   }
 }
