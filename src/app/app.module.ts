@@ -47,6 +47,9 @@ import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personn
 
 import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/ajouter-client/ajouter-client.component';
 import { ListesDesEmployeComponent } from './hr-responsable-side/listes-des-employe/listes-des-employe.component';
+import { ListesDesClientsComponent } from './hr-responsable-side/listes-des-clients/listes-des-clients.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectFilterModule} from "mat-select-filter";
 
 @NgModule({
   declarations: [
@@ -62,41 +65,43 @@ import { ListesDesEmployeComponent } from './hr-responsable-side/listes-des-empl
     AjoutFournisseurComponent,
     AjouterClientComponent,
     ListesDesEmployeComponent,
+    ListesDesClientsComponent,
 
   ],
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatSidenavModule,
-        MatSelectModule,
-        MatFormFieldModule,
-        MatMenuModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatInputModule,
-        MatCheckboxModule,
-        MatIconModule,
-        MatBadgeModule
-        , MatButtonModule,
-        MatTreeModule,
-        MatProgressBarModule,
-        MatListModule,
-        MatNativeDateModule,
-        MatDialogModule,
-        MatTabsModule
-        , MatDividerModule
-        , MatTooltipModule,
-        MatExpansionModule, MatDatepickerModule,
-        FileUploadModule,
-        MatRadioModule,
-        MatCardModule, TableModule
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatSelectFilterModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatIconModule,
+    MatBadgeModule
+    , MatButtonModule,
+    MatTreeModule,
+    MatProgressBarModule,
+    MatListModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatTabsModule
+    , MatDividerModule
+    , MatTooltipModule,
+    MatExpansionModule, MatDatepickerModule,
+    FileUploadModule,
+    MatRadioModule,
+    MatCardModule, TableModule, MatStepperModule
 
-    ],
+  ],
   providers: [
     {
       provide: MatDialogRef,

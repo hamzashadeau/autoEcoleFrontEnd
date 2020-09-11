@@ -7,6 +7,7 @@ import { AbsenceEtCongeComponent } from './hr-responsable-side/absence-et-conge/
 import { OverreviewComponent } from './hr-responsable-side/overreview/overreview.component';
 import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personnel/ajout-fournisseur.component';
 import {ListesDesEmployeComponent} from "./hr-responsable-side/listes-des-employe/listes-des-employe.component";
+import {ListesDesClientsComponent} from "./hr-responsable-side/listes-des-clients/listes-des-clients.component";
 
 
 const routes: Routes = [
@@ -26,15 +27,15 @@ const routes: Routes = [
       {
        path : 'dash-board',
        component: OverreviewComponent,
-       outlet:'un'
-      },{
-        path: 'abscence',
-        component : AbsenceEtCongeComponent,
-        outlet:'un'
-      },{
+       outlet: 'un'
+      }, {
+        path: 'client',
+        component : ListesDesClientsComponent,
+        outlet: 'un'
+      }, {
         path: 'personnel',
         component : ListesDesEmployeComponent,
-        outlet:'un'
+        outlet: 'un'
       }
     ]
   }

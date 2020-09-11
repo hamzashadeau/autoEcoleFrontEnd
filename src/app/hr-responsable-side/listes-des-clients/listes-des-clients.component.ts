@@ -3,16 +3,19 @@ import {EmployeServiceService} from '../../controller/service/employe-service.se
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {Employe} from '../../controller/model/employe.model';
 import {AjoutFournisseurComponent} from '../gestion-personnel/ajout-fournisseur.component';
+import {clientService} from '../../controller/service/client.service';
+import {client} from '../../controller/model/client.model';
+import {AjouterClientComponent} from "../absence-et-conge/ajouter-client/ajouter-client.component";
 
 @Component({
-  selector: 'app-listes-des-employe',
-  templateUrl: './listes-des-employe.component.html',
-  styleUrls: ['./listes-des-employe.component.css']
+  selector: 'app-listes-des-clients',
+  templateUrl: './listes-des-clients.component.html',
+  styleUrls: ['./listes-des-clients.component.css']
 })
-export class ListesDesEmployeComponent implements OnInit {
-
+export class ListesDesClientsComponent implements OnInit {
 
   constructor(private employeService: EmployeServiceService,
+              private clientService: clientService,
               private dialog: MatDialog) { }
   private _motif: string;
 
@@ -25,7 +28,7 @@ export class ListesDesEmployeComponent implements OnInit {
   }
   cols: any;
   ngOnInit() {
-    this.employeService.findAll();
+    this.clientService.findAll();
     this.cols = [
       { field: 'nomFR', header: 'Nom FR' },
       { field: 'nomAR', header: 'Nom AR' },
@@ -33,19 +36,25 @@ export class ListesDesEmployeComponent implements OnInit {
       { field: 'prenomAR', header: 'prenom AR' },
       { field: 'addresseFR', header: 'adresse FR' },
       { field: 'adresseAR', header: 'adresse AR' },
-      { field: 'dateNaissance', header: 'date de Naissance' },
+      { field: 'cin', header: 'Cin' },
     ];
+  }
+  get client(): Array<client> {
+    return this.clientService.client;
   }
   get employes(): Array<Employe> {
     return this.employeService.employes;
   }
-  public ajouterUnEmploye() {
+  public ajouterUnClient() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '90%';
     dialogConfig.height = '100%';
-    this.dialog.open(AjoutFournisseurComponent,
+    this.dialog.open(AjouterClientComponent,
       dialogConfig);
+  }
+  get clientAjout(): client {
+    return this.clientService.clientAjout;
   }
 }

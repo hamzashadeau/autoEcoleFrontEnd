@@ -8,4 +8,12 @@ export class Employe {
   adresseAR: string;
   dateNaissance: Date;
   cin: string;
+  gender: string;
+  telephone: string;
+  email: string;
+  salaire: number;
+  lieuNaissance: string;
+  situationFamiliale: string;
+  nbrEnfant:number;
+  dateEmbauche: Date;
 }
