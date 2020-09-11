@@ -1,25 +1,43 @@
-.side-barr{
-  height: 880px;
-}
-.icons{
+
+.icons {
   margin: 10px;
 }
+
+#menu1 {
+  display: none;
+}
+
 .example-tree-progress-bar {
   margin-left: 30px;
 }
-.list1:hover{
+
+.mat-menu-content {
+  height: 100px;
+}
+.list2{
+  color:white;
+}
+.list2:hover {
   cursor: pointer;
-  background-color: rgb(131, 131, 131);
-  color: white;
-  border-radius: 5px;
+  border-radius: 10px;
+  /* padding-left: 1px; */
+background-color: #86b6b7;
 }
-.box-shadow{
-  top: 0;
-  z-index: 5;
-  /* height: 60px; */
-  box-shadow: 0px 2px 2px 1.5px #1f2225;
+
+.span {
+  margin: auto;
 }
-.mat-expansion-panel:not([class*=mat-elevation-z]){
-  box-shadow:
-0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)
+
+.boxShadow {
+  box-shadow: -10px 1px 25px -10px black;
+  background-color: cadetblue;
+}
+
+mat-sidenav {
+  box-shadow: -15px 10px 35px -1px black;
+  position: fixed;
+}
+
+.then {
+  padding-left: 15px;
 }

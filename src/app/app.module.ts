@@ -1,8 +1,12 @@
+/**Angular Core Imports **/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormBuilder, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
+/**Angular Material Imports **/
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
@@ -20,10 +24,17 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
+/* Autres  */
+import {FileUploadModule} from "primeng";
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
+/** Components **/
 import { AppComponent } from './app.component';
 import { LoginSideComponent } from './login-side/login-side.component';
 import { FooterDeLoginComponent } from './footer-de-login/footer-de-login.component';
@@ -32,16 +43,9 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { OverreviewComponent } from './hr-responsable-side/overreview/overreview.component';
 import { AbsenceEtCongeComponent } from './hr-responsable-side/absence-et-conge/absence-et-conge.component';
-import { GestionPersonnelComponent } from './hr-responsable-side/gestion-personnel/gestion-personnel.component';
-import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personnel/ajout-fournisseur/ajout-fournisseur.component';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
-import { AjoutReservationComponent } from './hr-responsable-side/overreview/ajout-reservation/ajout-reservation.component';
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {FileUploadModule} from "primeng";
-import { MatNativeDateModule } from '@angular/material/core';
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
-import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/ajouter-client/ajouter-client.component';
+import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personnel/ajout-fournisseur.component';
 
+import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/ajouter-client/ajouter-client.component';
 
 @NgModule({
   declarations: [
@@ -53,10 +57,10 @@ import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/a
     ForgotPasswordComponent,
     OverreviewComponent,
     AbsenceEtCongeComponent,
-    GestionPersonnelComponent,
+   
     AjoutFournisseurComponent,
     AjouterClientComponent,
-    AjoutReservationComponent
+  
   ],
   imports: [
     FormsModule,
@@ -86,7 +90,9 @@ import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/a
     , MatDividerModule
     , MatTooltipModule,
     MatExpansionModule, MatDatepickerModule,
-     FileUploadModule
+     FileUploadModule,
+     MatRadioModule,
+     MatCardModule
 
   ],
   providers: [

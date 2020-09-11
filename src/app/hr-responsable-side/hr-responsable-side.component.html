@@ -1,38 +1,183 @@
 <mat-sidenav-container class="example-container" class="side-barr">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" style="width: 265px;padding:10px; ">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [(opened)]="opened"
+    style="    padding: 15px;
+    width: 290px;
+    transform: none;
+    background-color: cadetblue;
+    visibility: visible;
+    position: fixed;"
+  >
     <mat-list role="list">
-
-      <h6 style="color: red;padding-top: 10px;padding-bottom: 40px;padding-left: 17px;">Logo + Societe Name </h6>
-      <mat-list-item [routerLink]="[{ outlets: { un: ['overview'] } }]" class="list1" role="listitem">
-        <h6><i class="fas fa-user-circle"></i> liste des reserevations</h6>
+      <mat-list-item role="listitem">
+        <span style="text-align: center;" class="span">
+          <!-- <i class="fas fa-school"
+              style="font-size: 45px;text-align: center;"></i> -->
+          <img
+            src="../assets/images/angular-icon.svg"
+            alt="Login Image"
+            height="40px"
+          />
+          <br/>
+          AUTO-ECOLE 2.0</span
+        >
       </mat-list-item>
-      <mat-list-item [routerLink]="[{ outlets: { un: ['personnel'] } }]" class="list1" role="listitem">
-        <h6><i class="fas fa-tachometer-alt"></i> liste des fournisseurs</h6>
+      <mat-list-item
+        [routerLink]="[{ outlets: { un: ['dash-board'] } }]" routerLinkActive="active"
+        class="list2"
+        role="listitem"
+        style="margin-top: 35px; margin-bottom: 4px;"
+      >
+        <h6> <i class="fas fa-home  "></i> <span class="then"></span> Dashboard</h6>
       </mat-list-item>
-
-      <mat-list-item [routerLink]="[{ outlets: { un: ['abscence'] } }]" class="list1" role="listitem">
-        <h6><i class="fas fa-bed"></i> liste des clients</h6>
+      <mat-divider></mat-divider>
+      <mat-list-item
+        [routerLink]="[{ outlets: { un: ['personnel'] } }]" routerLinkActive="active"
+        class="list2"
+        role="listitem"
+      >
+        <h6> <i class=" fas fa-users    "></i> <span class="then"></span> Employees</h6>
       </mat-list-item>
-      <!-- <br><br><br><br><br> -->
-      <mat-list-item class="list1" role="listitem">
-        <h6><i class="fas fa-sign-out-alt"></i> Se Deconnecter</h6>
+      <mat-divider></mat-divider>
+      <mat-list-item
+        [routerLink]="[{ outlets: { un: ['abscence'] } }]" routerLinkActive="active"
+        class="list2"
+        role="listitem"
+      >
+        <h6> <i class="fas fa-users-cog "></i><span class="then"></span> Clients</h6>
       </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item
+        [routerLink]="[{ outlets: { un: ['abscence'] } }]" routerLinkActive="active"
+        class="list2"
+        role="listitem"
+      >
+        <h6> <i class="fas fa-money-check-alt    "></i> <span class="then"></span> Etat Financiere</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item
+        [routerLink]="[{ outlets: { un: ['users'] } }]" routerLinkActive="active"
+        class="list2"
+        role="listitem"
+      >
+        <h6> <i class="fas fa-calendar-alt    "></i> <span class="then"></span> Calendrier d Exam</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <!-- <mat-list-item
+        [routerLink]="[{ outlets: { un: ['shipping'] } }]" routerLinkActive="active"
+        class="list2"
+        role="listitem"
+      >
+        <h6><i class="fas fa-truck"></i> <span class="then"></span> Shipping</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider> -->
+      <mat-list-item
+        [routerLink]="[{ outlets: { un: ['settings'] } }]" routerLinkActive="active"
+        class="list2"
+        role="listitem"
+      >
+        <h6 ><i class="fas fa-cogs "></i> <span class="then"></span> Settings</h6>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <br><br><br><br>
+      <h6 style="text-align: center;color: white;font-size: 10px;bottom: 0">
+        © Coding with Love <i class="fas fa-heart    "></i> by BENDRIMOU | 2020 </h6>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <nav class="navbar navbar-light box-shadow">
-      <button mat-mini-fab (click)="sidenav.toggle()"><i class="fas fa-bars" style="font-size:25px;"></i></button>
+    <nav class="navbar navbar-dark boxShadow">
+      <button
+        mat-mini-fab
+          style="background-color: whitesmoke;"
+        (click)="sidenav.toggle()"
+      >
+        <i class="fas fa-bars" style="font-size: 25px;"></i>
+      </button>
+      <img
+        src="../assets/images/angular-icon.svg"
+        alt="Login Image"
+        height="40px"
+      />
       <form class="form-inline my-lg-0">
-        <mat-icon class="icons" matBadge="15" matBadgeColor="warn" style="cursor: pointer;" matTooltip="Notifications">
-          <i class="fas fa-bell" style="color: rgb(128, 128, 128);"></i>
-        </mat-icon>
-        <button class="icons" mat-raised-button matTooltip="This is your profile"><i class="fas fa-user-circle"></i>
-          Profile</button>
-        <button class="icons" mat-raised-button><i class="fas fa-cog"></i> Settings</button>
+        <button mat-icon-button [matMenuTriggerFor]="menu" (click)="badge()">
+          <!-- #trigger="matMenuTrigger"
+          (mouseenter)="trigger.closeMenu()" -->
+          <i
+            class="fas fa-bell"
+            style="cursor: pointer; font-size: 18px;color:whitesmoke"
+            [matBadge]="ex"
+            matBadgePosition="above after"
+            matBadgeSize="small"
+            [matBadgeHidden]="hideMatBadge"
+            matBadgeColor="warn"
+          ></i>
+        </button>
+        <mat-menu class="my-class" #menu="matMenu" xPosition="before">
+          <div class="container-fluid" >
+            <div class="row">
+              <div class="col-md-2">
+                Ha Anya
+                <br>
+                <mat-divider></mat-divider>
+              </div>
+              <div class="col-md-8" style="text-align: center;">
+                Ha Anya
+                <br>
+                <mat-divider></mat-divider>
+                <p style="text-align: center;">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Doloribus commodi quibusdam perspiciatis alias nobis voluptas
+                  eaque? Laboriosam odio, sed illo quis eligendi consequuntur
+                  saepe nulla ullam soluta veniam suscipit blanditiis.
+                </p>
+                <button mat-raised-button style="text-align: center;">
+                  <i class="fas fa-check-double"></i> Marquer tous ca comme
+                  lu(e)s
+                </button>
+              </div>
 
+              <div class="col-md-2">
+                Ha Anya
+                <br>
+                <mat-divider></mat-divider>
+              </div>
+            </div>
+          </div>
+        </mat-menu>
+
+        <!-- <button class="icons" mat-raised-button matTooltip="This is your profile">
+            <i class="fas fa-user-circle"></i>
+            Profile</button> -->
+        <button
+          class="icons"
+          style="background-color: whitesmoke;"
+          mat-mini-fab
+          [matMenuTriggerFor]="menu2"
+        >
+          <i class="fas fa-cog" style="font-size: 16px;"></i>
+        </button>
+        <mat-menu #menu2="matMenu">
+          <button mat-menu-item [routerLink]="[{ outlets: { un: ['settings'] } }]"
+                  routerLinkActive="active">
+            <i class="fas fa-cog"></i> Settings
+          </button>
+
+          <button mat-menu-item [routerLink]="['']" routerLinkActive="active">
+            <i class="fas fa-user-circle"></i> My profil
+          </button>
+          <mat-divider></mat-divider>
+          <button mat-menu-item [routerLink]="['']" routerLinkActive="active">
+            <i class="fas fa-sign-out-alt"></i> Log out
+          </button>
+          <!-- <button mat-menu-item>Autres</button> -->
+        </mat-menu>
       </form>
     </nav>
+    <section class="container-fluid " style="padding-top: 40px;background: white">
+      <router-outlet name="un"></router-outlet>
+    </section>
 
-    <router-outlet name="un"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -14,11 +14,13 @@ export class LoginSideComponent implements OnInit {
   nom: string;
   password: string;
   showErrors;
-  constructor(private login: LogInService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.login.findAll();
-  }
 
+  }
+  login() {
+    this.router.navigateByUrl("RhResponsable");
+  }
 
 }

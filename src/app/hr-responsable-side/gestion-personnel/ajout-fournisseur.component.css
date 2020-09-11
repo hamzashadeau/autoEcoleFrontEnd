@@ -24,3 +24,7 @@ mat-radio-group mat-radio-button{
 .span {
   margin: auto;
 }
+.normal-form{
+  font-variant: small-caps;
+      font-weight: bold;
+}

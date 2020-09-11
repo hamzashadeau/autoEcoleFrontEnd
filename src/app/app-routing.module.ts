@@ -5,7 +5,8 @@ import { HRResponsableSideComponent } from './hr-responsable-side/hr-responsable
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AbsenceEtCongeComponent } from './hr-responsable-side/absence-et-conge/absence-et-conge.component';
 import { OverreviewComponent } from './hr-responsable-side/overreview/overreview.component';
-import { GestionPersonnelComponent } from './hr-responsable-side/gestion-personnel/gestion-personnel.component';
+import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personnel/ajout-fournisseur.component';
+
 
 const routes: Routes = [
   {
@@ -17,7 +18,12 @@ const routes: Routes = [
     component: HRResponsableSideComponent,
     children:[
       {
-       path : 'overview',
+       path : '',
+       component: OverreviewComponent,
+       outlet:'un'
+      },
+      {
+       path : 'dash-board',
        component: OverreviewComponent,
        outlet:'un'
       },{
@@ -26,7 +32,7 @@ const routes: Routes = [
         outlet:'un'
       },{
         path: 'personnel',
-        component : GestionPersonnelComponent,
+        component : AjoutFournisseurComponent,
         outlet:'un'
       }
     ]
@@ -39,7 +45,6 @@ const routes: Routes = [
     path: 'forgetPassword',
     component: ForgotPasswordComponent
   },
-
 ];
 
 @NgModule({

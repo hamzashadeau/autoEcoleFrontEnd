@@ -1,83 +1,34 @@
-<div class="card" style="background-color: #343a40; color: wheat; text-align: center">
-  <div class="card-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <label style="color: white"> Date de début :</label>
-          <input style="margin-left: 10px" type="date" style="color: white;background-color: #343a40; width: 500px; border-right: none;border-left: none;border-top: none;"  name="trip-start" placeholder="date de debut" [(ngModel)]="reservationSearch.START" [ngModelOptions]="{standalone: true}" >
-        </div>
-        <br>
-        <div class="col-md-6">
-          <label style="color: white"> Date de fin :</label>
-          <input type="date" style="margin-left: 10px" style="color: white;background-color: #343a40; width: 500px; border-right: none;border-left: none;border-top: none;" name="trip-start" placeholder="date de fin" [(ngModel)]="reservationSearch.END" [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="col-md-12">
-          <div class="button-row">
-            <button class="btn btn-light fa fa-search" style="margin-top:30px;width: 500px" (click)="chercher()"> chercher</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style=" box-shadow: 0px 13px 90px -7px #848d97;
+    background-color: cadetblue;color: black;text-align:center;padding: 15px;">
+     
+          <div class="row">
+            <h6> <i class="fas fa-users "></i> Nombre de client</h6>
+            <br/>
+            <hr/>
+            <h5>13</h5>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<mat-toolbar style="margin-top: 15px">
-  <mat-toolbar-row>
-    <span class="span" style="margin-left: 40%">  liste des reservations  </span>
-    <button mat-raised-button class="btn"   (click)="ajouterReservation()" style="background-color: white;color: black;margin-left: 500px"> ajouter une reservation</button>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div class="card" style="background-color: #343a40">
-  <div class="card-body">
-    <table class="table table-hover table-dark table-striped table-bordered " style="color: wheat;">
-      <thead>
-      <th>code reservation</th>
-      <th>title</th>
-      <th>debut</th>
-      <th>fin</th>
-      <th>code client</th>
-      <th>Lieu</th>
-      <th>Id_Salle</th>
-      <th style="padding-left: 40px">Action</th>
-      </thead>
-      <tbody>
-      <tr *ngFor="let c of reservation">
-        <td>{{c.CODE_RESERVER}}</td>
-        <td>{{c.TITLE}}</td>
-        <td>{{c.START}}</td>
-        <td>{{c.END}}</td>
-        <td>{{c.CODE_CLI}}</td>
-        <td>{{c.ADR_SALLE}}</td>
-       <td>{{c.ID_SALLE}}</td>
-        <td>
-          <button class="btn btn-outline-primary btn-sm fa fa-plus " matTooltip="Ce button permet de modifier cet element"></button>
-          <button style="margin-left: 10px" class="btn btn-danger btn-sm fa fa-trash" matTooltip="Ce button permet de supprimer cet element"></button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+        
 
-<!--<mat-tab-group mat-stretch-tabs style="width: 100%;">
-  <mat-tab label="Liste des employes" style="width: 25%;background-color: brown;">
-    <div class="example-small-box mat-elevation-z4">
-      Liste dee employes
-    </div>
-  </mat-tab>
-  <mat-tab label="Ajouter un employe" style="width: 25%;">
-    <div class="example-large-box mat-elevation-z4">
-      Ajouter un employe
-    </div>
-  </mat-tab>
-  <mat-tab label="Editer un employe" style="width: 25%;">
-    <div class="example-large-box mat-elevation-z4">
-      Editer un employe
-    </div>
-  </mat-tab>
-  <mat-tab label=" Autres" style="width: 25%;">
-    <div class="example-large-box mat-elevation-z4">
-      Autres...
-    </div>
-  </mat-tab>
-</mat-tab-group>
--->
+  </div>
+  <div class="col-md-2">
+    
+  </div>
+  <div class="col-md-2">
+    
+  </div>
+  <div class="col-md-2">
+    
+  </div>
+  <div class="col-md-2">
+    
+  </div>
+  <div class="col-md-2">
+    
+  </div>
+  <div class="col-md-2">
+    
+  </div>
+  </div>
+</div>
