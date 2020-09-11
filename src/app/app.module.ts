@@ -33,7 +33,8 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angula
 /* Autres  */
 import {FileUploadModule} from "primeng";
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
-
+import {TabViewModule} from 'primeng/tabview';
+import {FieldsetModule} from 'primeng/fieldset';
 /** Components **/
 import { AppComponent } from './app.component';
 import { LoginSideComponent } from './login-side/login-side.component';
@@ -46,6 +47,7 @@ import { AbsenceEtCongeComponent } from './hr-responsable-side/absence-et-conge/
 import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personnel/ajout-fournisseur.component';
 
 import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/ajouter-client/ajouter-client.component';
+import { DetailsEmployesComponent } from './hr-responsable-side/gestion-personnel/details-employes/details-employes.component';
 
 @NgModule({
   declarations: [
@@ -57,10 +59,11 @@ import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/a
     ForgotPasswordComponent,
     OverreviewComponent,
     AbsenceEtCongeComponent,
-   
+
     AjoutFournisseurComponent,
     AjouterClientComponent,
-  
+    DetailsEmployesComponent,
+
   ],
   imports: [
     FormsModule,
@@ -92,7 +95,9 @@ import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/a
     MatExpansionModule, MatDatepickerModule,
      FileUploadModule,
      MatRadioModule,
-     MatCardModule
+     MatCardModule,
+     TabViewModule,
+     FieldsetModule,
 
   ],
   providers: [
