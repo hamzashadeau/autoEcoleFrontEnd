@@ -1,0 +1,113 @@
+<p-tabView>
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <i class="fas fa-info"></i> Informations Personnels</ng-template
+    >
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12" style="text-align: ceenter">
+          <img
+            src="../assets/images/angular-icon.svg"
+            alt="Image de l employe"
+            style="
+              width: 130px;
+              border: 2px solid black;
+              border-radius: 50%;
+              padding: 5px;
+            "
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Nom :</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Prenom :</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Adresse :</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Emploi :</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Sexe :</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Ville :</h5>
+        </div>
+      </div>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <i class="fas fa-money-check-alt"></i> Info sur l avance sur le
+      salaire</ng-template
+    >
+    <h6 style="text-align: center">Le mois : Octobre 2019</h6>
+    <div class="container">
+      <div class="row" style="text-align: center">
+        <div class="col-md-6">
+          <h5>Salaire de Base :</h5>
+        </div>
+        <div class="col-md-6">
+          <h5>Le Reste de Salaire :</h5>
+        </div>
+      </div>
+    </div>
+    <br />
+    <hr />
+
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <span class="span" id="span">
+          <i class="fas fa-user-plus"></i> Affecter unn avancement a un employe
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <form class="normal-form">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="controles-container">
+              <mat-form-field>
+                <input matInput placeholder="Employe Concerene *" />
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput type="number" placeholder="Prix d avance *" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="controles-container">
+              <mat-form-field>
+                <input
+                  matInput
+                  [matDatepicker]="picker5"
+                  placeholder="Date D'avance"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker5"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker5></mat-datepicker>
+              </mat-form-field>
+
+              <div class="button-row">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  style="background-color: #3f8032"
+                  class="btn-block"
+                >
+                  <i class="fas fa-check-circle"></i> Ajouter
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </p-tabPanel>
+</p-tabView>
