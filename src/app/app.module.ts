@@ -31,7 +31,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 /* Autres  */
-import {FileUploadModule} from "primeng";
+import {FileUploadModule, TableModule} from "primeng";
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
 
 /** Components **/
@@ -46,6 +46,7 @@ import { AbsenceEtCongeComponent } from './hr-responsable-side/absence-et-conge/
 import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personnel/ajout-fournisseur.component';
 
 import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/ajouter-client/ajouter-client.component';
+import { ListesDesEmployeComponent } from './hr-responsable-side/listes-des-employe/listes-des-employe.component';
 
 @NgModule({
   declarations: [
@@ -57,44 +58,45 @@ import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/a
     ForgotPasswordComponent,
     OverreviewComponent,
     AbsenceEtCongeComponent,
-   
+
     AjoutFournisseurComponent,
     AjouterClientComponent,
-  
-  ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatSidenavModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatBadgeModule
-    , MatButtonModule,
-    MatTreeModule,
-    MatProgressBarModule,
-    MatListModule,
-    MatNativeDateModule,
-    MatDialogModule,
-    MatTabsModule
-    , MatDividerModule
-    , MatTooltipModule,
-    MatExpansionModule, MatDatepickerModule,
-     FileUploadModule,
-     MatRadioModule,
-     MatCardModule
+    ListesDesEmployeComponent,
 
   ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatSidenavModule,
+        MatSelectModule,
+        MatFormFieldModule,
+        MatMenuModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatIconModule,
+        MatBadgeModule
+        , MatButtonModule,
+        MatTreeModule,
+        MatProgressBarModule,
+        MatListModule,
+        MatNativeDateModule,
+        MatDialogModule,
+        MatTabsModule
+        , MatDividerModule
+        , MatTooltipModule,
+        MatExpansionModule, MatDatepickerModule,
+        FileUploadModule,
+        MatRadioModule,
+        MatCardModule, TableModule
+
+    ],
   providers: [
     {
       provide: MatDialogRef,
@@ -108,6 +110,8 @@ import { AjouterClientComponent } from './hr-responsable-side/absence-et-conge/a
     },
     MatDatepickerModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AjoutFournisseurComponent]
+
 })
 export class AppModule { }
