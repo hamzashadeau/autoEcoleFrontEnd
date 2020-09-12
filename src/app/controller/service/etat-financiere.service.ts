@@ -11,7 +11,23 @@ export class EtatFinanciereService {
   constructor(private http: HttpClient) { }
   private _listesDesDepenses: Array<EtatFinanciere>;
   private _listesDesGains: Array<EtatFinanciere>;
+  private _etatAjout: EtatFinanciere;
+public ajouterdespences(){
+  this.etatAjout.type = 'despenses';
+}
+  public ajoutergains(){
+    this.etatAjout.type = 'gains';
+  }
+  get etatAjout(): EtatFinanciere {
+    if(this._etatAjout == null){
+      this._etatAjout = new EtatFinanciere();
+    }
+    return this._etatAjout;
+  }
 
+  set etatAjout(value: EtatFinanciere) {
+    this._etatAjout = value;
+  }
 
   get listesDesDepenses(): Array<EtatFinanciere> {
     if (this._listesDesDepenses == null){

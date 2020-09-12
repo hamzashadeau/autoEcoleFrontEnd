@@ -55,6 +55,7 @@ import {MatSelectFilterModule} from "mat-select-filter";
 import { ClientDetailComponent } from './hr-responsable-side/listes-des-Clients/client-detail/client-detail.component';
 import { ListesDesDepensesComponent } from './hr-responsable-side/listes-des-depenses/listes-des-depenses.component';
 import { ListesDesGainsComponent } from './hr-responsable-side/listes-des-gains/listes-des-gains.component';
+import { AjouterDesDespencesGainsComponent } from './hr-responsable-side/ajouter-des-despences/ajouter-des-despences-gains.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ListesDesGainsComponent } from './hr-responsable-side/listes-des-gains/
     ClientDetailComponent,
     ListesDesDepensesComponent,
     ListesDesGainsComponent,
+    AjouterDesDespencesGainsComponent,
 
   ],
   imports: [

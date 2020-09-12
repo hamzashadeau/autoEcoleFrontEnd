@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {EtatFinanciereService} from "../../controller/service/etat-financiere.service";
 import {EtatFinanciere} from "../../controller/model/etat-financiere.model";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {AjouterDesDespencesGainsComponent} from "../ajouter-des-despences/ajouter-des-despences-gains.component";
 
 @Component({
   selector: 'app-listes-des-gains',
@@ -9,7 +11,8 @@ import {EtatFinanciere} from "../../controller/model/etat-financiere.model";
 })
 export class ListesDesGainsComponent implements OnInit {
 
-  constructor(private etatFinancierService: EtatFinanciereService) { }
+  constructor(private etatFinancierService: EtatFinanciereService,
+              private dialog: MatDialog) { }
   mois: number;
   cols: any;
   ngOnInit(): void {
@@ -32,6 +35,14 @@ export class ListesDesGainsComponent implements OnInit {
   get listesDesGains(): Array<EtatFinanciere> {
     return this.etatFinancierService.listesDesGains;
   }
-
-
+  public ajouterUngains(){
+    this.etatFinancierService.ajoutergains();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '90%';
+    dialogConfig.height = '100%';
+    this.dialog.open(AjouterDesDespencesGainsComponent,
+      dialogConfig);
+  }
 }

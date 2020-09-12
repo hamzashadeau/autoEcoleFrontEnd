@@ -1,0 +1,70 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span class="span" id="span"> <i class="fas fa-user-plus    "></i>
+ Ajouter Un Employe </span>
+    <button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
+      class="fas fa-window-close"></i></button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<form class="normal-form">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="controles-container">
+          <div class="add-bottom-padding">
+            <mat-label>type : </mat-label>
+            <mat-radio-group [(ngModel)]="etatAjout.type" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="despenses">despence</mat-radio-button>
+              <mat-radio-button value="gains">gains</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <mat-form-field *ngIf="etatAjout.type === 'despenses'">
+            <mat-select placeholder="select a nom" [(ngModel)]="etatAjout.nom" [ngModelOptions]="{standalone: true}" (ngModelChange)="show()">
+              <mat-select-filter [array]="variables1" (filteredReturn)="filteredList2 =$event" ></mat-select-filter>
+              <mat-option *ngFor="let item of filteredList2" [value]="item">
+                {{item}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field id="nom">
+            <input matInput placeholder="nom*" [(ngModel)]="etatAjout.nom " [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="montant*" [(ngModel)]="etatAjout.monant" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          <!-- Doti = "FSTG+CIN" -->
+          <!-- <mat-form-field>
+            <input matInput placeholder="DoTi" [(ngModel)]="employe.doti" [ngModelOptions]="{standalone: true}">
+
+          </mat-form-field> -->
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="controles-container">
+
+          <!--
+          <mat-form-field>
+            <input matInput placeholder="RIB de Bank " [(ngModel)]="employe.compteBancaireRib" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>-->
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="etatAjout.date" [ngModelOptions]="{standalone: true}">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <!-- <mat-form-field> -->
+          <!-- <mat-label *ngIf="employe.departement" >Superieur : {{employe.departement.chef.fullname}}</mat-label> -->
+          <!-- <mat-select [(ngModel)]="employe.sup" [ngModelOptions]="{standalone: true}">
+              <mat-option>None</mat-option>
+              <mat-option value="ana">Ana</mat-option>
+              <mat-option value="howa">Howa</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+
+          <div class="button-row">
+            <button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" > <i
+              class="fas fa-check-circle"></i> Ajouter</button>          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
