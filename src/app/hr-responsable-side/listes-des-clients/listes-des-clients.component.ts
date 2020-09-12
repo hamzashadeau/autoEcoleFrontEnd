@@ -53,7 +53,7 @@ export class ListesDesClientsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '90%';
-    dialogConfig.height = '100%';
+    dialogConfig.height = '90%';
     this.dialog.open(AjouterClientComponent,
       dialogConfig);
   }
@@ -66,7 +66,7 @@ export class ListesDesClientsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '90%';
-    dialogConfig.height = '100%';
+    dialogConfig.height = '90%';
     this.dialog.open(AbsenceEtCongeComponent,
       dialogConfig);
   }

@@ -1,15 +1,16 @@
+
 <div class="container-fluid" style="padding-top: 10px;">
   <div class="row">
     <div class="col-md-12">
       <p-table #dt [columns]="cols" [value]="listesDesGains" dataKey="cin" [paginator]="true" [rows]="5">
         <ng-template pTemplate="caption">
-          Liste des gains
+          <button class="btn btn-add"style="background-color: white;color: black;float: left"
+                  matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUngains()"
+          ><i class="fa fa-plus-circle" ></i>  Ajouter Une <strong>Gains</strong> </button>
           <div style="text-align: right">
-            <button class="btn"style="background-color: white;color: black;float: left"
-                    matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUngains()"
-            ><i class="fa fa-file-pdf" ></i>   Ajouter Une <strong>Gains</strong> </button>
+
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50" placeholder="Global Filter"
+            <input type="text" pInputText size="50" placeholder="Chercher ..."
                    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
           </div>
         </ng-template>

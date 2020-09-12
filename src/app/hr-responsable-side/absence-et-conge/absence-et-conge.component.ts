@@ -19,11 +19,11 @@ export class AbsenceEtCongeComponent implements OnInit {
   }
   cols: any;
   ngOnInit(): void {
-    this.ClientService.findBYHeureConduiteCinClient(this.clientInfo.cin);
-    this.ClientService.findBYCinClient(this.clientInfo.cin);
+    // this.ClientService.findBYHeureConduiteCinClient(this.clientInfo.cin);
+    // this.ClientService.findBYCinClient(this.clientInfo.cin);
     this.cols = [
       { field: 'duree', header: 'Durée de la séeance'},
-      { field: 'date', header: 'date de la séance'},
+      { field: 'date', header: 'Date de la séance'},
     ];
   }
   get heureConduites(): Array<HeureConduite> {

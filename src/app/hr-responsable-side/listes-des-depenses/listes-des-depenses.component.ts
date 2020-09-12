@@ -46,8 +46,8 @@ mois: number;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '90%';
-    dialogConfig.height = '100%';
+    dialogConfig.width = '60%';
+    dialogConfig.height = '50%';
     this.dialog.open(AjouterDesDespencesGainsComponent,
       dialogConfig);
   }

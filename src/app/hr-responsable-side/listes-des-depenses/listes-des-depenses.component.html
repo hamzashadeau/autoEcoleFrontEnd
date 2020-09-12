@@ -1,9 +1,9 @@
-<mat-tab-group  style="width: 100%;" (selectedIndexChange)="demo1BtnClick(tabindex)" [(selectedIndex)]="demo1TabIndex">
-  <mat-tab label="listes des despenses" style="width: 25px" tabindex="1">
+<mat-tab-group mat-stretch-tabs  style="width: 100%;" (selectedIndexChange)="demo1BtnClick(tabindex)" [(selectedIndex)]="demo1TabIndex">
+  <mat-tab label="LISTE DES DEPENSES" style="width: 25px" tabindex="1">
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
       <mat-toolbar>
         <mat-toolbar-row>
-          <span class="span"> <i class="fas fa-file-pdf    "></i>Listes des despenses </span>
+          <span class="span"> <i class="fas fa-arrow-down   "></i> Listes des despenses </span>
         </mat-toolbar-row>
       </mat-toolbar>
 <div class="container-fluid" style="padding-top: 10px;">
@@ -11,13 +11,13 @@
     <div class="col-md-12">
       <p-table #dt [columns]="cols" [value]="listesDesDepenses" dataKey="cin" [paginator]="true" [rows]="5">
         <ng-template pTemplate="caption">
-          Liste des despenses
+          <button class="btn btn-add"style="background-color: white;color: black;float: left"
+                  matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUnDespences()"
+          ><i class="fa fa-plus-circle" ></i>   Ajouter Une <strong>Despences</strong> </button>
           <div style="text-align: right">
-            <button class="btn"style="background-color: white;color: black;float: left"
-                    matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUnDespences()"
-            ><i class="fa fa-file-pdf" ></i>   Ajouter Une <strong>Despences</strong> </button>
+
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50" placeholder="Global Filter"
+            <input type="text" pInputText size="50" placeholder="GChercher ..."
                    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
           </div>
         </ng-template>
@@ -49,11 +49,11 @@
 </div>
     </div>
   </mat-tab>
-  <mat-tab label="listes des Gains" style="width: 25px" tabindex="2">
+  <mat-tab label="LISTE DES GAINS " style="width: 25px" tabindex="2">
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
       <mat-toolbar>
         <mat-toolbar-row>
-          <span class="span"> <i class="fas fa-file-pdf    "></i>Listes des gains </span>
+          <span class="span"> <i class="fas fa-arrow-up   "></i> Listes des Gains </span>
         </mat-toolbar-row>
       </mat-toolbar>
       <app-listes-des-gains></app-listes-des-gains>

@@ -45,7 +45,7 @@ export class ListesDesEmployeComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '90%';
-    dialogConfig.height = '100%';
+    dialogConfig.height = '90%';
     this.dialog.open(AjoutFournisseurComponent,
       dialogConfig);
   }
@@ -55,8 +55,8 @@ export class ListesDesEmployeComponent implements OnInit {
     this.employeService.conpierInfoEmploye(emp);
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '90%';
-    dialogConfig.height = '100%';
+    dialogConfig.width = '95%';
+    dialogConfig.height = '95%';
     this.dialog.open(DetailsEmployesComponent,
       dialogConfig);
   }

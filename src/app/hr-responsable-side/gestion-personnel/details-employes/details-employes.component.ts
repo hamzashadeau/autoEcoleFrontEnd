@@ -21,8 +21,8 @@ mois: number;
   ngOnInit(): void {
     this.mois = new Date().getMonth()+1;
     this.cols = [
-      { field: 'monatant', header: 'montant de avancement'},
-      { field: 'date', header: 'date de avancement' },
+      { field: 'monatant', header: 'Montant de avancement'},
+      { field: 'date', header: 'Date de avancement' },
     ];
   }
 

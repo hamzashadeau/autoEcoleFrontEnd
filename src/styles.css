@@ -18,3 +18,24 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover, body .
   border: 1px solid cadetblue !important;
   background-color: cadetblue !important;
 }
+
+ .mat-tab-group[mat-stretch-tabs]>.mat-tab-header .mat-tab-label {
+   flex-basis: 0;
+   flex-grow: 1;
+   background-color: cadetblue!important;
+   color: white!important;
+   font-size: 15px!important;
+   font-weight: bold!important;
+ }
+.span {
+  margin: auto;
+}
+.btn-add{
+
+  background-color: cadetblue!important;
+  color: black!important;
+  float: left;
+  margin-top: -5px;
+
+
+}
