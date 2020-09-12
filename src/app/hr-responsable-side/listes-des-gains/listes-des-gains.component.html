@@ -5,6 +5,17 @@
         <ng-template pTemplate="caption">
           Liste des gains
           <div style="text-align: right">
+            <mat-form-field style="margin-right: 150px">
+              <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercherParDate()">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button class="btn"style="background-color: white;color: black;float: left"
+                    matTooltip="Ce button permet de ajouter un employe" (click)="findMoisAvant()"
+            >   Mois <strong>Avant</strong> </button>
+            <button class="btn"style="background-color: white;color: black;float: left"
+                    matTooltip="Ce button permet de ajouter un employe" (click)="findMoisApres()"
+            >   Mois <strong>Apres</strong> </button>
             <button class="btn"style="background-color: white;color: black;float: left"
                     matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUngains()"
             ><i class="fa fa-file-pdf" ></i>   Ajouter Une <strong>Gains</strong> </button>

@@ -16,6 +16,10 @@ export class ListesDesDepensesComponent implements OnInit {
               private dialog: MatDialog) { }
 mois: number;
   cols: any;
+  date: Date;
+  chercherParDate(){
+    this.etatFinancierService.findALLdespencesBytypeAndDate(this.date, 'despenses');
+  }
   ngOnInit(): void {
     this.mois = (new Date().getMonth() + 1);
     this.etatFinancierService.findAllDepensesParMois(this.mois);

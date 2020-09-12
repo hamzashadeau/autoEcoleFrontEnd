@@ -24,13 +24,17 @@ export class ListesDesGainsComponent implements OnInit {
       { field: 'date', header: 'date' },
     ];
   }
+  date: Date;
+  chercherParDate(){
+    this.etatFinancierService.findALLgainssBytypeAndDate(this.date, 'gains');
+  }
   findMoisAvant(){
     this.mois = this.mois -1;
-    this.etatFinancierService.findAllDepensesParMois(this.mois);
+    this.etatFinancierService.findAllGainsParMois(this.mois);
   }
   findMoisApres(){
     this.mois = this.mois + 1;
-    this.etatFinancierService.findAllDepensesParMois(this.mois);
+    this.etatFinancierService.findAllGainsParMois(this.mois);
   }
   get listesDesGains(): Array<EtatFinanciere> {
     return this.etatFinancierService.listesDesGains;

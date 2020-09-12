@@ -13,9 +13,20 @@
         <ng-template pTemplate="caption">
           Liste des despenses
           <div style="text-align: right">
+            <mat-form-field style="margin-right: 150px">
+              <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercherParDate()">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
             <button class="btn"style="background-color: white;color: black;float: left"
                     matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUnDespences()"
-            ><i class="fa fa-file-pdf" ></i>   Ajouter Une <strong>Despences</strong> </button>
+            >   Ajouter Une <strong>Despences</strong> </button>
+            <button class="btn"style="background-color: white;color: black;float: left"
+                    matTooltip="Ce button permet de ajouter un employe" (click)="findMoisAvant()"
+            >   Mois <strong>Avant</strong> </button>
+            <button class="btn"style="background-color: white;color: black;float: left"
+                    matTooltip="Ce button permet de ajouter un employe" (click)="findMoisApres()"
+            >   Mois <strong>Apres</strong> </button>
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
             <input type="text" pInputText size="50" placeholder="Global Filter"
                    (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
@@ -53,7 +64,7 @@
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
       <mat-toolbar>
         <mat-toolbar-row>
-          <span class="span"> <i class="fas fa-file-pdf    "></i>Listes des gains </span>
+          <span class="span">Listes des gains </span>
         </mat-toolbar-row>
       </mat-toolbar>
       <app-listes-des-gains></app-listes-des-gains>
