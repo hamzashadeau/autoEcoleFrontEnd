@@ -39,3 +39,11 @@ body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active:hover, body .
 
 
 }
+.btn-custom{
+margin-left: 4px;
+margin-right: 4px;
+}
+body .ui-table .ui-sortable-column.ui-state-highlight {
+    background-color: cadetblue!important;
+    color: #ffffff;
+}

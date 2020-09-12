@@ -1,5 +1,5 @@
-<button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
-  class="fas fa-window-close "></i> </button>
+﻿<button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
+  class="fas fa-window-close " style="font-size"></i> </button>
 <div class="container-fluid" style="padding-top: 10px;">
   <div class="row">
     <div class="col-md-12">
@@ -8,7 +8,7 @@
           <ng-template matStepLabel>Information Personnel</ng-template>
           <mat-toolbar>
             <mat-toolbar-row>
-              <span class="span"> <i class="fas fa-plus-circle" aria-hidden="true"></i> Ajouter</span>
+              <span class="span"> <i class="fas fa-plus-circle" aria-hidden="true"></i> Ajouter un nouveau client</span>
             </mat-toolbar-row>
           </mat-toolbar>
             <form class="normal-form">
@@ -97,15 +97,15 @@
               </div>
             </form>
           <div style="float: right;">
-            <button mat-button matStepperPrevious>Retour</button>
-            <button mat-button matStepperNext>Suivant</button>
+            <button class="btn-secondary" mat-button matStepperPrevious>Retour</button>
+            <button class="btn-secondary" mat-button matStepperNext>Suivant</button>
           </div>
         </mat-step>
         <mat-step>
         <ng-template matStepLabel>Information de permis</ng-template>
         <mat-toolbar>
           <mat-toolbar-row>
-            <span class="span"> <i class="fas fa-plus-circle" aria-hidden="true"></i> Ajouter</span>
+            <span class="span"> <i class="fas fa-plus-circle" aria-hidden="true"></i> Ajouter un nouveau client</span>
           </mat-toolbar-row>
         </mat-toolbar>
           <form class="normal-form">
@@ -167,8 +167,8 @@
             </div>
           </form>
           <div style="float: right;">
-            <button mat-button matStepperPrevious>Retour</button>
-            <button mat-button (click)="stepper.reset()">Annuler</button>
+            <button class="btn-secondary" mat-button matStepperPrevious>Retour</button>
+            <button class="btn-secondary" mat-button (click)="stepper.reset()">Annuler</button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>

@@ -1,4 +1,4 @@
-<button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
+﻿<button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
   class="fas fa-window-close"></i></button>
 <p-tabView>
   <p-tabPanel>
@@ -20,7 +20,7 @@
           />
         </div>
       </div>
-      <div class="row">
+      <div class="row" style="text-align: center">
         <div class="col-md-6">
           <h5>code client :{{clientInfo.generatedcode}}</h5>
         </div>
@@ -71,9 +71,16 @@
   </p-tabPanel>
   <p-tabPanel>
     <ng-template pTemplate="header">
-      <i class="fas fa-money-check-alt"></i> Info sur l avance sur le
-      permis</ng-template
+      <i class="fas fa-car"></i> A propos de Permis</ng-template
     >
+ <mat-toolbar>
+      <mat-toolbar-row>
+        <span class="span" >
+          <i class="fas fa-car"></i> A propos de Permis 
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+<br>
     <div class="container">
       <div class="row" style="text-align: center">
         <div class="col-md-6">
@@ -107,16 +114,16 @@
     <mat-toolbar>
       <mat-toolbar-row>
         <span class="span" >
-          <i class="fas fa-user-plus"></i> Affecter unn avancement a un employe
+          <i class="fas fa-book"></i> Date d exam
         </span>
       </mat-toolbar-row>
-    </mat-toolbar>
+    </mat-toolbar><br>
     <form class="normal-form">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
             <div class="controles-container">
-              <mat-form-field>
+              <mat-form-field style="width: 100%">
                 <input matInput [matDatepicker]="picker" placeholder="Date De Exam"[(ngModel)]="clientInfo.dateExamen" [ngModelOptions]="{standalone: true}"
                 >
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -144,8 +151,15 @@
   </p-tabPanel>
   <p-tabPanel>
     <ng-template pTemplate="header">
-      <i class="fas fa-money-check-alt"></i> Info sur l avance sur le
-      paiment</ng-template>
+      <i class="fas fa-money-check-alt"></i> A propos de paiment</ng-template>
+ <mat-toolbar>
+      <mat-toolbar-row>
+        <span class="span" >
+          <i class="fas fa-money-check"></i> Detailles sur le paiment
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+<br>
     <div class="row">
       <div class="col-md-6">
         <h4> montant Total: {{clientInfo.prixTotal}}</h4>
@@ -186,23 +200,23 @@
     <mat-toolbar>
       <mat-toolbar-row>
         <span class="span" >
-          <i class="fas fa-user-plus"></i> Ajouter un paiment a un employe
+          <i class="fas fa-plus"></i> Ajouter un paiment d un client
         </span>
       </mat-toolbar-row>
     </mat-toolbar>
-    <form class="normal-form">
+    <form class="normal-form"> <br>
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
             <div class="controles-container">
-              <mat-form-field>
+              <mat-form-field style="width: 100%">
                 <input matInput placeholder="montant payé *" [(ngModel)]="paimentClientAjout.montantpaye" [ngModelOptions]="{standalone: true}" />
               </mat-form-field>
             </div>
           </div>
           <div class="col-md-6">
             <div class="controles-container">
-              <mat-form-field>
+              <mat-form-field style="width: 100%">
                 <input matInput [matDatepicker]="picker24" placeholder="Date De paiment" [(ngModel)]="paimentClientAjout.date" [ngModelOptions]="{standalone: true}"
                 >
                 <mat-datepicker-toggle matSuffix [for]="picker24"></mat-datepicker-toggle>
@@ -226,7 +240,15 @@
   </p-tabPanel>
   <p-tabPanel>
     <ng-template pTemplate="header">
-      <i class="fas fa-money-check-alt"></i> Info sur l avance sur les heures de conduites</ng-template>
+      <i class="fas fa-clock"></i> A propos sur les heures de conduites</ng-template>
+ <mat-toolbar>
+      <mat-toolbar-row>
+        <span class="span" >
+          <i class="fas fa-clock"></i> A propos des heures de conduites
+        </span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+<br>
     <div class="row">
       <div class="col-md-6">
         <h4> Total des heures de conduites: {{clientInfo.totalHeureConduite}}</h4>
@@ -264,27 +286,27 @@
     <mat-toolbar>
       <mat-toolbar-row>
         <span class="span" id="span">
-          <i class="fas fa-user-plus"></i> Ajouter un paiment a un employe
+          <i class="fas fa-clock"></i> Gestion des heures de conduite
         </span>
       </mat-toolbar-row>
-    </mat-toolbar>
+    </mat-toolbar><br>
     <form class="normal-form">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6">
             <div class="controles-container">
-              <mat-form-field>
+              <mat-form-field style="width: 100%">
                 <input matInput placeholder="durée de conduite(min) *" [(ngModel)]="heureConduiteAjout.duree" [ngModelOptions]="{standalone: true}"/>
               </mat-form-field>
             </div>
           </div>
           <div class="col-md-6">
             <div class="controles-container">
-              <mat-form-field>
-                <input matInput [matDatepicker]="picker24" placeholder="Date De conduite" [(ngModel)]="heureConduiteAjout.date" [ngModelOptions]="{standalone: true}"
+              <mat-form-field style="width: 100%">
+                <input matInput [matDatepicker]="picker25" placeholder="Date De conduite" [(ngModel)]="heureConduiteAjout.date" [ngModelOptions]="{standalone: true}"
                 >
-                <mat-datepicker-toggle matSuffix [for]="picker24"></mat-datepicker-toggle>
-                <mat-datepicker #picker24></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="picker25"></mat-datepicker-toggle>
+                <mat-datepicker #picker25></mat-datepicker>
               </mat-form-field>
               <div class="button-row">
                 <button

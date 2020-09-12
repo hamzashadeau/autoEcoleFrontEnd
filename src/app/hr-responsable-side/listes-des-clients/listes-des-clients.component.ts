@@ -52,8 +52,8 @@ export class ListesDesClientsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '90%';
-    dialogConfig.height = '90%';
+    dialogConfig.width = '95%';
+    dialogConfig.height = '95%';
     this.dialog.open(AjouterClientComponent,
       dialogConfig);
   }
@@ -65,8 +65,8 @@ export class ListesDesClientsComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '90%';
-    dialogConfig.height = '90%';
+    dialogConfig.width = '100%';
+    dialogConfig.height = '95%';
     this.dialog.open(AbsenceEtCongeComponent,
       dialogConfig);
   }

@@ -27,7 +27,7 @@
                           ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
               </p-sortIcon>
             </th>
-            <th>Action</th>
+            <th style="text-align:center">Action</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -35,9 +35,9 @@
             <td *ngFor="let col of columns">
               {{rowData[col.field]}}
             </td>
-            <td><button class="btn btn-info btn-sm fa fa-trash" ></button>
-              <button class="btn btn-danger btn-sm fa fa-edit" ></button>
-              <button class="btn btn-primary btn-sm fa fa-info" (click)="InfoClient(rowData)"></button>
+            <td><button class="btn btn-custom btn-danger btn-sm fa fa-trash" ></button>
+              <button class="btn btn-custom btn-secondary btn-sm fa fa-edit" ></button>
+              <button class="btn btn-custom btn-info btn-sm fa fa-info" (click)="InfoClient(rowData)"></button>
             </td>
           </tr>
         </ng-template>
