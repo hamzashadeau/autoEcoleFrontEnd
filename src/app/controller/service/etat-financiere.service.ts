@@ -74,4 +74,31 @@ public ajouterdespences(){
         console.log('eroro');
       });
   }
+  public  findByDate(date: Date) {
+    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findByDate/' + date).subscribe(
+      data => {
+        this.listesDesDepenses = data;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public  findALLdespencesBytypeAndDate(date: Date, type: string) {
+    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findByTypeAndDate/type/' + type + '/date/' + date).subscribe(
+      data => {
+        this.listesDesDepenses = data;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public  findALLgainssBytypeAndDate(date: Date, type: string) {
+    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findByTypeAndDate/type/' + type + '/date/' + date).subscribe(
+      data => {
+        this.listesDesGains = data;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
 }

@@ -14,12 +14,32 @@
           <button class="btn btn-add"style="background-color: white;color: black;float: left"
                   matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUnDespences()"
           ><i class="fa fa-plus-circle" ></i>   Ajouter Une <strong>Despences</strong> </button>
-          <div style="text-align: right">
+          <div class="container-fluid"style="text-align: center">
+<div class="row" >
+  <div class="col-md-4"></div>
+  <div class="col-md-2">   <button class="btn"style="background-color: white;color: black;float: left"
+                                   matTooltip="Ce button permet de ajouter un employe" (click)="findMoisAvant()"
+  > <i class="fa fa-calendar-week"></i>   Mois <strong>Avant</strong> </button></div>
+  <div class="col-md-4"><mat-form-field style="width: 100%">
+    <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercherParDate()">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field></div>
+  <div class="col-md-2"> <button class="btn"style="background-color: white;color: black;float: left"
+                                 matTooltip="Ce button permet de ajouter un employe" (click)="findMoisApres()"
+  > <i class="fa fa-calendar-week"></i>  Mois <strong>Apres</strong> </button></div>
+</div>  </div>
+          <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+          <input type="text" pInputText size="50" placeholder="Chercher ..."
+                 (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
 
-            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50" placeholder="GChercher ..."
-                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-          </div>
+
+
+
+<!--            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>-->
+<!--            <input type="text" pInputText size="50" placeholder="GChercher ..."-->
+<!--                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">-->
+
         </ng-template>
         <ng-template pTemplate="header" let-columns>
           <tr>
@@ -53,7 +73,9 @@
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
       <mat-toolbar>
         <mat-toolbar-row>
+
           <span class="span"> <i class="fas fa-arrow-up   "></i> Listes des Gains </span>
+
         </mat-toolbar-row>
       </mat-toolbar>
       <app-listes-des-gains></app-listes-des-gains>
