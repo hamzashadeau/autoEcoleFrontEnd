@@ -8,6 +8,7 @@ import { OverreviewComponent } from './hr-responsable-side/overreview/overreview
 import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personnel/ajout-fournisseur.component';
 import {ListesDesEmployeComponent} from "./hr-responsable-side/listes-des-employe/listes-des-employe.component";
 import {ListesDesClientsComponent} from "./hr-responsable-side/listes-des-clients/listes-des-clients.component";
+import {ListesDesDepensesComponent} from "./hr-responsable-side/listes-des-depenses/listes-des-depenses.component";
 
 
 const routes: Routes = [
@@ -35,6 +36,11 @@ const routes: Routes = [
       }, {
         path: 'personnel',
         component : ListesDesEmployeComponent,
+        outlet: 'un'
+      },
+      {
+        path: 'etat',
+        component : ListesDesDepensesComponent,
         outlet: 'un'
       }
     ]

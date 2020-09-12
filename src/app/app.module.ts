@@ -53,6 +53,8 @@ import { ListesDesClientsComponent } from './hr-responsable-side/listes-des-clie
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectFilterModule} from "mat-select-filter";
 import { ClientDetailComponent } from './hr-responsable-side/listes-des-Clients/client-detail/client-detail.component';
+import { ListesDesDepensesComponent } from './hr-responsable-side/listes-des-depenses/listes-des-depenses.component';
+import { ListesDesGainsComponent } from './hr-responsable-side/listes-des-gains/listes-des-gains.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { ClientDetailComponent } from './hr-responsable-side/listes-des-Clients/
     ListesDesEmployeComponent,
     ListesDesClientsComponent,
     ClientDetailComponent,
+    ListesDesDepensesComponent,
+    ListesDesGainsComponent,
 
   ],
   imports: [
@@ -107,10 +111,7 @@ import { ClientDetailComponent } from './hr-responsable-side/listes-des-Clients/
      MatCardModule,
      TabViewModule,
      FieldsetModule,
-    
-    
      TableModule, MatStepperModule
-
   ],
   providers: [
     {
