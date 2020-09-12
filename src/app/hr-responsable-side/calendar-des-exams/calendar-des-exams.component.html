@@ -1,0 +1,70 @@
+<div class="container-fluid" style="padding-top: 10px;">
+  <div class="row">
+    <div class="col-md-12">
+      <p-table #dt [columns]="cols" [value]="clientExam" dataKey="cin" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="caption">
+          Liste des clients
+          <div style="text-align: right">
+            <mat-form-field style="margin-right: 150px">
+              <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercheParDate()">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button class="btn"style="background-color: white;color: black;float: left"
+                    matTooltip="Ce button permet de ajouter un employe" (click)="getDateprecedent()"
+            >   Ajouter Une <strong>precedent</strong> </button>
+            <button class="btn"style="background-color: white;color: black;float: left"
+                    matTooltip="Ce button permet de ajouter un employe" (click)="getDatesuivant()"
+            >   Mois <strong>suivant</strong> </button>
+            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="50" placeholder="Global Filter"
+                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th style="width: 3em"></th>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+                          ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
+              </p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+          <tr>
+            <td>
+              <a href="#" [pRowToggler]="rowData">
+                <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+              </a>
+            </td>
+            <td *ngFor="let col of columns">
+              {{rowData[col.field]}}
+          </tr>
+        </ng-template>
+        <ng-template  pTemplate="rowexpansion" let-rowData let-columns="columns" >
+          <tr>
+            <td [attr.colspan]="columns.length + 1">
+              <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                <div class="ui-g-12 ui-md-9" >
+                  <div class="ui-g">
+                    <div class="ui-g-4">
+                      <b>permis Demandé :</b> {{rowData.permisDemande}}
+                    </div>
+                    <div class="ui-g-4">
+                      <b>Langue Exam :</b> {{rowData.langueExam}}
+                    </div>
+                    <div class="ui-g-4" >
+                      <b>prix Restantes :</b> {{rowData.prixRestantes}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,7 @@ import { AjoutFournisseurComponent } from './hr-responsable-side/gestion-personn
 import {ListesDesEmployeComponent} from "./hr-responsable-side/listes-des-employe/listes-des-employe.component";
 import {ListesDesClientsComponent} from "./hr-responsable-side/listes-des-clients/listes-des-clients.component";
 import {ListesDesDepensesComponent} from "./hr-responsable-side/listes-des-depenses/listes-des-depenses.component";
+import {CalendarDesExamsComponent} from "./hr-responsable-side/calendar-des-exams/calendar-des-exams.component";
 
 
 const routes: Routes = [
@@ -41,6 +42,11 @@ const routes: Routes = [
       {
         path: 'etat',
         component : ListesDesDepensesComponent,
+        outlet: 'un'
+      },
+      {
+        path: 'calender',
+        component : CalendarDesExamsComponent,
         outlet: 'un'
       }
     ]

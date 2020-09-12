@@ -31,7 +31,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 /* Autres  */
-import {FileUploadModule, TableModule} from "primeng";
+import {FileUploadModule, TableModule} from 'primeng';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
 import {TabViewModule} from 'primeng/tabview';
 import {FieldsetModule} from 'primeng/fieldset';
@@ -56,6 +56,7 @@ import { ClientDetailComponent } from './hr-responsable-side/listes-des-Clients/
 import { ListesDesDepensesComponent } from './hr-responsable-side/listes-des-depenses/listes-des-depenses.component';
 import { ListesDesGainsComponent } from './hr-responsable-side/listes-des-gains/listes-des-gains.component';
 import { AjouterDesDespencesGainsComponent } from './hr-responsable-side/ajouter-des-despences/ajouter-des-despences-gains.component';
+import { CalendarDesExamsComponent } from './hr-responsable-side/calendar-des-exams/calendar-des-exams.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,6 @@ import { AjouterDesDespencesGainsComponent } from './hr-responsable-side/ajouter
     ForgotPasswordComponent,
     OverreviewComponent,
     AbsenceEtCongeComponent,
-
     AjoutFournisseurComponent,
     AjouterClientComponent,
     DetailsEmployesComponent,
@@ -77,7 +77,7 @@ import { AjouterDesDespencesGainsComponent } from './hr-responsable-side/ajouter
     ListesDesDepensesComponent,
     ListesDesGainsComponent,
     AjouterDesDespencesGainsComponent,
-
+    CalendarDesExamsComponent,
   ],
   imports: [
     FormsModule,

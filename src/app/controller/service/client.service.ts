@@ -106,6 +106,18 @@ export class clientService {
   private _clientFound: client;
   private _clientAjout: client;
   private _clientInfo: client;
+  private _clientExam: Array<client>;
+
+  get clientExam(): Array<client> {
+    if(this._clientExam == null){
+      this._clientExam = new Array<client>();
+    }
+    return this._clientExam;
+  }
+
+  set clientExam(value: Array<client>) {
+    this._clientExam = value;
+  }
 
   private  options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
@@ -121,6 +133,50 @@ public genererCodeClient(){
       data => {
         if (data != null) {
           this.client = data;
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public findAllclientExamByDate(date: Date) {
+    this.http.get<Array<client>>(this.url + 'findByDateExamen/date/' + date).subscribe(
+      data => {
+        if (data != null) {
+          this.clientExam = data;
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public findByDateAujourdHui() {
+    this.http.get<Array<client>>(this.url + 'findByDateAujourdHui').subscribe(
+      data => {
+        if (data != null) {
+          this.clientExam = data;
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public findByDateAvant() {
+    this.http.get<Array<client>>(this.url + 'findByDateAvant').subscribe(
+      data => {
+        if (data != null) {
+          this.clientExam = data;
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public findByDateSuivant() {
+    this.http.get<Array<client>>(this.url + 'findByDateSuivant').subscribe(
+      data => {
+        if (data != null) {
+          this.clientExam = data;
           console.log('ha data' + data);
         }
       }, eror => {
