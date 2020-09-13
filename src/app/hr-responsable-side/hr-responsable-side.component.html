@@ -164,7 +164,8 @@
             <i class="fas fa-cog"></i> Settings
           </button>
 
-          <button mat-menu-item [routerLink]="['']" routerLinkActive="active">
+          <button mat-menu-item [routerLink]="[{ outlets: { un: ['profile'] } }]"
+                  routerLinkActive="active">
             <i class="fas fa-user-circle"></i> My profil
           </button>
           <mat-divider></mat-divider>

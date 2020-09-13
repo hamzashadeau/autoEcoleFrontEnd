@@ -10,6 +10,8 @@ import {ListesDesEmployeComponent} from "./hr-responsable-side/listes-des-employ
 import {ListesDesClientsComponent} from "./hr-responsable-side/listes-des-clients/listes-des-clients.component";
 import {ListesDesDepensesComponent} from "./hr-responsable-side/listes-des-depenses/listes-des-depenses.component";
 import {CalendarDesExamsComponent} from "./hr-responsable-side/calendar-des-exams/calendar-des-exams.component";
+import {ProfileDetailsComponent} from './hr-responsable-side/profile-details/profile-details.component';
+import { SettingsComponent } from './hr-responsable-side/settings/settings.component';
 
 
 const routes: Routes = [
@@ -47,6 +49,16 @@ const routes: Routes = [
       {
         path: 'calender',
         component : CalendarDesExamsComponent,
+        outlet: 'un'
+      },
+      {
+        path: 'profile',
+        component : ProfileDetailsComponent,
+        outlet: 'un'
+      },
+      {
+        path: 'settings',
+        component : SettingsComponent,
         outlet: 'un'
       }
     ]
