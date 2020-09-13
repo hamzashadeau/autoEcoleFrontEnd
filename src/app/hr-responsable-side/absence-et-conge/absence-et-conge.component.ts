@@ -14,6 +14,9 @@ export class AbsenceEtCongeComponent implements OnInit {
   get clientInfo(): client {
     return this.ClientService.clientInfo;
   }
+  get retrievedImage(): any {
+    return this.ClientService.retrievedImage;
+  }
   get paimentsClient(): Array<PaimentDeClient> {
     return this.ClientService.paimentsClient;
   }

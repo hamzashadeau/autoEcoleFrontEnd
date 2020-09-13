@@ -16,6 +16,19 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="controles-container">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <button class="ui-fileupload" style=" width: 120px;border: none; background-color: #0062cc; color: white; ">
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                            <label for="file" class="label-file" id="titreFile" style="color: white;margin-bottom: 0px">Choisir</label>
+                            <input id="file" class="input-file" type="file" (change)="onFileChanged($event)">
+                          </button>
+                        </div>
+                        <div class="col-md-8"><label id="lebel1">
+                          pas de fichier selectionné!
+                        </label></div>
+                      </div>
+                      <br>
                       <mat-form-field>
                         <input matInput placeholder="code client*" [(ngModel)]="clientAjout.generatedcode" [ngModelOptions]="{standalone: true}" [value]="clientAjout.generatedcode">
                       </mat-form-field>
@@ -160,7 +173,7 @@
                     <mat-form-field>
                       <input matInput placeholder="montant Total*" [(ngModel)]="clientAjout.prixTotal" [ngModelOptions]="{standalone: true}">
                     </mat-form-field>
-                    <button mat-raised-button color="primary" type="submit" style="background-color: #3f8032" class="btn-block"> <i class="fas fa-check-square"></i> Ajouter</button>
+                    <button mat-raised-button color="primary" type="submit" style="background-color: #3f8032" class="btn-block" (click)="ajouterUnclient()"> <i class="fas fa-check-square"></i> Ajouter</button>
                   </div>
                 </div>
               </div>

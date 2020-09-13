@@ -4,8 +4,8 @@ import {Route, Router} from '@angular/router';
 import { fournisseur } from '../model/fournisseur.model';
 import { reserver } from '../model/reserver.model';
 import { client } from '../model/client.model';
-import {PaimentDeClient} from "../model/paiment-de-client.model";
-import {HeureConduite} from "../model/heure-conduite.model";
+import {PaimentDeClient} from '../model/paiment-de-client.model';
+import {HeureConduite} from '../model/heure-conduite.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,11 @@ import {HeureConduite} from "../model/heure-conduite.model";
 export class clientService {
 
   get clientInfo(): client {
-    if(this._clientInfo == null){
+    if (this._clientInfo == null) {
       this._clientFound = new client();
     }
     return this._clientInfo;
   }
-
   set clientInfo(value: client) {
     this._clientInfo = value;
   }
@@ -27,9 +26,9 @@ export class clientService {
               ) { }
 
   get client(): Array<client> {
-    if(this._client  ==  null){
+    if (this._client  ==  null) {
       this._client = new Array<client>();
-      this._client.forEach(cli =>{
+      this._client.forEach(cli => {
         cli = new client();
       });
     }
@@ -41,9 +40,9 @@ export class clientService {
   }
 
   get paimentsClient(): Array<PaimentDeClient> {
-    if(this._paimentsClient == null){
+    if (this._paimentsClient == null) {
       this._paimentsClient = new Array<PaimentDeClient>();
-      this._paimentsClient.forEach(pay =>{
+      this._paimentsClient.forEach(pay => {
         pay = new PaimentDeClient();
         pay.client = new client();
       });
@@ -56,9 +55,9 @@ export class clientService {
   }
 
   get heureConduites(): Array<HeureConduite> {
-    if(this._heureConduites == null){
+    if (this._heureConduites == null) {
       this._heureConduites = new Array<HeureConduite>();
-      this._heureConduites.forEach(heure =>{
+      this._heureConduites.forEach(heure => {
         heure = new HeureConduite();
         heure.client = new client();
       });
@@ -71,7 +70,7 @@ export class clientService {
   }
 
   get clientSearch(): client {
-    if(this._clientSearch == null){
+    if (this._clientSearch == null) {
       this._clientSearch = new client();
     }
     return this._clientSearch;
@@ -82,7 +81,7 @@ export class clientService {
   }
 
   get clientFound(): client {
-    if(this._clientFound == null){
+    if (this._clientFound == null) {
       this._clientFound = new client();
     }
     return this._clientFound;
@@ -92,7 +91,7 @@ export class clientService {
     this._clientFound = value;
   }
   get clientAjout(): client {
-    if(this._clientAjout == null){
+    if (this._clientAjout == null) {
       this._clientAjout = new client();
     }
     return this._clientAjout;
@@ -101,15 +100,9 @@ export class clientService {
   set clientAjout(value: client) {
     this._clientAjout = value;
   }
-  private _client: Array<client>;
-  private _clientSearch: client;
-  private _clientFound: client;
-  private _clientAjout: client;
-  private _clientInfo: client;
-  private _clientExam: Array<client>;
 
   get clientExam(): Array<client> {
-    if(this._clientExam == null){
+    if (this._clientExam == null) {
       this._clientExam = new Array<client>();
     }
     return this._clientExam;
@@ -119,13 +112,80 @@ export class clientService {
     this._clientExam = value;
   }
 
+  get heureConduiteAjout(): HeureConduite {
+    if (this._heureConduiteAjout == null) {
+      this._heureConduiteAjout = new HeureConduite();
+    }
+    return this._heureConduiteAjout;
+  }
+
+  set heureConduiteAjout(value: HeureConduite) {
+    this._heureConduiteAjout = value;
+  }
+
+  get paimentClientAjout(): PaimentDeClient {
+    if (this._paimentClientAjout == null) {
+      this._paimentClientAjout = new PaimentDeClient();
+    }
+    return this._paimentClientAjout;
+  }
+
+  set paimentClientAjout(value: PaimentDeClient) {
+    this._paimentClientAjout = value;
+  }
+  private _client: Array<client>;
+  private _clientSearch: client;
+  private _clientFound: client;
+  private _clientAjout: client;
+  private _clientInfo: client;
+  private _clientExam: Array<client>;
+
   private  options = {
     headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 };
  url = 'http://localhost:8080/autoEcole-Api/client/';
   private _paimentsClient: Array<PaimentDeClient>;
   private _heureConduites: Array<HeureConduite>;
-public genererCodeClient(){
+  private _retrievedImage: any;
+  base64Data: any;
+
+
+
+  private _heureConduiteAjout: HeureConduite;
+  private _paimentClientAjout: PaimentDeClient;
+public uploadFile(form: FormData) {
+  this.http.post<number>('http://localhost:8080/autoEcole-Api/client/uploadFile' , form).subscribe(
+    data => {
+      if (data != null ) {
+        console.log('ha data' + data);
+      }
+    }, eror => {
+      console.log('eroro');
+    });
+}
+
+  getImage() {
+    // Make a call to Sprinf Boot to get the Image Bytes.
+   // this.http.get('http://localhost:8081/gestionDesEmployee-Api/TypeDocument/resume/download/' + this.imageName)
+   //   .subscribe(
+      //  res => {
+       //   this.retrieveResonse =  res;
+     //     this.base64Data = this.retrieveResonse.data;
+       //   this.retrievedImage = 'data:' + this.retrieveResonse.contentType + ';base64,' + this.base64Data;
+       // }
+      //);
+  }
+public save() {
+  this.http.post<number>('http://localhost:8080/autoEcole-Api/client/save' , this.clientAjout).subscribe(
+    data => {
+      if (data != null ) {
+        console.log('ha data' + data);
+      }
+    }, eror => {
+      console.log('eroro');
+    });
+}
+public genererCodeClient() {
   this.clientAjout.generatedcode = (this.client.length + 1 ) + '/' + new Date().getFullYear();
 }
   public findAll() {
@@ -184,7 +244,7 @@ public genererCodeClient(){
       });
   }
   public ajouterUnclient() {
-    this.http.post<number>(this.url +'createClient', this.clientAjout, this.options).subscribe(
+    this.http.post<number>(this.url + 'createClient', this.clientAjout, this.options).subscribe(
       data => {
         if (data == 1) {
           console.log('ha data' + data);
@@ -193,9 +253,9 @@ public genererCodeClient(){
         console.log('eroro');
       });
   }
-  public chercherUnclientParCode(code :string){
-    console.log('ha code '+ code);
-    this.http.get<Array<client>>(this.url+'findClientsByCode/'+ code).subscribe(
+  public chercherUnclientParCode(code: string) {
+    console.log('ha code ' + code);
+    this.http.get<Array<client>>(this.url + 'findClientsByCode/' + code).subscribe(
       data => {
         if (data != null ) {
           this.client = data;
@@ -206,7 +266,7 @@ public genererCodeClient(){
       });
   }
 
-  public findBYCinClient(cin: string){
+  public findBYCinClient(cin: string) {
     this.http.get<Array<PaimentDeClient>>('http://localhost:8080/autoEcole-Api/paimentDeClient/findByclientCin/' + cin).subscribe(
       data => {
         if (data != null ) {
@@ -218,7 +278,7 @@ public genererCodeClient(){
       });
   }
 
-  public findBYHeureConduiteCinClient(cin: string){
+  public findBYHeureConduiteCinClient(cin: string) {
     this.http.get<Array<HeureConduite>>('http://localhost:8080/autoEcole-Api/heureConduite/findByClientCin/' + cin).subscribe(
       data => {
         if (data != null ) {
@@ -229,9 +289,9 @@ public genererCodeClient(){
         console.log('eroro');
       });
   }
-  public saveHeureConduite(){
+  public saveHeureConduite() {
   this.heureConduiteAjout.client = this.clientInfo;
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/heureConduite/save' , this.heureConduiteAjout).subscribe(
+  this.http.post<number>('http://localhost:8080/autoEcole-Api/heureConduite/save' , this.heureConduiteAjout).subscribe(
       data => {
         if (data != null ) {
           console.log('ha data' + data);
@@ -240,9 +300,9 @@ public genererCodeClient(){
         console.log('eroro');
       });
   }
-  public savePaimentClient(){
+  public savePaimentClient() {
   this.paimentClientAjout.client = this.clientInfo;
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/paimentDeClient/save' , this.paimentClientAjout).subscribe(
+  this.http.post<number>('http://localhost:8080/autoEcole-Api/paimentDeClient/save' , this.paimentClientAjout).subscribe(
       data => {
         if (data != null ) {
           console.log('ha data' + data);
@@ -252,34 +312,17 @@ public genererCodeClient(){
       });
   }
 
-  public copierClientInfo(cli: client){
+  get retrievedImage(): any {
+    return this._retrievedImage;
+  }
+
+  set retrievedImage(value: any) {
+    this._retrievedImage = value;
+  }
+
+  public copierClientInfo(cli: client) {
+    this.base64Data = cli.image;
+    this._retrievedImage = 'data:' + cli.imageType + ';base64,' + this.base64Data;
     this.clientInfo = cli;
-  }
-
-
-
-  private _heureConduiteAjout: HeureConduite;
-  private _paimentClientAjout: PaimentDeClient;
-
-  get heureConduiteAjout(): HeureConduite {
-    if(this._heureConduiteAjout == null){
-      this._heureConduiteAjout = new HeureConduite();
-    }
-    return this._heureConduiteAjout;
-  }
-
-  set heureConduiteAjout(value: HeureConduite) {
-    this._heureConduiteAjout = value;
-  }
-
-  get paimentClientAjout(): PaimentDeClient {
-    if(this._paimentClientAjout == null){
-      this._paimentClientAjout = new PaimentDeClient();
-    }
-    return this._paimentClientAjout;
-  }
-
-  set paimentClientAjout(value: PaimentDeClient) {
-    this._paimentClientAjout = value;
   }
 }
