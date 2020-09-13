@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12" style="text-align: center">
           <img
-            src="../assets/images/angular-icon.svg"
+            [src]="retrievedImage"
             alt="Image de l employe"
             style="
               width: 130px;
@@ -76,7 +76,7 @@
  <mat-toolbar>
       <mat-toolbar-row>
         <span class="span" >
-          <i class="fas fa-car"></i> A propos de Permis 
+          <i class="fas fa-car"></i> A propos de Permis
         </span>
       </mat-toolbar-row>
     </mat-toolbar>

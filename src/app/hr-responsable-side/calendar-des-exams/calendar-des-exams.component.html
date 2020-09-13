@@ -3,23 +3,30 @@
     <div class="col-md-12">
       <p-table #dt [columns]="cols" [value]="clientExam" dataKey="cin" [paginator]="true" [rows]="5">
         <ng-template pTemplate="caption">
-          Liste des clients
-          <div style="text-align: right">
-            <mat-form-field style="margin-right: 150px">
-              <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercheParDate()">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            <button class="btn"style="background-color: white;color: black;float: left"
-                    matTooltip="Ce button permet de ajouter un employe" (click)="getDateprecedent()"
-            >   Ajouter Une <strong>precedent</strong> </button>
-            <button class="btn"style="background-color: white;color: black;float: left"
-                    matTooltip="Ce button permet de ajouter un employe" (click)="getDatesuivant()"
-            >   Mois <strong>suivant</strong> </button>
-            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50" placeholder="Global Filter"
-                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          <div style="float: left">
+          <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+          <input type="text" pInputText size="50" placeholder="Chercher ..."
+                 (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
           </div>
+          <div class="container-fluid"style="text-align: center">
+            <div class="row" >
+              <div class="col-md-4"></div>
+              <div class="col-md-2">   <button class="btn"style="background-color: white;color: black;float: left"
+                                               matTooltip="Ce button permet de ajouter un employe" (click)="getDateprecedent()"
+              > <i class="fa fa-calendar-week"></i>   Jour <strong>Avant</strong> </button></div>
+              <div class="col-md-4"><mat-form-field style="width: 100%">
+                <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercheParDate()">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field></div>
+              <div class="col-md-2"> <button class="btn"style="background-color: white;color: black;float: left"
+                                             matTooltip="Ce button permet de ajouter un employe" (click)="getDatesuivant()"
+              > <i class="fa fa-calendar-week"></i>  Jour <strong>Apres</strong> </button></div>
+            </div>  </div>
+          <!--            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>-->
+          <!--            <input type="text" pInputText size="50" placeholder="GChercher ..."-->
+          <!--                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">-->
+
         </ng-template>
         <ng-template pTemplate="header" let-columns>
           <tr>

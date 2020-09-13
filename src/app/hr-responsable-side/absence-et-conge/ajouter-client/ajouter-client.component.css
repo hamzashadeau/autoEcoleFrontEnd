@@ -26,3 +26,18 @@ mat-radio-group mat-radio-button{
 .span {
   margin: auto;
 }
+.label-file {
+  cursor: pointer;
+  color: #00b1ca;
+  font-weight: bold;
+}
+.label-file:hover {
+  color: #25a5c4;
+}
+.input-file {
+  display: none;
+}
+#fa{
+  color: green;
+  display: none;
+}
