@@ -6,6 +6,7 @@ import { reserver } from '../model/reserver.model';
 import { client } from '../model/client.model';
 import {PaimentDeClient} from '../model/paiment-de-client.model';
 import {HeureConduite} from '../model/heure-conduite.model';
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,7 @@ export class clientService {
   }
   constructor(private http: HttpClient,
               private router: Router,
+              private toast: ToastrService
               ) { }
 
   get client(): Array<client> {
@@ -175,10 +177,33 @@ public uploadFile(form: FormData) {
        // }
       //);
   }
-public save() {
-  this.http.post<number>('http://localhost:8080/autoEcole-Api/client/save' , this.clientAjout).subscribe(
+  public save() {
+    this.http.post<number>('http://localhost:8080/autoEcole-Api/client/save' , this.clientAjout).subscribe(
+      data => {
+        if (data != null ) {
+          this.toast.success(`client est bien sauvgarder`, 'client sauvgarder', {
+            timeOut: 2500,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-right'
+          });
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  public edit(cli: client) {
+  this.http.post<number>('http://localhost:8080/autoEcole-Api/client/edit' , cli).subscribe(
     data => {
-      if (data != null ) {
+      if (data == 1 ) {
+        this.toast.info(`client est bien modified`, 'employe modified', {
+          timeOut: 2500,
+          progressBar: true,
+          progressAnimation: 'increasing',
+          positionClass: 'toast-top-right'
+        });
         console.log('ha data' + data);
       }
     }, eror => {
@@ -253,12 +278,11 @@ public genererCodeClient() {
         console.log('eroro');
       });
   }
-  public chercherUnclientParCode(code: string) {
-    console.log('ha code ' + code);
-    this.http.get<Array<client>>(this.url + 'findClientsByCode/' + code).subscribe(
+  public refreshClientInfo(id: number) {
+    this.http.get<client>('http://localhost:8080/autoEcole-Api/client/findById/' + id).subscribe(
       data => {
         if (data != null ) {
-          this.client = data;
+          this.clientInfo = data;
           console.log('ha data' + data);
         }
       }, eror => {
@@ -294,6 +318,14 @@ public genererCodeClient() {
   this.http.post<number>('http://localhost:8080/autoEcole-Api/heureConduite/save' , this.heureConduiteAjout).subscribe(
       data => {
         if (data != null ) {
+          this.toast.info(`heure conduite de client est bien sauvgarder`, 'heure conduite sauvgarder', {
+            timeOut: 2500,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-right'
+          });
+          this.findBYHeureConduiteCinClient(this.clientInfo.cin);
+          this.refreshClientInfo(this.clientInfo.id);
           console.log('ha data' + data);
         }
       }, eror => {
@@ -305,6 +337,14 @@ public genererCodeClient() {
   this.http.post<number>('http://localhost:8080/autoEcole-Api/paimentDeClient/save' , this.paimentClientAjout).subscribe(
       data => {
         if (data != null ) {
+          this.toast.success(`paiment client est bien sauvgarder`, 'paiment client sauvgarder', {
+            timeOut: 2500,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-right'
+          });
+          this.refreshClientInfo(this.clientInfo.id);
+          this.findBYCinClient(this.clientInfo.cin);
           console.log('ha data' + data);
         }
       }, eror => {

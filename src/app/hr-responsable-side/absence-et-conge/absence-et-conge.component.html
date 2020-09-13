@@ -138,7 +138,7 @@
                   mat-raised-button
                   color="primary"
                   style="background-color: #3f8032"
-                  class="btn-block"
+                  class="btn-block" (click)="modifierClient()"
                 >
                   <i class="fas fa-check-circle"></i> Ajouter
                 </button>
@@ -173,7 +173,7 @@
     <div class="container-fluid" style="padding-top: 10px;">
       <div class="row">
         <div class="col-md-12">
-          <p-table #dt [columns]="cols" [value]="paimentsClient" dataKey="cin" [paginator]="true" [rows]="5">
+          <p-table #dt [columns]="cols1" [value]="paimentsClient" dataKey="cin" [paginator]="true" [rows]="5">
             <ng-template pTemplate="caption">
               Liste des paiment de employé {{clientInfo.nomFR}}  {{'  '+clientInfo.prenomFR}}
             </ng-template>

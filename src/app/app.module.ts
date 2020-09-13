@@ -59,6 +59,7 @@ import { ListesDesDepensesComponent } from './hr-responsable-side/listes-des-dep
 import { ListesDesGainsComponent } from './hr-responsable-side/listes-des-gains/listes-des-gains.component';
 import { AjouterDesDespencesGainsComponent } from './hr-responsable-side/ajouter-des-despences/ajouter-des-despences-gains.component';
 import { CalendarDesExamsComponent } from './hr-responsable-side/calendar-des-exams/calendar-des-exams.component';
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -106,6 +107,8 @@ import { CalendarDesExamsComponent } from './hr-responsable-side/calendar-des-ex
     MatListModule,
     MatNativeDateModule,
     MatDialogModule,
+    ToastrModule.forRoot(),
+    ToastrModule,
     MatTabsModule
     , MatDividerModule
     , MatTooltipModule,

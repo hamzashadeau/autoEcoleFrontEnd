@@ -20,7 +20,12 @@ export class AbsenceEtCongeComponent implements OnInit {
   get paimentsClient(): Array<PaimentDeClient> {
     return this.ClientService.paimentsClient;
   }
+  modifierClient(){
+    this.ClientService.edit(this.clientInfo);
+    this.ClientService.refreshClientInfo(this.clientInfo.id);
+  }
   cols: any;
+  cols1: any;
   ngOnInit(): void {
     // this.ClientService.findBYHeureConduiteCinClient(this.clientInfo.cin);
     // this.ClientService.findBYCinClient(this.clientInfo.cin);
@@ -28,6 +33,12 @@ export class AbsenceEtCongeComponent implements OnInit {
       { field: 'duree', header: 'Durée de la séeance'},
       { field: 'date', header: 'Date de la séance'},
     ];
+    this.cols1 = [
+      { field: 'montantpaye', header: 'montant payé'},
+      { field: 'date', header: 'Date de paiment'},
+    ];
+    this.ClientService.findBYCinClient(this.clientInfo.cin);
+    this.ClientService.findBYHeureConduiteCinClient(this.clientInfo.cin);
   }
   get heureConduites(): Array<HeureConduite> {
     return this.ClientService.heureConduites;
