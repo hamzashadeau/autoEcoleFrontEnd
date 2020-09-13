@@ -59,6 +59,8 @@ import { ListesDesDepensesComponent } from './hr-responsable-side/listes-des-dep
 import { ListesDesGainsComponent } from './hr-responsable-side/listes-des-gains/listes-des-gains.component';
 import { AjouterDesDespencesGainsComponent } from './hr-responsable-side/ajouter-des-despences/ajouter-des-despences-gains.component';
 import { CalendarDesExamsComponent } from './hr-responsable-side/calendar-des-exams/calendar-des-exams.component';
+import { ProfileDetailsComponent } from './hr-responsable-side/profile-details/profile-details.component';
+import { SettingsComponent } from './hr-responsable-side/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import { CalendarDesExamsComponent } from './hr-responsable-side/calendar-des-ex
     ListesDesGainsComponent,
     AjouterDesDespencesGainsComponent,
     CalendarDesExamsComponent,
+    ProfileDetailsComponent,
+    SettingsComponent,
   ],
   imports: [
     FormsModule,
