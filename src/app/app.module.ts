@@ -35,6 +35,8 @@ import {FileUploadModule, TableModule} from 'primeng';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
 import {TabViewModule} from 'primeng/tabview';
 import {FieldsetModule} from 'primeng/fieldset';
+import {CardModule} from 'primeng/card';
+import {ChartModule} from 'primeng/chart';
 /** Components **/
 import { AppComponent } from './app.component';
 import { LoginSideComponent } from './login-side/login-side.component';
@@ -113,7 +115,9 @@ import { CalendarDesExamsComponent } from './hr-responsable-side/calendar-des-ex
      MatCardModule,
      TabViewModule,
      FieldsetModule,
-     TableModule, MatStepperModule
+     TableModule, MatStepperModule,
+    CardModule,
+ChartModule,
   ],
   providers: [
     {

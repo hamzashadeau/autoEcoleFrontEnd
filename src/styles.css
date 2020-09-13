@@ -47,3 +47,6 @@ body .ui-table .ui-sortable-column.ui-state-highlight {
     background-color: cadetblue!important;
     color: #ffffff;
 }
+body .ui-card {
+  background-color: #abd7d8!important;
+}

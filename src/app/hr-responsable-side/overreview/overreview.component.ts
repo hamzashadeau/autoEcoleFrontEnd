@@ -10,8 +10,59 @@ import { reservationService } from 'src/app/controller/service/reservation.servi
   styleUrls: ['./overreview.component.css']
 })
 export class OverreviewComponent implements OnInit {
+  dataDepenseGain: any;
+  dataClient:any;
+   dataParPermis: any;
+  constructor() {
+    this.dataDepenseGain = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September',
+        'October','November','Decenber'],
+      datasets: [
+        {
+          label: 'Gains',
+          data: [65, 59, 80, 81, 56, 55, 40, 81, 56, 55, 40,50],
+          fill: false,
+          borderColor: '#008000'
+        },
+        {
+          label: 'depenses',
+          data: [28, 48, -40, 19, 86, 27, 90,40, 19, 86, 27, 90],
+          fill: false,
+          borderColor: '#ff0000',
 
-  constructor() { }
+        }
+      ]
+    }
+    this.dataClient = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August','September',
+      'October','November','Decenber'],
+      datasets: [
+        {
+          label: 'Nouveaux client par mois',
+          backgroundColor: '#42A5F5',
+          borderColor: '#1E88E5',
+          data: [65, 59, 80, 81, 56, 55, 40,100,19,94,60,50]
+        }
+      ]
+    }
+    this.dataParPermis = {
+      labels: ['A','B','C'],
+      datasets: [
+        {
+          data: [300, 50, 100],
+          backgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56"
+          ],
+          hoverBackgroundColor: [
+            "#FF6384",
+            "#36A2EB",
+            "#FFCE56"
+          ]
+        }]
+    };
+  }
 
 
   ngOnInit(): void {
