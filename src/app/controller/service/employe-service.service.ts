@@ -3,13 +3,15 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Employe} from '../model/employe.model';
 import {PaimentDeEmploye} from "../model/paiment-de-employe.model";
+import {ToastrService} from "ngx-toastr";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeServiceService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private toast: ToastrService) { }
   private _employes: Array<Employe>;
   private _employeAjout: Employe;
   private _ajoutEmp: string;
@@ -18,7 +20,43 @@ export class EmployeServiceService {
   public conpierInfoEmploye(emp: Employe){
     this.infoEmploye = emp;
   }
-
+public save(){
+  this.http.post<number>('http://localhost:8080/autoEcole-Api/Employe/save' , this.employeAjout).subscribe(
+    data => {
+      if (data != null ) {
+        this.toast.success(` employe est bien sauvgarder`, 'employe sauvgarder', {
+          timeOut: 2500,
+          progressBar: true,
+          progressAnimation: 'increasing',
+          positionClass: 'toast-top-right'
+        });
+        console.log('ha data' + data);
+        this.employeAjout = null;
+      }
+    }, eror => {
+      console.log('eroro');
+    });
+}
+  public edit(){
+    this.http.post<number>('http://localhost:8080/autoEcole-Api/Employe/edit' , this.employeAjout).subscribe(
+      data => {
+        if (data != null ) {
+          this.toast.info(` employe est bien modified`, 'employe modified', {
+            timeOut: 2500,
+            progressBar: true,
+            progressAnimation: 'increasing',
+            positionClass: 'toast-top-right'
+          });
+          console.log('ha data' + data);
+          this.employeAjout = null;
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public modifier(emp: Employe){
+    this.employeAjout = emp;
+  }
   get infoEmploye(): Employe {
     if (this._infoEmploye == null){
       this._infoEmploye = new Employe();

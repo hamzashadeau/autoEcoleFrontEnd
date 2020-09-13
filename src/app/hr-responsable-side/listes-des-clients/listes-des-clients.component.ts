@@ -57,6 +57,16 @@ export class ListesDesClientsComponent implements OnInit {
     this.dialog.open(AjouterClientComponent,
       dialogConfig);
   }
+  public modifierUnClient(cli: client) {
+    this.clientService.modiferCeClient(cli);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '95%';
+    dialogConfig.height = '95%';
+    this.dialog.open(AjouterClientComponent,
+      dialogConfig);
+  }
   get clientAjout(): client {
     return this.clientService.clientAjout;
   }

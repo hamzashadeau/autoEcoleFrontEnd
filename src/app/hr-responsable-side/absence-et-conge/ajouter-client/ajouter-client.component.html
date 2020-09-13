@@ -16,7 +16,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="controles-container">
-                      <div class="row">
+                      <div class="row" *ngIf="clientAjout.id == null">
                         <div class="col-md-4">
                           <button class="ui-fileupload" style=" width: 120px;border: none; background-color: #0062cc; color: white; ">
                             <i class="fa fa-upload" aria-hidden="true"></i>
@@ -33,22 +33,22 @@
                         <input matInput placeholder="code client*" [(ngModel)]="clientAjout.generatedcode" [ngModelOptions]="{standalone: true}" [value]="clientAjout.generatedcode">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="prenom FR*" [(ngModel)]="clientAjout.prenomFR" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="prenom FR*" [(ngModel)]="clientAjout.prenomFR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.prenomFR">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="nom FR*" [(ngModel)]="clientAjout.nomFR" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="nom FR*" [(ngModel)]="clientAjout.nomFR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.nomFR">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="Adresse FR*" [(ngModel)]="clientAjout.addresseFR" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="Adresse FR*" [(ngModel)]="clientAjout.addresseFR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.addresseFR">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="Cin *" [(ngModel)]="clientAjout.cin" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="Cin *" [(ngModel)]="clientAjout.cin" [ngModelOptions]="{standalone: true}" [value]="clientAjout.cin">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="Téléphone" [(ngModel)]="clientAjout.telephone" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="Téléphone" [(ngModel)]="clientAjout.telephone" [ngModelOptions]="{standalone: true}" [value]="clientAjout.telephone">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="email" [(ngModel)]="clientAjout.email" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="email" [(ngModel)]="clientAjout.email" [ngModelOptions]="{standalone: true}" [value]="clientAjout.email">
                       </mat-form-field>
                       <!-- Doti = "FSTG+CIN" -->
                       <!-- <mat-form-field>
@@ -60,21 +60,20 @@
                   <div class="col-md-6">
                     <div class="controles-container">
                       <mat-form-field>
-                        <input matInput placeholder="prenom AR*" [(ngModel)]="clientAjout.prenomAR" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="prenom AR*" [(ngModel)]="clientAjout.prenomAR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.prenomAR">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="nom AR*" [(ngModel)]="clientAjout.nomAR" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="nom AR*" [(ngModel)]="clientAjout.nomAR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.nomAR">
                       </mat-form-field>
                       <mat-form-field>
-                        <input matInput placeholder="Adresse AR*" [(ngModel)]="clientAjout.adresseAR" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="Adresse AR*" [(ngModel)]="clientAjout.adresseAR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.adresseAR">
                       </mat-form-field>
                       <!--
                       <mat-form-field>
                         <input matInput placeholder="RIB de Bank " [(ngModel)]="employe.compteBancaireRib" [ngModelOptions]="{standalone: true}">
                       </mat-form-field>-->
                       <mat-form-field>
-                        <input matInput [matDatepicker]="picker" placeholder="Date De naissance"[(ngModel)]="clientAjout.dateNaissance" [ngModelOptions]="{standalone: true}"
-                        >
+                        <input matInput [matDatepicker]="picker" placeholder="Date De naissance"[(ngModel)]="clientAjout.dateNaissance" [ngModelOptions]="{standalone: true}" [value]="clientAjout.dateNaissance">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                       </mat-form-field>
@@ -87,7 +86,7 @@
                         </mat-select>
                       </mat-form-field> -->
                       <mat-form-field>
-                        <mat-select placeholder="select a profession" [(ngModel)]="clientAjout.profession" [ngModelOptions]="{standalone: true}">
+                        <mat-select placeholder="select a profession" [(ngModel)]="clientAjout.profession" [ngModelOptions]="{standalone: true}" [value]="clientAjout.profession">
                           <mat-select-filter [array]="variables" (filteredReturn)="filteredList1 =$event" ></mat-select-filter>
                           <mat-option *ngFor="let item of filteredList1" [value]="item">
                             {{item}}
@@ -95,11 +94,11 @@
                         </mat-select>
                       </mat-form-field>
                       <mat-form-field *ngIf="show()">
-                        <input matInput placeholder="profession*" [(ngModel)]="clientAjout.profession" [ngModelOptions]="{standalone: true}">
+                        <input matInput placeholder="profession*" [(ngModel)]="clientAjout.profession" [ngModelOptions]="{standalone: true}" [value]="clientAjout.profession">
                       </mat-form-field>
                       <div class="add-bottom-padding">
                         <mat-label>Sexe : </mat-label>
-                        <mat-radio-group [(ngModel)]="clientAjout.gender" [ngModelOptions]="{standalone: true}">
+                        <mat-radio-group [(ngModel)]="clientAjout.gender" [ngModelOptions]="{standalone: true}" [value]="clientAjout.gender">
                           <mat-radio-button value="Homme">Homme</mat-radio-button>
                           <mat-radio-button value="Femme">Femme</mat-radio-button>
                         </mat-radio-group>
@@ -127,19 +126,19 @@
                 <div class="col-md-6">
                   <div class="controles-container">
                     <mat-form-field>
-                      <input matInput placeholder="Langue Exam*" [(ngModel)]="clientAjout.langueExam" [ngModelOptions]="{standalone: true}">
+                      <input matInput placeholder="Langue Exam*" [(ngModel)]="clientAjout.langueExam" [ngModelOptions]="{standalone: true}" [value]="clientAjout.langueExam">
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="Moniteur Theorique*" [(ngModel)]="clientAjout.moniteurTheorique" [ngModelOptions]="{standalone: true}">
+                      <input matInput placeholder="Moniteur Theorique*" [(ngModel)]="clientAjout.moniteurTheorique" [ngModelOptions]="{standalone: true}" [value]="clientAjout.moniteurTheorique">
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="Moniteur Pratique*" [(ngModel)]="clientAjout.moniteurPratique" [ngModelOptions]="{standalone: true}">
+                      <input matInput placeholder="Moniteur Pratique*" [(ngModel)]="clientAjout.moniteurPratique" [ngModelOptions]="{standalone: true}" [value]="clientAjout.moniteurPratique">
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="vehicule *" [(ngModel)]="clientAjout.vehicule" [ngModelOptions]="{standalone: true}">
+                      <input matInput placeholder="vehicule *" [(ngModel)]="clientAjout.vehicule" [ngModelOptions]="{standalone: true}" [value]="clientAjout.vehicule">
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput [matDatepicker]="picker12" placeholder="Date De inscription"[(ngModel)]="clientAjout.dateInscription" [ngModelOptions]="{standalone: true}">
+                      <input matInput [matDatepicker]="picker12" placeholder="Date De inscription"[(ngModel)]="clientAjout.dateInscription" [ngModelOptions]="{standalone: true}" [value]="clientAjout.dateInscription">
                       <mat-datepicker-toggle matSuffix [for]="picker12"></mat-datepicker-toggle>
                       <mat-datepicker #picker12></mat-datepicker>
                     </mat-form-field>
@@ -153,7 +152,7 @@
                 <div class="col-md-6">
                   <div class="controles-container">
                     <mat-form-field>
-                      <mat-select placeholder="select a type de Permis" [(ngModel)]="clientAjout.permisDemande" [ngModelOptions]="{standalone: true}">
+                      <mat-select placeholder="select a type de Permis" [(ngModel)]="clientAjout.permisDemande" [ngModelOptions]="{standalone: true}" [value]="clientAjout.permisDemande">
                         <mat-select-filter [array]="variables1" (filteredReturn)="filteredList2 =$event" ></mat-select-filter>
                         <mat-option *ngFor="let item of filteredList2" [value]="item">
                           {{item}}
@@ -162,16 +161,16 @@
                     </mat-form-field>
                     <div class="add-bottom-padding">
                       <mat-label>Avez vous un Permis? : </mat-label>
-                      <mat-radio-group [(ngModel)]="clientAjout.possedePermis" [ngModelOptions]="{standalone: true}" (change)="showNumeroPermis()">
+                      <mat-radio-group [(ngModel)]="clientAjout.possedePermis" [ngModelOptions]="{standalone: true}" (change)="showNumeroPermis()" [value]="clientAjout.possedePermis">
                         <mat-radio-button [value]=true>oui</mat-radio-button>
                         <mat-radio-button [value]=false>non</mat-radio-button>
                       </mat-radio-group>
                     </div>
                     <mat-form-field id="numero">
-                      <input matInput placeholder="permis Numero*" [(ngModel)]="clientAjout.premisNumero" [ngModelOptions]="{standalone: true}">
+                      <input matInput placeholder="permis Numero*" [(ngModel)]="clientAjout.premisNumero" [ngModelOptions]="{standalone: true}" [value]="clientAjout.premisNumero">
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput placeholder="montant Total*" [(ngModel)]="clientAjout.prixTotal" [ngModelOptions]="{standalone: true}">
+                      <input matInput placeholder="montant Total*" [(ngModel)]="clientAjout.prixTotal" [ngModelOptions]="{standalone: true}" [value]="clientAjout.prixTotal">
                     </mat-form-field>
                     <button mat-raised-button color="primary" type="submit" style="background-color: #3f8032" class="btn-block" (click)="ajouterUnclient()"> <i class="fas fa-check-square"></i> Ajouter</button>
                   </div>

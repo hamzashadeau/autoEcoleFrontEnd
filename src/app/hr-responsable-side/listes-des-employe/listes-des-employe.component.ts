@@ -3,7 +3,7 @@ import {EmployeServiceService} from '../../controller/service/employe-service.se
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {Employe} from '../../controller/model/employe.model';
 import {AjoutFournisseurComponent} from '../gestion-personnel/ajout-fournisseur.component';
-import {DetailsEmployesComponent} from "../gestion-personnel/details-employes/details-employes.component";
+import {DetailsEmployesComponent} from '../gestion-personnel/details-employes/details-employes.component';
 
 @Component({
   selector: 'app-listes-des-employe',
@@ -41,6 +41,16 @@ export class ListesDesEmployeComponent implements OnInit {
     return this.employeService.employes;
   }
   public ajouterUnEmploye() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '90%';
+    dialogConfig.height = '90%';
+    this.dialog.open(AjoutFournisseurComponent,
+      dialogConfig);
+  }
+  public modofierUnEmploye(emp: Employe) {
+    this.employeService.modifier(emp);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;

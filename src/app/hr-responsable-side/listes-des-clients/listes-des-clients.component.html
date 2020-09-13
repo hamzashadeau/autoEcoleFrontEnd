@@ -32,7 +32,7 @@
         </ng-template>
         <ng-template pTemplate="body" let-rowData let-columns="columns">
           <tr>
-            <td *ngFor="let col of columns">
+            <td *ngFor="let col of columns" (click)="modifierUnClient(rowData)">
               {{rowData[col.field]}}
             </td>
             <td><button class="btn btn-custom btn-danger btn-sm fa fa-trash" ></button>

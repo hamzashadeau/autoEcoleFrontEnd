@@ -52,8 +52,12 @@ categorie: string;
     }
   }
 public ajouterUnclient(){
-    this.uploadFile();
-    this.clientService.save();
+    if(this.clientAjout.id == null){
+      this.uploadFile();
+      this.clientService.save();
+    } else {
+      this.clientService.edit(this.clientAjout);
+    }
   //this.clientService.ajouterUnclient();
 }
 public show(): boolean{

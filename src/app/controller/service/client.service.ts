@@ -7,6 +7,7 @@ import { client } from '../model/client.model';
 import {PaimentDeClient} from '../model/paiment-de-client.model';
 import {HeureConduite} from '../model/heure-conduite.model';
 import {ToastrService} from "ngx-toastr";
+import {Employe} from "../model/employe.model";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,9 @@ export class clientService {
               private router: Router,
               private toast: ToastrService
               ) { }
-
+  public modiferCeClient(cli: client){
+    this.clientAjout = cli;
+  }
   get client(): Array<client> {
     if (this._client  ==  null) {
       this._client = new Array<client>();
@@ -188,6 +191,7 @@ public uploadFile(form: FormData) {
             positionClass: 'toast-top-right'
           });
           console.log('ha data' + data);
+          this.clientAjout = null;
         }
       }, eror => {
         console.log('eroro');
@@ -205,6 +209,7 @@ public uploadFile(form: FormData) {
           positionClass: 'toast-top-right'
         });
         console.log('ha data' + data);
+        this.clientAjout = null;
       }
     }, eror => {
       console.log('eroro');

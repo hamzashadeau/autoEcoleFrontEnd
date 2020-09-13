@@ -52,7 +52,7 @@ const routes: Routes = [
         outlet: 'un'
       },
       {
-        path: 'profile',
+        path: 'profil',
         component : ProfileDetailsComponent,
         outlet: 'un'
       },
@@ -71,6 +71,7 @@ const routes: Routes = [
     path: 'forgetPassword',
     component: ForgotPasswordComponent
   },
+
 ];
 
 @NgModule({
