@@ -80,4 +80,9 @@ export class ListesDesClientsComponent implements OnInit {
     this.dialog.open(AbsenceEtCongeComponent,
       dialogConfig);
   }
+  public tabindex;
+  public demo1TabIndex = 0;
+  public demo1BtnClick(value: number) {
+    this.demo1TabIndex = value ;
+  }
 }

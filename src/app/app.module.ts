@@ -62,6 +62,8 @@ import { CalendarDesExamsComponent } from './hr-responsable-side/calendar-des-ex
 import { ProfileDetailsComponent } from './hr-responsable-side/profile-details/profile-details.component';
 import { SettingsComponent } from './hr-responsable-side/settings/settings.component';
 import {ToastrModule} from "ngx-toastr";
+import { ListeDesClientsHeureAjouteComponent } from './hr-responsable-side/liste-des-clients-heure-ajoute/liste-des-clients-heure-ajoute.component';
+import { AjoutUnClientsHeureAjouteComponent } from './hr-responsable-side/ajout-un-clients-heure-ajoute/ajout-un-clients-heure-ajoute.component';
 
 @NgModule({
   declarations: [
@@ -85,6 +87,8 @@ import {ToastrModule} from "ngx-toastr";
     CalendarDesExamsComponent,
     ProfileDetailsComponent,
     SettingsComponent,
+    ListeDesClientsHeureAjouteComponent,
+    AjoutUnClientsHeureAjouteComponent,
   ],
   imports: [
     FormsModule,
