@@ -74,13 +74,14 @@ export class ClientHeureAjouteService {
     this.http.post<number>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/save' , this.clientAjout).subscribe(
       data => {
         if (data === 1 ) {
-          this.toast.info(`client est bien modified`, 'employe modified', {
+          this.toast.success(`client est bien modified`, 'employe modified', {
             timeOut: 2500,
             progressBar: true,
             progressAnimation: 'increasing',
             positionClass: 'toast-top-right'
           });
           console.log('ha data' + data);
+          this.findAujourdHui();
           this.clientAjout = null;
         }
       }, eror => {
@@ -108,6 +109,17 @@ export class ClientHeureAjouteService {
   }
   public findAujourdHui() {
     this.http.get<Array<ClientHeureAjoute>>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/findByDateAujourdHui').subscribe(
+      data => {
+        if (data != null ) {
+          this.clients = data;
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  public findBydate(date: Date) {
+    this.http.get<Array<ClientHeureAjoute>>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/findByDate/date/'+ date).subscribe(
       data => {
         if (data != null ) {
           this.clients = data;

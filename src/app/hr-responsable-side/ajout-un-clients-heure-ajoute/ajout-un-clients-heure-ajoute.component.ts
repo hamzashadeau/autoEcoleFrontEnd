@@ -17,7 +17,7 @@ export class AjoutUnClientsHeureAjouteComponent implements OnInit {
   }
   categorie: string;
   ajouterUnClient() {
-    if(this.clientAjout.id === null){
+    if(this.clientAjout.id == null){
       this.clientHeureAjouteService.save();
     } else{
       this.clientHeureAjouteService.edit(this.clientAjout);

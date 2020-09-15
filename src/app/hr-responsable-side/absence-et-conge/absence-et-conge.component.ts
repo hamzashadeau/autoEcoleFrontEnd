@@ -57,4 +57,16 @@ export class AbsenceEtCongeComponent implements OnInit {
   public ajouterPaimentClient(){
     this.ClientService.savePaimentClient();
   }
+  public imprimerInformationSurledemandeur(){
+    this.ClientService.exportInformationDuDemandeur(this.clientInfo.cin);
+  }
+  public imprimerAttestationdeformation(){
+    this.ClientService.exportAttestationdeformation(this.clientInfo.cin);
+  }
+  public imprimercertificatMedicalAptitud(){
+    this.ClientService.exportcertificatMedicalAptitud(this.clientInfo.cin);
+  }
+  public imprimerContrat(){
+    this.ClientService.exportContrat(this.clientInfo.cin);
+  }
 }

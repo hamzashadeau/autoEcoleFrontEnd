@@ -26,6 +26,10 @@ cols: any;
   findMoisApres(){
     this.clientHeureAjouteService.findDayNext();
   }
+  chercherParDate(){
+    this.clientHeureAjouteService.findBydate(this.date);
+  }
+  date: Date;
   ngOnInit(): void {
     this.clientHeureAjouteService.findAujourdHui();
     this.cols = [

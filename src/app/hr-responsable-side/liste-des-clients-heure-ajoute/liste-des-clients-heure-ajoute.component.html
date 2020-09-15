@@ -1,6 +1,6 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <span class="span"> <i class="fas fa-users   "></i> Listes des clients Ayant ajouté des séeance de condeuite </span>
+    <span class="span"> <i class="fas fa-users   "></i> Listes des clients Ayant avoir des séeance de conduite Ajouté </span>
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container-fluid" style="padding-top: 10px;">
@@ -8,36 +8,77 @@
     <div class="col-md-12">
       <p-table #dt [columns]="cols" [value]="client" dataKey="cin" [paginator]="true" [rows]="5">
         <ng-template pTemplate="caption">
-          <!--          Liste des clients-->
           <button class="btn btn-add"style="background-color: white;color: black;float: left"
                   matTooltip="Ce button permet de ajouter un client" (click)="ajouterUnClient()"
-          ><i class="fa fa-plus" ></i>   Ajouter Un <strong>Client</strong> </button>
-          <div style="text-align: right">
+          ><i class="fa fa-plus-circle" ></i>   Ajouter Un <strong>Client</strong> </button>
+          <div class="container-fluid"style="text-align: center">
+            <div class="row" >
+              <div class="col-md-4"></div>
+              <div class="col-md-2">   <button class="btn"style="background-color: white;color: black;float: left"
+                                               matTooltip="Ce button permet de chercher un client" (click)="findMoisAvant()"
+              > <i class="fa fa-calendar-week"></i>   Jour <strong>Avant</strong> </button></div>
+              <div class="col-md-4"><mat-form-field style="width: 100%">
+                <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercherParDate()">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field></div>
+              <div class="col-md-2"> <button class="btn"style="background-color: white;color: black;float: left"
+                                             matTooltip="Ce button permet de chercher un client" (click)="findMoisApres()"
+              > <i class="fa fa-calendar-week"></i>  Jour <strong>Apres</strong> </button></div>
+            </div>  </div>
+          <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+          <input type="text" pInputText size="50" placeholder="Chercher ..."
+                 (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
 
-            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50" placeholder="Chercher par CIN ou Nom"
-                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
-          </div>
+
+
+
+          <!--            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>-->
+          <!--            <input type="text" pInputText size="50" placeholder="GChercher ..."-->
+          <!--                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">-->
+
         </ng-template>
         <ng-template pTemplate="header" let-columns>
           <tr>
+            <th style="width: 3em"></th>
             <th *ngFor="let col of columns" [pSortableColumn]="col.field">
               {{col.header}}
               <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
                           ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
               </p-sortIcon>
             </th>
-            <th style="text-align:center">Action</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
           <tr>
+            <td>
+              <a href="#" [pRowToggler]="rowData">
+                <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+              </a>
+            </td>
             <td *ngFor="let col of columns" (click)="modifierUnClient(rowData)">
               {{rowData[col.field]}}
             </td>
-            <td><button class="btn btn-custom btn-danger btn-sm fa fa-trash" ></button>
-              <button class="btn btn-custom btn-secondary btn-sm fa fa-edit" ></button>
-              <button class="btn btn-custom btn-info btn-sm fa fa-info" (click)="InfoClient(rowData)"></button>
+          </tr>
+        </ng-template>
+        <ng-template  pTemplate="rowexpansion" let-rowData let-columns="columns" >
+          <tr>
+            <td [attr.colspan]="columns.length + 1">
+              <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                <div class="ui-g-12 ui-md-9" >
+                  <div class="ui-g">
+                    <div class="ui-g-4">
+                      <b>date de la séance :</b> {{rowData.date}}
+                    </div>
+                    <div class="ui-g-4">
+                      <b>durée de la séance :</b> {{rowData.duree}}
+                    </div>
+                    <div class="ui-g-4" >
+                      <b>montant :</b> {{rowData.montant}}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </td>
           </tr>
         </ng-template>

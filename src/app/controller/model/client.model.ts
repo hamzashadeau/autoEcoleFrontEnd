@@ -31,4 +31,5 @@ export class client {
   prixTotal: number;
   prixRestantes: number;
   totalHeureConduite: number;
+  lieuNaissance: string;
 }

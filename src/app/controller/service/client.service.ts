@@ -273,6 +273,32 @@ public genererCodeClient() {
         console.log('eroro');
       });
   }
+
+  public exportInformationDuDemandeur(cin: string) {
+    this.http.get('http://localhost:8080/autoEcole-Api/client/exportInformationDuDemandeur/cin/' + cin , {
+      responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
+  }
+  downLoad(data: any, type: string) {
+    let blob = new Blob([data], {type});
+    let url = window.URL.createObjectURL(blob);
+    let pwa = window.open(url);
+    if (!pwa || pwa.closed || typeof pwa.closed === 'undefined') {
+      alert( 'Please disable your Pop-up blocker and try again.');
+    }
+  }
+  public exportContrat(cin: string) {
+    this.http.get('http://localhost:8080/autoEcole-Api/client/exportContrat/cin/' + cin , {
+      responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
+  }
+  public exportAttestationdeformation(cin: string) {
+    this.http.get('http://localhost:8080/autoEcole-Api/client/exportAttestationdeformation/cin/' + cin , {
+      responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
+  }
+  public exportcertificatMedicalAptitud(cin: string) {
+    this.http.get('http://localhost:8080/autoEcole-Api/client/exportcertificatMedicalAptitud/cin/' + cin , {
+      responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
+  }
+
   public ajouterUnclient() {
     this.http.post<number>(this.url + 'createClient', this.clientAjout, this.options).subscribe(
       data => {
