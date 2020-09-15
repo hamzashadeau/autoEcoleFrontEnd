@@ -8,6 +8,9 @@ export class Employe {
   adresseAR: string;
   dateNaissance: Date;
   cin: string;
+  image: number;
+  imageName: string;
+  imageType: string;
   gender: string;
   telephone: string;
   email: string;

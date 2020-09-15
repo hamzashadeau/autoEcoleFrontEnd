@@ -17,13 +17,25 @@ mois: number;
   get paimentEmploye(): Array<PaimentDeEmploye> {
     return this.employeService.paimentEmploye;
   }
+  get retrievedImage(): any {
+    return this.employeService.retrievedImage;
+  }
+  get avancementAjoute(): PaimentDeEmploye {
+    return this.employeService.avancementAjoute;
+  }
   cols: any;
   ngOnInit(): void {
-    this.mois = new Date().getMonth()+1;
+    this.mois = new Date().getMonth() +1;
+    this.employeService.findpaimentEmployeByCInAndMois(this.infoEmploye.cin, this.mois);
     this.cols = [
       { field: 'monatant', header: 'Montant de avancement'},
       { field: 'date', header: 'Date de avancement' },
     ];
   }
-
+  get montantRest(): number {
+    return this.employeService.montantRest;
+  }
+public ajouterUnPaiment(){
+    this.employeService.saveAvancement();
+}
 }

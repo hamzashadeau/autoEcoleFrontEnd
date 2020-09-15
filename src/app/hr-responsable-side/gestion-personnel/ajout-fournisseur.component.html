@@ -11,6 +11,18 @@
     <div class="row">
       <div class="col-md-6">
         <div class="controles-container">
+          <div class="row" *ngIf="this.employeAjout.id == null">
+            <div class="col-md-4">
+              <button class="ui-fileupload" style=" width: 120px;border: none; background-color: #0062cc; color: white; ">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+                <label for="file" class="label-file" id="titreFile" style="color: white;margin-bottom: 0px">Choisir</label>
+                <input id="file" class="input-file" type="file" (change)="onFileChanged($event)">
+              </button>
+            </div>
+            <div class="col-md-8"><label id="lebel1">
+              pas de fichier selectionné!
+            </label></div>
+          </div>
           <mat-form-field>
             <input matInput placeholder="prenom FR*" [(ngModel)]="employeAjout.prenomFR" [ngModelOptions]="{standalone: true}" [value]="employeAjout.prenomFR">
           </mat-form-field>

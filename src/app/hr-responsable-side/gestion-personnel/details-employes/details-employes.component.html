@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-md-12" style="text-align: center">
           <img
-            src="../assets/images/angular-icon.svg"
+            [src]="retrievedImage"
             alt="Image de l employe"
             style="
               width: 130px;
@@ -81,7 +81,7 @@
           <h5>Salaire de Base : {{infoEmploye.salaire}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Le Reste de Salaire :{{infoEmploye.salaire}}</h5>
+          <h5>Le Reste de Salaire :{{montantRest}}</h5>
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@
           <mat-toolbar>
             <mat-toolbar-row>
         <span class="span" id="span">
-          <i class="fas fa-plus-square"></i> Affecter unn avancement a un employe
+          <i class="fas fa-plus-square"></i> Affecter un avancement a un employe
         </span>
             </mat-toolbar-row>
           </mat-toolbar>
@@ -103,10 +103,7 @@
                 <div class="col-md-6">
                   <div class="controles-container">
                     <mat-form-field>
-                      <input matInput placeholder="Employe Concerene *" />
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput type="number" placeholder="Prix d avance *" />
+                      <input matInput type="number" placeholder="Prix d avance *" [(ngModel)]="avancementAjoute.monatant" [ngModelOptions]="{standalone: true}" />
                     </mat-form-field>
                   </div>
                 </div>
@@ -116,7 +113,7 @@
                       <input
                         matInput
                         [matDatepicker]="picker5"
-                        placeholder="Date D'avance"
+                        placeholder="Date D'avance" [(ngModel)]="avancementAjoute.date" [ngModelOptions]="{standalone: true}"
                       />
                       <mat-datepicker-toggle
                         matSuffix
@@ -124,18 +121,17 @@
                       ></mat-datepicker-toggle>
                       <mat-datepicker #picker5></mat-datepicker>
                     </mat-form-field>
-
-                    <div class="button-row">
-                      <button
-                        mat-raised-button
-                        color="primary"
-                        style="background-color: #3f8032"
-                        class="btn-block"
-                      >
-                        <i class="fas fa-check-circle"></i> Ajouter
-                      </button>
                     </div>
                   </div>
+                <div class="button-row">
+                  <button
+                    mat-raised-button
+                    color="primary"
+                    style="background-color: #3f8032"
+                    class="btn-block" (click)="ajouterUnPaiment()"
+                  >
+                    <i class="fas fa-check-circle"></i> Ajouter
+                  </button>
                 </div>
               </div>
             </div>
