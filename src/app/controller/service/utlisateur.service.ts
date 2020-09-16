@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 import {reserver} from '../model/reserver.model';
 import {Utlisateur} from "../model/utlisateur.model";
+import {Employe} from "../model/employe.model";
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,7 @@ export class UtlisateurService {
               positionClass: 'toast-top-right'
             });
           } else if(data === 1){
+            this.findByLogin(login);
             this.router.navigateByUrl('RhResponsable');
           }
       }, eror => {
@@ -72,14 +74,43 @@ export class UtlisateurService {
         console.log('eroro');
       });
   }
+  private _utilisateur: Utlisateur;
+
+  get utilisateur(): Utlisateur {
+    if(this._utilisateu == null){
+      this._utilisateu = new Utlisateur();
+      this._utilisateu.employe = new Employe();
+    }
+    return this._utilisateur;
+  }
+
+  set utilisateur(value: Utlisateur) {
+    this._utilisateur = value;
+  }
+
   public findByLogin(login: string) {
-    this.http.get<number>(this.url + '/findByLogin/login/' +login).subscribe(
+    this.http.get<Utlisateur>(this.url + 'findByLogin/login/' + login).subscribe(
       data => {
         if (data != null) {
+          this.utilisateu = data;
+          this.base64Data = this.utilisateu.employe.image;
+          this._retrievedImage = 'data:' + this.utilisateu.employe.imageType + ';base64,' + this.base64Data;
           console.log('ha data' + data);
         }
       }, eror => {
         console.log('eroro');
       });
   }
+
+  private _retrievedImage: any;
+  base64Data: any;
+
+  get retrievedImage(): any {
+    return this._retrievedImage;
+  }
+
+  set retrievedImage(value: any) {
+    this._retrievedImage = value;
+  }
+
 }
