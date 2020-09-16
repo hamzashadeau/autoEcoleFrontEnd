@@ -34,11 +34,11 @@ export class ListesDesClientsComponent implements OnInit {
     this.cols = [
       { field: 'nomFR', header: 'Nom FR' },
       { field: 'nomAR', header: 'Nom AR' },
-      { field: 'prenomFR', header: 'prenom FR' },
-      { field: 'prenomAR', header: 'prenom AR' },
-      { field: 'addresseFR', header: 'adresse FR' },
-      { field: 'adresseAR', header: 'adresse AR' },
-      { field: 'cin', header: 'Cin' },
+      { field: 'prenomFR', header: 'Prenom FR' },
+      { field: 'prenomAR', header: 'Prenom AR' },
+      { field: 'addresseFR', header: 'Adresse FR' },
+      { field: 'adresseAR', header: 'Adresse AR' },
+      { field: 'cin', header: 'CIN' },
     ];
   }
   get client(): Array<client> {
@@ -53,7 +53,7 @@ export class ListesDesClientsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '95%';
-    dialogConfig.height = '95%';
+    dialogConfig.height = '100%';
     this.dialog.open(AjouterClientComponent,
       dialogConfig);
   }
@@ -63,7 +63,7 @@ export class ListesDesClientsComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '95%';
-    dialogConfig.height = '95%';
+    dialogConfig.height = '100%';
     this.dialog.open(AjouterClientComponent,
       dialogConfig);
   }
