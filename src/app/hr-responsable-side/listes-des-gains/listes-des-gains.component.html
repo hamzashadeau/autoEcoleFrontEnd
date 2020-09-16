@@ -4,42 +4,58 @@
     <div class="col-md-12">
       <p-table #dt [columns]="cols" [value]="listesDesGains" dataKey="cin" [paginator]="true" [rows]="5">
         <ng-template pTemplate="caption">
-          <button class="btn btn-add"style="background-color: white;color: black;float: left"
-                  matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUngains()"
-          ><i class="fa fa-plus-circle" ></i>  Ajouter Une <strong>Gains</strong> </button>
+
+
           <div class="container-fluid"style="text-align: center">
-            <div class="row" >
-              <div class="col-md-3"></div>
-              <div class="col-md-2">   <button class="btn"style="float: left" mat-raised-button
+            <div class="row">
+              <div class="col-md-7">
+                <button class="btn btn-add"style="background-color: white;color: black;float: left"
+                        matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUngains()"
+                ><i class="fa fa-plus-circle" ></i>  Ajouter Une <strong>Gains</strong> </button>
+              </div>
+              <div class="col-md-2">   <button class="btn" mat-raised-button
                                                matTooltip="Ce button permet de ajouter un employe"
                                                (click)="findyearAvant()"
               > <i class="fa fa-calendar-week"></i>   Year <strong>Avant</strong> </button>
               </div>
-              <div class="col-md-2"> <button class="btn" mat-raised-button style="float: left"
+              <div class="col-md-1">{{year}}</div>
+              <div class="col-md-2"> <button class="btn" mat-raised-button
                                              matTooltip="Ce button permet de ajouter un employe" (click)="findYearApres()"
               > <i class="fa fa-calendar-week"></i>  Year <strong>Apres</strong> </button></div>
-              <div class="col-md-2">   <button class="btn"style="float: left" mat-raised-button
+            </div>
+            <br>
+            <div class="row" >
+              <div class="col-md-7">
+                <div class="row">
+                  <div class="col-md-6">
+                    <i class="pi pi-search" ></i>
+                    <input type="text" pInputText size="40" placeholder="Chercher ..."
+                           (input)="dt.filterGlobal($event.target.value, 'contains')"
+                           >
+                  </div>
+                  <div class="col-md-6">
+                    <mat-form-field >
+
+                      <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercherParDate()">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+
+                </div>
+
+              </div>
+              <div class="col-md-2">   <button class="btn" mat-raised-button
                                                matTooltip="Ce button permet de ajouter un employe"
                                                (click)="findMoisAvant()"
               > <i class="fa fa-calendar-week"></i>   Mois <strong>Avant</strong> </button>
               </div>
-              <div class="col-md-2"> <button class="btn" mat-raised-button style="float: left"
+              <div class="col-md-1"> {{mois}} </div>
+              <div class="col-md-2"> <button class="btn" mat-raised-button
                                              matTooltip="Ce button permet de ajouter un employe" (click)="findMoisApres()"
               > <i class="fa fa-calendar-week"></i>  Mois <strong>Apres</strong> </button></div>
-              <div class="col-md-1"></div>
-              <div class="col-md-4"><mat-form-field style="width: 100%">
-
-                <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="date" [ngModelOptions]="{standalone: true}" (ngModelChange)="chercherParDate()">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field></div>
-
-
             </div>  </div>
 
-            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-            <input type="text" pInputText size="50" placeholder="Chercher ..."
-                   (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
         </ng-template>
         <ng-template pTemplate="header" let-columns>
           <tr>
