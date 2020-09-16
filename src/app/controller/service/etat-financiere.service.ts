@@ -103,6 +103,16 @@ public ajouterdespences() {
       });
   }
 
+  public  findAllGainsParMoisAndAnnee(mois: number, annee: number) {
+    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this.listesDesGains = data;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
   // nobmre de gains par mois statistique
 private _nombreGains1: number;
 
@@ -339,6 +349,16 @@ private _nombreGains1: number;
       });
   }
 
+  public  findAllDepensesParMoisAndAnnee(mois: number, annee: number): number {
+    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this.listesDesDepenses = data;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+    return this._nombreDespence1;
+  }
   // nombre de despences par mois
 private _nombreDespence1: number;
 
@@ -350,7 +370,7 @@ private _nombreDespence1: number;
     this._nombreDespence1 = value;
   }
 
-  public  findAllDepensesParMoisAndAnnee(mois: number, annee: number): number {
+  public  findAllDepensesParMois1AndAnnee(mois: number, annee: number): number {
      this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence1 = data.length;
