@@ -253,6 +253,9 @@
       <div class="col-md-6">
         <h4> Total des heures de conduites: {{clientInfo.totalHeureConduite}}</h4>
       </div>
+      <div class="col-md-6">
+        <h4> nombre des séance de conduites: {{clientInfo.nbrSeanceDeConduite}}</h4>
+      </div>
      </div>
     <br>
     <hr>
@@ -313,7 +316,7 @@
                   mat-raised-button
                   color="primary"
                   style="background-color: #3f8032"
-                  class="btn-block"
+                  class="btn-block" [disabled]="clientInfo.nbrSeanceDeConduite>21"
                 (click)="ajouterHeureConduite()">
                   <i class="fas fa-check-circle"></i> Ajouter
                 </button>

@@ -6,6 +6,7 @@ export class client {
   gender: string;
   generatedcode: string;
   nomFR: string;
+  nbrSeanceDeConduite: number;
   nomAR: string;
   prenomFR: string;
   prenomAR: string;

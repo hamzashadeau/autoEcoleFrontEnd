@@ -396,4 +396,246 @@ public genererCodeClient() {
     this._retrievedImage = 'data:' + cli.imageType + ';base64,' + this.base64Data;
     this.clientInfo = cli;
   }
+
+  // nombre de client par mois
+
+  // nombre de client Par mois
+  private _nombreDeClient1: number;
+
+  get nombreDeClient1(): number {
+    return this._nombreDeClient1;
+  }
+
+  set nombreDeClient1(value: number) {
+    this._nombreDeClient1 = value;
+  }
+
+  public  findAllClientsParMois1AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient1 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient2: number;
+
+  get nombreDeClient2(): number {
+    return this._nombreDeClient2;
+  }
+
+  set nombreDeClient2(value: number) {
+    this._nombreDeClient2 = value;
+  }
+
+  public  findAllClientsParMois2AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient2 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient3: number;
+
+  get nombreDeClient3(): number {
+    return this._nombreDeClient3;
+  }
+
+  set nombreDeClient3(value: number) {
+    this._nombreDeClient3 = value;
+  }
+
+  public  findAllClientsParMois3AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient3 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient4: number;
+
+  get nombreDeClient4(): number {
+    return this._nombreDeClient4;
+  }
+
+  set nombreDeClient4(value: number) {
+    this._nombreDeClient4 = value;
+  }
+
+  public  findAllClientsParMois4AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient4 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient5: number;
+
+  get nombreDeClient5(): number {
+    return this._nombreDeClient5;
+  }
+
+  set nombreDeClient5(value: number) {
+    this._nombreDeClient5 = value;
+  }
+
+  public  findAllClientsParMois5AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient5 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient6: number;
+
+  get nombreDeClient6(): number {
+    return this._nombreDeClient6;
+  }
+
+  set nombreDeClient6(value: number) {
+    this._nombreDeClient6 = value;
+  }
+
+  public  findAllClientsParMois6AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient6 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient7: number;
+
+  get nombreDeClient7(): number {
+    return this._nombreDeClient7;
+  }
+
+  set nombreDeClient7(value: number) {
+    this._nombreDeClient7 = value;
+  }
+
+  public  findAllClientsParMois7AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient7 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient8: number;
+
+  get nombreDeClient8(): number {
+    return this._nombreDeClient8;
+  }
+
+  set nombreDeClient8(value: number) {
+    this._nombreDeClient8 = value;
+  }
+
+  public  findAllClientsParMois8AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient8 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient9: number;
+
+  get nombreDeClient9(): number {
+    return this._nombreDeClient9;
+  }
+
+  set nombreDeClient9(value: number) {
+    this._nombreDeClient9 = value;
+  }
+
+  public  findAllClientsParMois9AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient9 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient10: number;
+
+  get nombreDeClient10(): number {
+    return this._nombreDeClient10;
+  }
+
+  set nombreDeClient10(value: number) {
+    this._nombreDeClient10 = value;
+  }
+
+  public  findAllClientsParMois10AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient10 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  private _nombreDeClient11: number;
+
+  get nombreDeClient11(): number {
+    return this._nombreDeClient11;
+  }
+
+  set nombreDeClient11(value: number) {
+    this._nombreDeClient11 = value;
+  }
+
+  public  findAllClientsParMois11AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient11 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  private _nombreDeClient12: number;
+
+  get nombreDeClient12(): number {
+    return this._nombreDeClient12;
+  }
+
+  set nombreDeClient12(value: number) {
+    this._nombreDeClient12 = value;
+  }
+
+  public  findAllClientsParMois12AndAnnee(mois: number, annee: number) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+      data => {
+        this._nombreDeClient12 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
 }

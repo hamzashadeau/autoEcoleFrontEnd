@@ -14,9 +14,11 @@ export class ListesDesGainsComponent implements OnInit {
   constructor(private etatFinancierService: EtatFinanciereService,
               private dialog: MatDialog) { }
   mois: number;
+  year: number;
   cols: any;
   ngOnInit(): void {
     this.mois = (new Date().getMonth() + 1);
+    this.year = (new Date().getFullYear());
     this.etatFinancierService.findAllGainsParMois(this.mois);
     this.cols = [
       { field: 'nom', header: 'Nom' },
@@ -29,7 +31,7 @@ export class ListesDesGainsComponent implements OnInit {
     this.etatFinancierService.findALLgainssBytypeAndDate(this.date, 'gains');
   }
   findMoisAvant(){
-    this.mois = this.mois -1;
+    this.mois = this.mois - 1;
     this.etatFinancierService.findAllGainsParMois(this.mois);
   }
   findMoisApres(){
