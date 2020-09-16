@@ -12,9 +12,8 @@ export class ProfileDetailsComponent implements OnInit {
   constructor(private utilisateurService: UtlisateurService) { }
 
   ngOnInit(): void {
+this.utilisateurService.findByLogin(localStorage.getItem("login"));
 
-    this.utilisateurService.retrievedImage;
-    this.utilisateurService.utilisateu;
   }
   get retrievedImage(): any {
     return this.utilisateurService.retrievedImage;

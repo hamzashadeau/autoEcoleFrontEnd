@@ -49,12 +49,13 @@ export class UtlisateurService {
           } else if(data === 1){
             this.findByLogin(login);
             this.router.navigateByUrl('RhResponsable');
+            localStorage.setItem("login",login);
           }
       }, eror => {
         console.log('eroro');
       });
   }
-  
+
   public resetPassword(email: string, nvpassword: string) {
     this.http.get<number>(this.url + 'resetPassword/email/' + email + '/nvPassword/' + nvpassword).subscribe(
       data => {
