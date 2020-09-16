@@ -72,4 +72,14 @@ export class UtlisateurService {
         console.log('eroro');
       });
   }
+  public findByLogin(login: string) {
+    this.http.get<number>(this.url + '/findByLogin/login/' +login).subscribe(
+      data => {
+        if (data != null) {
+          console.log('ha data' + data);
+        }
+      }, eror => {
+        console.log('eroro');
+      });
+  }
 }
