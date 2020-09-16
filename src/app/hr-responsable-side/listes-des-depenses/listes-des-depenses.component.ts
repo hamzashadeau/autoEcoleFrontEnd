@@ -17,10 +17,12 @@ export class ListesDesDepensesComponent implements OnInit {
 mois: number;
   cols: any;
   date: Date;
+  year: number;
   chercherParDate(){
     this.etatFinancierService.findALLdespencesBytypeAndDate(this.date, 'despenses');
   }
   ngOnInit(): void {
+    this.year = (new Date().getFullYear());
     this.mois = (new Date().getMonth() + 1);
     this.etatFinancierService.findAllDepensesParMois(this.mois);
     this.cols = [
@@ -31,11 +33,19 @@ mois: number;
   }
   findMoisAvant(){
     this.mois = this.mois -1;
-    this.etatFinancierService.findAllDepensesParMois(this.mois);
+    this.etatFinancierService.findAllDepensesParMoisAndAnnee(this.mois, this.year);
   }
   findMoisApres(){
     this.mois = this.mois + 1;
-    this.etatFinancierService.findAllDepensesParMois(this.mois);
+    this.etatFinancierService.findAllDepensesParMoisAndAnnee(this.mois, this.year);
+  }
+  findyearAvant(){
+    this.year = this.year -1;
+    this.etatFinancierService.findAllDepensesParMoisAndAnnee(this.mois, this.year);
+  }
+  findYearApres(){
+    this.year = this.year + 1;
+    this.etatFinancierService.findAllDepensesParMoisAndAnnee(this.mois, this.year);
   }
   get listesDesDepenses(): Array<EtatFinanciere> {
     return this.etatFinancierService.listesDesDepenses;

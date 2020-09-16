@@ -397,8 +397,6 @@ public genererCodeClient() {
     this.clientInfo = cli;
   }
 
-  // nombre de client par mois
-
   // nombre de client Par mois
   private _nombreDeClient1: number;
 
@@ -411,7 +409,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois1AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient1 = data.length;
         console.log('sucess');
@@ -431,7 +429,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois2AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient2 = data.length;
         console.log('sucess');
@@ -451,7 +449,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois3AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient3 = data.length;
         console.log('sucess');
@@ -471,7 +469,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois4AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient4 = data.length;
         console.log('sucess');
@@ -491,7 +489,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois5AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient5 = data.length;
         console.log('sucess');
@@ -511,7 +509,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois6AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient6 = data.length;
         console.log('sucess');
@@ -531,7 +529,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois7AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient7 = data.length;
         console.log('sucess');
@@ -551,7 +549,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois8AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient8 = data.length;
         console.log('sucess');
@@ -571,7 +569,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois9AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient9 = data.length;
         console.log('sucess');
@@ -591,7 +589,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois10AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient10 = data.length;
         console.log('sucess');
@@ -610,7 +608,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois11AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient11 = data.length;
         console.log('sucess');
@@ -630,9 +628,87 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois12AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient12 = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  // nombre des clients par type de permis demandé
+  private _nombreDeClientA: number;
+
+  get nombreDeClientA(): number {
+    return this._nombreDeClientA;
+  }
+
+  set nombreDeClientA(value: number) {
+    this._nombreDeClientA = value;
+  }
+
+  public  findByPermisDemandeA(type: string) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+      data => {
+        this._nombreDeClientA = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  private _nombreDeClientB: number;
+
+  get nombreDeClientB(): number {
+    return this._nombreDeClientB;
+  }
+
+  set nombreDeClientB(value: number) {
+    this._nombreDeClientB = value;
+  }
+
+  public  findByPermisDemandeB(type: string) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+      data => {
+        this._nombreDeClientB = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  private _nombreDeClientC: number;
+
+  get nombreDeClientC(): number {
+    return this._nombreDeClientC;
+  }
+
+  set nombreDeClientC(value: number) {
+    this._nombreDeClientC = value;
+  }
+
+  public  findByPermisDemandeC(type: string) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+      data => {
+        this._nombreDeClientC = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+  private _nombreDeClientD: number;
+
+  get nombreDeClientD(): number {
+    return this._nombreDeClientD;
+  }
+
+  set nombreDeClientD(value: number) {
+    this._nombreDeClientD = value;
+  }
+
+  public  findByPermisDemandeD(type: string) {
+    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+      data => {
+        this._nombreDeClientD = data.length;
         console.log('sucess');
       }, eror => {
         console.log('eroro');

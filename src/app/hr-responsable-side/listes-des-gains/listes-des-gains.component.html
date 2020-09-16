@@ -12,6 +12,14 @@
               <div class="col-md-3"></div>
               <div class="col-md-2">   <button class="btn"style="float: left" mat-raised-button
                                                matTooltip="Ce button permet de ajouter un employe"
+                                               (click)="findyearAvant()"
+              > <i class="fa fa-calendar-week"></i>   Year <strong>Avant</strong> </button>
+              </div>
+              <div class="col-md-2"> <button class="btn" mat-raised-button style="float: left"
+                                             matTooltip="Ce button permet de ajouter un employe" (click)="findYearApres()"
+              > <i class="fa fa-calendar-week"></i>  Year <strong>Apres</strong> </button></div>
+              <div class="col-md-2">   <button class="btn"style="float: left" mat-raised-button
+                                               matTooltip="Ce button permet de ajouter un employe"
                                                (click)="findMoisAvant()"
               > <i class="fa fa-calendar-week"></i>   Mois <strong>Avant</strong> </button>
               </div>

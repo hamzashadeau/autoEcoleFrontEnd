@@ -31,12 +31,24 @@ export class ListesDesGainsComponent implements OnInit {
     this.etatFinancierService.findALLgainssBytypeAndDate(this.date, 'gains');
   }
   findMoisAvant(){
-    this.mois = this.mois - 1;
-    this.etatFinancierService.findAllGainsParMois(this.mois);
+    this.mois = this.mois -1;
+    this.etatFinancierService.findAllGainsParMoisAndAnnee(this.mois, this.year);
+    console.log(this.mois, this.year);
   }
   findMoisApres(){
     this.mois = this.mois + 1;
-    this.etatFinancierService.findAllGainsParMois(this.mois);
+    this.etatFinancierService.findAllGainsParMoisAndAnnee(this.mois, this.year);
+    console.log(this.mois, this.year);
+  }
+  findyearAvant(){
+    this.year = this.year -1;
+    this.etatFinancierService.findAllGainsParMoisAndAnnee(this.mois, this.year);
+    console.log(this.mois, this.year);
+  }
+  findYearApres(){
+    this.year = this.year + 1;
+    this.etatFinancierService.findAllGainsParMoisAndAnnee(this.mois, this.year);
+    console.log(this.mois, this.year);
   }
   get listesDesGains(): Array<EtatFinanciere> {
     return this.etatFinancierService.listesDesGains;
