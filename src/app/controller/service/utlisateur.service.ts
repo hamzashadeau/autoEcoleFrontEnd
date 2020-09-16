@@ -54,6 +54,7 @@ export class UtlisateurService {
         console.log('eroro');
       });
   }
+  
   public resetPassword(email: string, nvpassword: string) {
     this.http.get<number>(this.url + 'resetPassword/email/' + email + '/nvPassword/' + nvpassword).subscribe(
       data => {
