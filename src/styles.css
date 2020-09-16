@@ -52,3 +52,7 @@ body .ui-table .ui-sortable-column.ui-state-highlight {
 body .ui-card {
   background-color: #abd7d8!important;
 }
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+  background-color: cadetblue!important;
+  color: #fff;
+}

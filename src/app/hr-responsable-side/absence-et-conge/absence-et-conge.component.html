@@ -172,7 +172,49 @@
     <hr>
     <div class="container-fluid" style="padding-top: 10px;">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
+          <mat-toolbar>
+            <mat-toolbar-row>
+        <span class="span" >
+          <i class="fas fa-plus"></i> Ajouter un paiment d un client
+        </span>
+            </mat-toolbar-row>
+          </mat-toolbar>
+          <form class="normal-form"> <br>
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="controles-container">
+                    <mat-form-field style="width: 100%">
+                      <input matInput placeholder="montant payé *" [(ngModel)]="paimentClientAjout.montantpaye" [ngModelOptions]="{standalone: true}" />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="controles-container">
+                    <mat-form-field style="width: 100%">
+                      <input matInput [matDatepicker]="picker24" placeholder="Date De paiment" [(ngModel)]="paimentClientAjout.date" [ngModelOptions]="{standalone: true}"
+                      >
+                      <mat-datepicker-toggle matSuffix [for]="picker24"></mat-datepicker-toggle>
+                      <mat-datepicker #picker24></mat-datepicker>
+                    </mat-form-field>
+                    <div class="button-row">
+                      <button
+                        mat-raised-button
+                        color="primary"
+                        style="background-color: #3f8032"
+                        class="btn-block"
+                        (click)="ajouterPaimentClient()" >
+                        <i class="fas fa-check-circle"></i> Ajouter
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
           <p-table #dt [columns]="cols1" [value]="paimentsClient" dataKey="cin" [paginator]="true" [rows]="5">
             <ng-template pTemplate="caption">
               Liste des paiment de employé {{clientInfo.nomFR}}  {{'  '+clientInfo.prenomFR}}
@@ -197,46 +239,7 @@
     </div>
     <br/>
     <hr/>
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <span class="span" >
-          <i class="fas fa-plus"></i> Ajouter un paiment d un client
-        </span>
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <form class="normal-form"> <br>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="controles-container">
-              <mat-form-field style="width: 100%">
-                <input matInput placeholder="montant payé *" [(ngModel)]="paimentClientAjout.montantpaye" [ngModelOptions]="{standalone: true}" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="controles-container">
-              <mat-form-field style="width: 100%">
-                <input matInput [matDatepicker]="picker24" placeholder="Date De paiment" [(ngModel)]="paimentClientAjout.date" [ngModelOptions]="{standalone: true}"
-                >
-                <mat-datepicker-toggle matSuffix [for]="picker24"></mat-datepicker-toggle>
-                <mat-datepicker #picker24></mat-datepicker>
-              </mat-form-field>
-              <div class="button-row">
-                <button
-                  mat-raised-button
-                  color="primary"
-                  style="background-color: #3f8032"
-                  class="btn-block"
-               (click)="ajouterPaimentClient()" >
-                  <i class="fas fa-check-circle"></i> Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
+
   </p-tabPanel>
   <p-tabPanel>
     <ng-template pTemplate="header">
@@ -258,7 +261,49 @@
     <hr>
     <div class="container-fluid" style="padding-top: 10px;">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6">
+          <mat-toolbar>
+            <mat-toolbar-row>
+        <span class="span" id="span">
+          <i class="fas fa-clock"></i> Gestion des heures de conduite
+        </span>
+            </mat-toolbar-row>
+          </mat-toolbar><br>
+          <form class="normal-form">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="controles-container">
+                    <mat-form-field style="width: 100%">
+                      <input matInput placeholder="durée de conduite(min) *" [(ngModel)]="heureConduiteAjout.duree" [ngModelOptions]="{standalone: true}"/>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="controles-container">
+                    <mat-form-field style="width: 100%">
+                      <input matInput [matDatepicker]="picker25" placeholder="Date De conduite" [(ngModel)]="heureConduiteAjout.date" [ngModelOptions]="{standalone: true}"
+                      >
+                      <mat-datepicker-toggle matSuffix [for]="picker25"></mat-datepicker-toggle>
+                      <mat-datepicker #picker25></mat-datepicker>
+                    </mat-form-field>
+                    <div class="button-row">
+                      <button
+                        mat-raised-button
+                        color="primary"
+                        style="background-color: #3f8032"
+                        class="btn-block"
+                        (click)="ajouterHeureConduite()">
+                        <i class="fas fa-check-circle"></i> Ajouter
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
           <p-table #dt [columns]="cols" [value]="heureConduites" dataKey="cin" [paginator]="true" [rows]="5">
             <ng-template pTemplate="caption">
               Liste des heures de conduite de employé {{clientInfo.nomFR}}  {{'  '+clientInfo.prenomFR}}
@@ -283,60 +328,23 @@
     </div>
     <br/>
     <hr/>
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <span class="span" id="span">
-          <i class="fas fa-clock"></i> Gestion des heures de conduite
-        </span>
-      </mat-toolbar-row>
-    </mat-toolbar><br>
-    <form class="normal-form">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="controles-container">
-              <mat-form-field style="width: 100%">
-                <input matInput placeholder="durée de conduite(min) *" [(ngModel)]="heureConduiteAjout.duree" [ngModelOptions]="{standalone: true}"/>
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="controles-container">
-              <mat-form-field style="width: 100%">
-                <input matInput [matDatepicker]="picker25" placeholder="Date De conduite" [(ngModel)]="heureConduiteAjout.date" [ngModelOptions]="{standalone: true}"
-                >
-                <mat-datepicker-toggle matSuffix [for]="picker25"></mat-datepicker-toggle>
-                <mat-datepicker #picker25></mat-datepicker>
-              </mat-form-field>
-              <div class="button-row">
-                <button
-                  mat-raised-button
-                  color="primary"
-                  style="background-color: #3f8032"
-                  class="btn-block"
-                (click)="ajouterHeureConduite()">
-                  <i class="fas fa-check-circle"></i> Ajouter
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
+
   </p-tabPanel>
 </p-tabView>
+<h4 style="text-align: center;padding: 20px">Imprimer les documents suivants :</h4>
 <div class="row">
-  <div class="col-md-3"><button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" (click)="imprimerInformationSurledemandeur()">
-    <i class="fas fa-check-circle"></i> imprimer Information Sur le demandeur
+  <div class="col-md-3"><button mat-raised-button   class="btn-block bt" (click)="imprimerInformationSurledemandeur()">
+    <i class="fas fa-info-circle"></i> Info sur Demandeur
   </button></div>
-  <div class="col-md-3"><button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" (click)="imprimerAttestationdeformation()">
-    <i class="fas fa-check-circle"></i> imprimer Attestation de formation
+  <div class="col-md-3"><button mat-raised-button  class="btn-block bt" (click)="imprimerAttestationdeformation()">
+    <i class="fas fa-graduation-cap"></i> Attestation de Formation
   </button></div>
-  <div class="col-md-3"><button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" (click)="imprimercertificatMedicalAptitud()">
-    <i class="fas fa-check-circle"></i> imprimer certificat Medical Aptitud
+
+  <div class="col-md-3"><button mat-raised-button  class="btn-block bt" (click)="imprimercertificatMedicalAptitud()">
+    <i class="fas fa-file-medical"></i> Certificat Medical d attitude
   </button></div>
-  <div class="col-md-3"><button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" (click)="imprimerContrat()">
-    <i class="fas fa-check-circle"></i> imprimer Contrat
+  <div class="col-md-3"><button mat-raised-button class="btn-block bt" (click)="imprimerContrat()">
+    <i class="fas fa-file-contract"></i> Le Contrat
   </button></div>
 </div>
 
