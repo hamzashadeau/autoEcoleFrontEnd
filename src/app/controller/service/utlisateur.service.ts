@@ -49,15 +49,15 @@ export class UtlisateurService {
           } else if(data === 1){
             this.findByLogin(login);
             this.router.navigateByUrl('RhResponsable');
-            localStorage.setItem("login",login);
+            localStorage.setItem('login', login);
           }
       }, eror => {
         console.log('eroro');
       });
   }
 
-  public resetPassword(email: string, nvpassword: string) {
-    this.http.get<number>(this.url + 'resetPassword/email/' + email + '/nvPassword/' + nvpassword).subscribe(
+  public resetPassword(email: string, oldPassword: string, nvpassword: string) {
+    this.http.get<number>(this.url + 'resetPassword/email/' + email + '/oldPassword/' + oldPassword + '/nvPassword/' + nvpassword).subscribe(
       data => {
         if (data != null) {
           console.log('ha data' + data);

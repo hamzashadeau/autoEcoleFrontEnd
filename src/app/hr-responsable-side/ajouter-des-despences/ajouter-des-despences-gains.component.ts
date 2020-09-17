@@ -18,6 +18,9 @@ export class AjouterDesDespencesGainsComponent implements OnInit {
   ngOnInit(): void {
     this.show();
   }
+  public ajouter(){
+    this.etatFinancierService.save();
+  }
 public show() {
     if(this.etatAjout.nom === 'autre' || this.etatAjout.type === 'gains'){
       console.log('hello');

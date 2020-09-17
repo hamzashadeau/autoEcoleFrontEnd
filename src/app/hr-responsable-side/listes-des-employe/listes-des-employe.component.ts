@@ -4,17 +4,20 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {Employe} from '../../controller/model/employe.model';
 import {AjoutFournisseurComponent} from '../gestion-personnel/ajout-fournisseur.component';
 import {DetailsEmployesComponent} from '../gestion-personnel/details-employes/details-employes.component';
+import {ConfirmationService} from 'primeng';
 
 @Component({
   selector: 'app-listes-des-employe',
   templateUrl: './listes-des-employe.component.html',
-  styleUrls: ['./listes-des-employe.component.css']
+  styleUrls: ['./listes-des-employe.component.css'],
+  providers: [ConfirmationService]
 })
 export class ListesDesEmployeComponent implements OnInit {
 
 
   constructor(private employeService: EmployeServiceService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private confirmationService: ConfirmationService) { }
   private _motif: string;
 
   get motif(): string {
@@ -58,6 +61,19 @@ export class ListesDesEmployeComponent implements OnInit {
     dialogConfig.height = '90%';
     this.dialog.open(AjoutFournisseurComponent,
       dialogConfig);
+  }
+  public confirm(id: number) {
+    console.log(id);
+    this.confirmationService.confirm({
+      message: 'Do you want to delete this record?',
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.employeService.deleteById(id);
+      },
+      reject: () => {
+      }
+    });
   }
   public InfoEmploye(emp: Employe) {
     this.employeService.findpaimentEmployeByCInAndMois(emp.cin, (new Date().getMonth() + 1));

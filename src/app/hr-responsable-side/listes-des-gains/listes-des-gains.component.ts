@@ -3,16 +3,20 @@ import {EtatFinanciereService} from "../../controller/service/etat-financiere.se
 import {EtatFinanciere} from "../../controller/model/etat-financiere.model";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {AjouterDesDespencesGainsComponent} from "../ajouter-des-despences/ajouter-des-despences-gains.component";
+import {ConfirmationService} from "primeng";
 
 @Component({
   selector: 'app-listes-des-gains',
   templateUrl: './listes-des-gains.component.html',
-  styleUrls: ['./listes-des-gains.component.css']
+  styleUrls: ['./listes-des-gains.component.css'],
+  providers: [ConfirmationService]
+
 })
 export class ListesDesGainsComponent implements OnInit {
 
   constructor(private etatFinancierService: EtatFinanciereService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private confirmationService: ConfirmationService) { }
   mois: number;
   year: number;
   cols: any;
@@ -30,6 +34,9 @@ export class ListesDesGainsComponent implements OnInit {
   chercherParDate(){
     this.etatFinancierService.findALLgainssBytypeAndDate(this.date, 'gains');
   }
+  get totalGains(): number {
+    return this.etatFinancierService.totalGains;
+  }
   findMoisAvant(){
     this.mois = this.mois -1;
     this.etatFinancierService.findAllGainsParMoisAndAnnee(this.mois, this.year);
@@ -45,6 +52,20 @@ export class ListesDesGainsComponent implements OnInit {
     this.etatFinancierService.findAllGainsParMoisAndAnnee(this.mois, this.year);
     console.log(this.mois, this.year);
   }
+  public confirm(id: number) {
+    console.log(id);
+    this.confirmationService.confirm({
+      message: 'Do you want to delete this record?',
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.etatFinancierService.deleteById(id);
+      },
+      reject: () => {
+      }
+    });
+  }
+
   findYearApres(){
     this.year = this.year + 1;
     this.etatFinancierService.findAllGainsParMoisAndAnnee(this.mois, this.year);

@@ -81,9 +81,10 @@
             <td *ngFor="let col of columns">
               {{rowData[col.field]}}
             </td>
-            <td><button class="btn btn-info btn-sm fa fa-trash" ></button>
+            <td>
+              <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+              <button class="btn btn-info btn-sm fa fa-trash" (click)="confirm(rowData.id)"></button>
               <button class="btn btn-danger btn-sm fa fa-edit" ></button>
-              <button class="btn btn-primary btn-sm fa fa-info" ></button>
             </td>
           </tr>
         </ng-template>
@@ -92,6 +93,9 @@
   </div>
 </div>
     </div>
+    <br>
+    <br>
+    <div class="card-footer">total: {{totaldespence}}</div>
   </mat-tab>
   <mat-tab label="LISTE DES GAINS " style="width: 25px" tabindex="2">
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">

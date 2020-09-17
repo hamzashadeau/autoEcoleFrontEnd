@@ -31,7 +31,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 
 /* Autres  */
-import {FileUploadModule, TableModule} from 'primeng';
+import {ConfirmDialogModule, FileUploadModule, TableModule} from 'primeng';
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule, NgxMatCalendar } from 'ngx-mat-datetime-picker';
 import {TabViewModule} from 'primeng/tabview';
 import {FieldsetModule} from 'primeng/fieldset';
@@ -90,46 +90,46 @@ import { AjoutUnClientsHeureAjouteComponent } from './hr-responsable-side/ajout-
     ListeDesClientsHeureAjouteComponent,
     AjoutUnClientsHeureAjouteComponent,
   ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatSidenavModule,
-    MatSelectModule,
-    MatSelectFilterModule,
-    MatFormFieldModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatIconModule,
-    MatBadgeModule
-    , MatButtonModule,
-    MatTreeModule,
-    MatProgressBarModule,
-    MatListModule,
-    MatNativeDateModule,
-    MatDialogModule,
-    ToastrModule.forRoot(),
-    ToastrModule,
-    MatTabsModule
-    , MatDividerModule
-    , MatTooltipModule,
-    MatExpansionModule, MatDatepickerModule,
-     FileUploadModule,
-     MatRadioModule,
-     MatCardModule,
-     TabViewModule,
-     FieldsetModule,
-     TableModule, MatStepperModule,
-    CardModule,
-ChartModule,
-  ],
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatSidenavModule,
+        MatSelectModule,
+        MatSelectFilterModule,
+        MatFormFieldModule,
+        MatMenuModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatInputModule,
+        MatCheckboxModule,
+        MatIconModule,
+        MatBadgeModule
+        , MatButtonModule,
+        MatTreeModule,
+        MatProgressBarModule,
+        MatListModule,
+        MatNativeDateModule,
+        MatDialogModule,
+        ToastrModule.forRoot(),
+        ToastrModule,
+        MatTabsModule
+        , MatDividerModule
+        , MatTooltipModule,
+        MatExpansionModule, MatDatepickerModule,
+        FileUploadModule,
+        MatRadioModule,
+        MatCardModule,
+        TabViewModule,
+        FieldsetModule,
+        TableModule, MatStepperModule,
+        CardModule,
+        ChartModule, ConfirmDialogModule,
+    ],
   providers: [
     {
       provide: MatDialogRef,

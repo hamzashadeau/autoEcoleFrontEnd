@@ -190,6 +190,7 @@ public uploadFile(form: FormData) {
             progressAnimation: 'increasing',
             positionClass: 'toast-top-right'
           });
+          this.findAll();
           console.log('ha data' + data);
           this.clientAjout = null;
         }
@@ -709,6 +710,16 @@ public genererCodeClient() {
     this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
       data => {
         this._nombreDeClientD = data.length;
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
+
+  public  deleteById(id: number) {
+    this.http.delete<number>('http://localhost:8080/autoEcole-Api/client/deleteById/' + id).subscribe(
+      data => {
+        this.findAll();
         console.log('sucess');
       }, eror => {
         console.log('eroro');

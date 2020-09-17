@@ -14,14 +14,11 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="controles-container">
-
                   <mat-form-field>
-                    <input matInput type="password" placeholder="Mot de passe Actuel*" /></mat-form-field>
+                    <input matInput type="password" placeholder="Mot de passe Actuel*" [(ngModel)]="utilisateu.oldpassword" [ngModelOptions]="{standalone: true}" /></mat-form-field>
                   <mat-form-field>
-                    <input matInput type="password" placeholder="Nouveau mot de passe*" >
+                    <input matInput type="password" placeholder="Nouveau mot de passe*" [(ngModel)]="utilisateu.modDePasse" [ngModelOptions]="{standalone: true}">
                   </mat-form-field>
-
-
                 </div>
               </div>
               <div class="col-md-6">
@@ -29,10 +26,8 @@
                   <mat-form-field>
                     <input matInput type="password" placeholder="Confirmation de mot de passe*" >
                   </mat-form-field>
-
-
                   <div class="button-row">
-                    <button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" > <i
+                    <button mat-raised-button color="primary" style="background-color: #3f8032" class="btn-block" (click)="modifierPassword()"> <i
                       class="fas fa-check-circle"></i> Changer les modifications</button>
                   </div>
                 </div>
@@ -55,7 +50,6 @@
         | <b>Action :</b>  {{h.description}}</p-card>
       <br>
    </div>
-
     </div>
     <div class="col-md-1"></div>
   </div>

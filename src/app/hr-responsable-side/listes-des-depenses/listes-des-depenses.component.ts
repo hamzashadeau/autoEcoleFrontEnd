@@ -4,16 +4,20 @@ import {EtatFinanciere} from "../../controller/model/etat-financiere.model";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {AjoutFournisseurComponent} from "../gestion-personnel/ajout-fournisseur.component";
 import {AjouterDesDespencesGainsComponent} from "../ajouter-des-despences/ajouter-des-despences-gains.component";
+import {ConfirmationService} from "primeng";
 
 @Component({
   selector: 'app-listes-des-depenses',
   templateUrl: './listes-des-depenses.component.html',
-  styleUrls: ['./listes-des-depenses.component.css']
+  styleUrls: ['./listes-des-depenses.component.css'],
+  providers: [ConfirmationService]
+
 })
 export class ListesDesDepensesComponent implements OnInit {
 
   constructor(private etatFinancierService: EtatFinanciereService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private confirmationService: ConfirmationService) { }
 mois: number;
   cols: any;
   date: Date;
@@ -30,6 +34,9 @@ mois: number;
       { field: 'monant', header: 'Montant' },
       { field: 'date', header: 'date' },
     ];
+  }
+  get totaldespence(): number {
+    return this.etatFinancierService.totaldespence;
   }
   findMoisAvant(){
     this.mois = this.mois -1;
@@ -55,6 +62,20 @@ mois: number;
   public demo1BtnClick(value: number) {
     this.demo1TabIndex = value ;
   }
+  public confirm(id: number) {
+    console.log(id);
+    this.confirmationService.confirm({
+      message: 'Do you want to delete this record?',
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.etatFinancierService.deleteById(id);
+      },
+      reject: () => {
+      }
+    });
+  }
+
   public ajouterUnDespences(){
     this.etatFinancierService.ajouterdespences();
     const dialogConfig = new MatDialogConfig();
