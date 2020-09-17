@@ -30,6 +30,8 @@ export class HRResponsableSideComponent implements OnInit {
   badge() {
     this.hideMatBadge = true;
   }
-
+seDeconnecter(){
+  localStorage.removeItem("login");
+}
 
 }

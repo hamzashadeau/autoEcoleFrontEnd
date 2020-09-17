@@ -3,14 +3,14 @@
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
       <mat-toolbar>
         <mat-toolbar-row>
-          <span class="span"> <i class="fas fa-arrow-down   "></i> Listes des despenses </span>
+          <span class="span"> <i class="fas fa-arrow-down   "></i> Liste des déspenses </span>
         </mat-toolbar-row>
       </mat-toolbar>
 
 <div class="container-fluid" style="padding-top: 10px;">
   <div class="row">
     <div class="col-md-12">
-      <p-table #dt [columns]="cols" [value]="listesDesDepenses" dataKey="cin" [paginator]="true" [rows]="5">
+      <p-table #dt [columns]="cols" [value]="listesDesDepenses" dataKey="cin" [paginator]="true" [rows]="10">
         <ng-template pTemplate="caption">
 
 
@@ -18,18 +18,18 @@
             <div class="row">
               <div class="col-md-7">
                 <button class="btn btn-add"style="background-color: white;color: black;float: left"
-                        matTooltip="Ce button permet de ajouter un employe" (click)="ajouterUnDespences()"
-                ><i class="fa fa-plus-circle" ></i>  Ajouter Une <strong>Depense</strong> </button>
+                        matTooltip="Ce button permet d'ajouter un dépense" (click)="ajouterUnDespences()"
+                ><i class="fa fa-plus-circle" ></i>  Ajouter Une <strong>Dépense</strong> </button>
               </div>
               <div class="col-md-2">   <button class="btn" mat-raised-button
-                                               matTooltip="Ce button permet de ajouter un employe"
+                                               matTooltip="Ce button permet d'afficher les dépenses de l'année précedante"
                                                (click)="findyearAvant()"
-              > <i class="fa fa-calendar-week"></i>   Year <strong>Avant</strong> </button>
+              > <i class="fa fa-calendar-week"></i>   Année <strong>Avant</strong> </button>
               </div>
               <div class="col-md-1">{{year}}</div>
               <div class="col-md-2"> <button class="btn" mat-raised-button
-                                             matTooltip="Ce button permet de ajouter un employe" (click)="findYearApres()"
-              > <i class="fa fa-calendar-week"></i>  Year <strong>Apres</strong> </button></div>
+                                             matTooltip="Ce button permet d'afficher les dépenses de l'année prochaine" (click)="findYearApres()"
+              > <i class="fa fa-calendar-week"></i>  Année <strong>Après</strong> </button></div>
             </div>
             <br>
             <div class="row" >
@@ -54,14 +54,14 @@
 
               </div>
               <div class="col-md-2">   <button class="btn" mat-raised-button
-                                               matTooltip="Ce button permet de ajouter un employe"
+                                               matTooltip="Ce button permet d'afficher les dépenses du mois précedante"
                                                (click)="findMoisAvant()"
               > <i class="fa fa-calendar-week"></i>   Mois <strong>Avant</strong> </button>
               </div>
               <div class="col-md-1"> {{mois}} </div>
               <div class="col-md-2"> <button class="btn" mat-raised-button
-                                             matTooltip="Ce button permet de ajouter un employe" (click)="findMoisApres()"
-              > <i class="fa fa-calendar-week"></i>  Mois <strong>Apres</strong> </button></div>
+                                             matTooltip="Ce button permet d'afficher les dépenses de du mois prochain" (click)="findMoisApres()"
+              > <i class="fa fa-calendar-week"></i>  Mois <strong>Après</strong> </button></div>
             </div>  </div>
 
         </ng-template>

@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <span class="span" id="span"> <i class="fas fa-user-plus    "></i>
- Ajouter Un Employe </span>
+ Formulaire pour ajouter un employé </span>
     <button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
       class="fas fa-window-close"></i></button>
   </mat-toolbar-row>
@@ -20,11 +20,11 @@
               </button>
             </div>
             <div class="col-md-8"><label id="lebel1">
-              pas de fichier selectionné!
+              Pas de fichier selectionné!
             </label></div>
           </div>
           <mat-form-field>
-            <input matInput placeholder="prenom FR*" [(ngModel)]="employeAjout.prenomFR" [ngModelOptions]="{standalone: true}" [value]="employeAjout.prenomFR">
+            <input matInput placeholder="prénom FR*" [(ngModel)]="employeAjout.prenomFR" [ngModelOptions]="{standalone: true}" [value]="employeAjout.prenomFR">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="nom FR*" [(ngModel)]="employeAjout.nomFR" [ngModelOptions]="{standalone: true}" [value]="employeAjout.nomFR">
@@ -42,7 +42,7 @@
             <input matInput placeholder="email" [(ngModel)]="employeAjout.email" [ngModelOptions]="{standalone: true}" [value]="employeAjout.email">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="salaire" [(ngModel)]="employeAjout.salaire" [ngModelOptions]="{standalone: true}" [value]="employeAjout.salaire">
+            <input matInput placeholder="Salaire" [(ngModel)]="employeAjout.salaire" [ngModelOptions]="{standalone: true}" [value]="employeAjout.salaire">
           </mat-form-field>
           <!-- Doti = "FSTG+CIN" -->
           <!-- <mat-form-field>
@@ -54,7 +54,7 @@
       <div class="col-md-6">
         <div class="controles-container">
           <mat-form-field>
-            <input matInput placeholder="prenom AR*" [(ngModel)]="employeAjout.prenomAR" [ngModelOptions]="{standalone: true}" [value]="employeAjout.prenomAR">
+            <input matInput placeholder="prénom AR*" [(ngModel)]="employeAjout.prenomAR" [ngModelOptions]="{standalone: true}" [value]="employeAjout.prenomAR">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="nom AR*" [(ngModel)]="employeAjout.nomAR" [ngModelOptions]="{standalone: true}" [value]="employeAjout.nomAR">
@@ -75,7 +75,7 @@
             <input matInput placeholder="Lieu de naissance : " [(ngModel)]="employeAjout.lieuNaissance" [ngModelOptions]="{standalone: true}" [value]="employeAjout.lieuNaissance">
           </mat-form-field>
           <mat-form-field>
-            <input matInput [matDatepicker]="picker14" placeholder="Date D'embauche"[(ngModel)]="employeAjout.dateEmbauche" [ngModelOptions]="{standalone: true}" [value]="employeAjout.dateEmbauche">
+            <input matInput [matDatepicker]="picker14" placeholder="Date d'embauche"[(ngModel)]="employeAjout.dateEmbauche" [ngModelOptions]="{standalone: true}" [value]="employeAjout.dateEmbauche">
             <mat-datepicker-toggle matSuffix [for]="picker14"></mat-datepicker-toggle>
             <mat-datepicker #picker14></mat-datepicker>
           </mat-form-field>

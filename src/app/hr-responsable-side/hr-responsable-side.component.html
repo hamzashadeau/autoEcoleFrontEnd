@@ -18,19 +18,19 @@
           <img
             src="../assets/images/driving-school/svg/009-driving school.svg"
             alt="Login Image"
-            height="40px"
+            height="50px"
           />
           <br/>
-          AUTO-ECOLE 2.0</span
+          AUTO-ECOLE TAMANSOURT </span
         >
       </mat-list-item>
       <mat-list-item
         [routerLink]="[{ outlets: { un: ['dash-board'] } }]" routerLinkActive="active"
         class="list2"
         role="listitem"
-        style="margin-top: 35px; margin-bottom: 4px;"
+        style="margin-top: 50px; margin-bottom: 4px;"
       >
-        <h6> <i class="fas fa-home  "></i> <span class="then"></span> Dashboard</h6>
+        <h6> <i class="fas fa-home  "></i> <span class="then"></span> Tableau de bord</h6>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item
@@ -38,7 +38,7 @@
         class="list2"
         role="listitem"
       >
-        <h6> <i class=" fas fa-users    "></i> <span class="then"></span> Employees</h6>
+        <h6> <i class=" fas fa-users    "></i> <span class="then"></span> Les employés</h6>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item
@@ -46,7 +46,7 @@
         class="list2"
         role="listitem"
       >
-        <h6> <i class="fas fa-users-cog "></i><span class="then"></span> Clients</h6>
+        <h6> <i class="fas fa-users-cog "></i><span class="then"></span> Les clients</h6>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item
@@ -54,7 +54,7 @@
         class="list2"
         role="listitem"
       >
-        <h6> <i class="fas fa-money-check-alt    "></i> <span class="then"></span> Etat Financiere</h6>
+        <h6> <i class="fas fa-money-check-alt    "></i> <span class="then"></span> L'état Financière</h6>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item
@@ -62,7 +62,7 @@
         class="list2"
         role="listitem"
       >
-        <h6> <i class="fas fa-calendar-alt    "></i> <span class="then"></span> Calendrier d Exam</h6>
+        <h6> <i class="fas fa-calendar-alt    "></i> <span class="then"></span> Calendrier d'examen</h6>
       </mat-list-item>
       <mat-divider></mat-divider>
       <!-- <mat-list-item
@@ -78,7 +78,7 @@
         class="list2"
         role="listitem"
       >
-        <h6 ><i class="fas fa-cogs "></i> <span class="then"></span> Settings</h6>
+        <h6 ><i class="fas fa-cogs "></i> <span class="then"></span> Paramètres</h6>
       </mat-list-item>
       <mat-divider></mat-divider>
       <br><br><br><br>
@@ -161,16 +161,16 @@
         <mat-menu #menu2="matMenu">
           <button mat-menu-item [routerLink]="[{ outlets: { un: ['settings'] } }]"
                   routerLinkActive="active">
-            <i class="fas fa-cog"></i> Settings
+            <i class="fas fa-cog"></i> Paramètres
           </button>
 
           <button mat-menu-item [routerLink]="[{ outlets: { un: ['profil'] } }]"
                   routerLinkActive="active">
-            <i class="fas fa-user-circle"></i> My profil
+            <i class="fas fa-user-circle"></i> Mon profile
           </button>
           <mat-divider></mat-divider>
-          <button mat-menu-item [routerLink]="['']" routerLinkActive="active">
-            <i class="fas fa-sign-out-alt"></i> Log out
+          <button mat-menu-item [routerLink]="['']" routerLinkActive="active" (click)="seDeconnecter()">
+            <i class="fas fa-sign-out-alt"></i> Se déconnecter
           </button>
           <!-- <button mat-menu-item>Autres</button> -->
         </mat-menu>

@@ -1,20 +1,20 @@
 <mat-tab-group mat-stretch-tabs  style="width: 100%;" (selectedIndexChange)="demo1BtnClick(tabindex)" [(selectedIndex)]="demo1TabIndex">
-  <mat-tab label="LISTE DES clients" style="width: 25px" tabindex="1">
+  <mat-tab label="LISTE DES CLIENTS" style="width: 25px" tabindex="1">
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
 <mat-toolbar>
   <mat-toolbar-row>
-    <span class="span"> <i class="fas fa-users   "></i> Listes des clients </span>
+    <span class="span"> <i class="fas fa-users   "></i> Liste des clients </span>
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container-fluid" style="padding-top: 10px;">
   <div class="row">
     <div class="col-md-12">
-      <p-table #dt [columns]="cols" [value]="client" dataKey="cin" [paginator]="true" [rows]="5">
+      <p-table #dt [columns]="cols" [value]="client" dataKey="cin" [paginator]="true" [rows]="15">
         <ng-template pTemplate="caption">
 <!--          Liste des clients-->
           <button class="btn btn-add"style="background-color: white;color: black;float: left"
-                  matTooltip="Ce button permet de ajouter un client" (click)="ajouterUnClient()"
-          ><i class="fa fa-plus" ></i>   Ajouter Un <strong>Client</strong> </button>
+                  matTooltip="Ce button permet d'ajouter un client" (click)="ajouterUnClient()"
+          ><i class="fa fa-plus" ></i>   Ajouter un <strong>client</strong> </button>
           <div style="text-align: right">
 
             <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
@@ -50,7 +50,7 @@
 </div>
     </div>
   </mat-tab>
-  <mat-tab label="LISTE DES clients qui ont ajouté des heures de conduite" style="width: 25px" tabindex="2">
+  <mat-tab label="LISTE DES CLIENTS AYANT AVOIR DES SCEANCES DE CONDUITE AJOUTE" style="width: 25px" tabindex="2">
     <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
       <app-liste-des-clients-heure-ajoute></app-liste-des-clients-heure-ajoute>
     </div>

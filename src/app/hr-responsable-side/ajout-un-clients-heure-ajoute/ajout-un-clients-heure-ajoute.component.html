@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <span class="span" id="span"> <i class="fas fa-user-plus    "></i>
- Ajouter Un Employe </span>
+ Ajouter un client</span>
     <button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
       class="fas fa-window-close"></i></button>
   </mat-toolbar-row>
@@ -12,7 +12,7 @@
       <div class="col-md-6">
         <div class="controles-container">
           <mat-form-field>
-            <input matInput placeholder="prenom FR*" [(ngModel)]="clientAjout.prenomFR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.prenomFR">
+            <input matInput placeholder="prénom FR*" [(ngModel)]="clientAjout.prenomFR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.prenomFR">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="nom FR*" [(ngModel)]="clientAjout.nomFR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.nomFR">
@@ -21,7 +21,7 @@
             <input matInput placeholder="Adresse FR*" [(ngModel)]="clientAjout.addresseFR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.addresseFR">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Cin *" [(ngModel)]="clientAjout.cin" [ngModelOptions]="{standalone: true}" [value]="clientAjout.cin">
+            <input matInput placeholder="CIN *" [(ngModel)]="clientAjout.cin" [ngModelOptions]="{standalone: true}" [value]="clientAjout.cin">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="Téléphone" [(ngModel)]="clientAjout.telephone" [ngModelOptions]="{standalone: true}" [value]="clientAjout.telephone">
@@ -30,7 +30,7 @@
             <input matInput placeholder="email" [(ngModel)]="clientAjout.email" [ngModelOptions]="{standalone: true}" [value]="clientAjout.email">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="permis" [(ngModel)]="clientAjout.permisDemande" [ngModelOptions]="{standalone: true}" [value]="clientAjout.permisDemande">
+            <input matInput placeholder="Permis *" [(ngModel)]="clientAjout.permisDemande" [ngModelOptions]="{standalone: true}" [value]="clientAjout.permisDemande">
           </mat-form-field>
           <!-- Doti = "FSTG+CIN" -->
           <!-- <mat-form-field>
@@ -42,7 +42,7 @@
       <div class="col-md-6">
         <div class="controles-container">
           <mat-form-field>
-            <input matInput placeholder="prenom AR*" [(ngModel)]="clientAjout.prenomAR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.prenomAR">
+            <input matInput placeholder="prénom AR*" [(ngModel)]="clientAjout.prenomAR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.prenomAR">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="nom AR*" [(ngModel)]="clientAjout.nomAR" [ngModelOptions]="{standalone: true}" [value]="clientAjout.nomAR">
@@ -55,15 +55,15 @@
             <input matInput placeholder="RIB de Bank " [(ngModel)]="employe.compteBancaireRib" [ngModelOptions]="{standalone: true}">
           </mat-form-field>-->
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Date "[(ngModel)]="clientAjout.date" [ngModelOptions]="{standalone: true}" [value]="clientAjout.date">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="clientAjout.date" [ngModelOptions]="{standalone: true}" [value]="clientAjout.date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="duree de la séance : " [(ngModel)]="clientAjout.duree" [ngModelOptions]="{standalone: true}" [value]="clientAjout.duree">
+            <input matInput placeholder="Durée de la séance : " [(ngModel)]="clientAjout.duree" [ngModelOptions]="{standalone: true}" [value]="clientAjout.duree">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="montant : " [(ngModel)]="clientAjout.montant" [ngModelOptions]="{standalone: true}" [value]="clientAjout.montant">
+            <input matInput placeholder="Montant : " [(ngModel)]="clientAjout.montant" [ngModelOptions]="{standalone: true}" [value]="clientAjout.montant">
           </mat-form-field>
 
           <!-- <mat-form-field> -->

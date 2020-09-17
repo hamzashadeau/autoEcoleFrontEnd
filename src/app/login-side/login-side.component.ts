@@ -75,7 +75,9 @@ mois: number;
     return this.utlisateurService.utilisateu;
   }
   login() {
-    this.utlisateurService.seConnecter(this.utilisateu.login, this.utilisateu.modDePasse);
+                this.router.navigateByUrl('RhResponsable');
+
+   // this.utlisateurService.seConnecter(this.utilisateu.login, this.utilisateu.modDePasse);
   }
 
 }

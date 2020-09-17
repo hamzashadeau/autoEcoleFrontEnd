@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <span class="span" id="span">
- Ajouter <i class="fa fa-arrow-down"></i> Un Deponse ou <i class="fa fa-arrow-up"></i> Gain </span>
+ Ajouter <i class="fa fa-arrow-down"></i> Un Déponse ou <i class="fa fa-arrow-up"></i> Gain </span>
     <button mat-raised-button color="warn" mat-dialog-close style="float: right;" matTooltip="Fermer le dialog"> <i
       class="fas fa-window-close"></i></button>
   </mat-toolbar-row>
@@ -12,10 +12,10 @@
       <div class="col-md-6">
         <div class="controles-container">
           <div class="add-bottom-padding">
-            <mat-label>type : </mat-label>
+            <mat-label>Type : </mat-label>
             <mat-radio-group [(ngModel)]="etatAjout.type" [ngModelOptions]="{standalone: true}">
-              <mat-radio-button value="despenses">despence</mat-radio-button>
-              <mat-radio-button value="gains">gains</mat-radio-button>
+              <mat-radio-button value="despenses">Dépence</mat-radio-button>
+              <mat-radio-button value="gains">Gain</mat-radio-button>
             </mat-radio-group>
           </div>
           <mat-form-field *ngIf="etatAjout.type === 'despenses'">
@@ -27,7 +27,7 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field id="nom">
-            <input matInput placeholder="nom*" [(ngModel)]="etatAjout.nom " [ngModelOptions]="{standalone: true}">
+            <input matInput placeholder="Nom*" [(ngModel)]="etatAjout.nom " [ngModelOptions]="{standalone: true}">
           </mat-form-field>
 
           <!-- Doti = "FSTG+CIN" -->
@@ -40,14 +40,14 @@
       <div class="col-md-6">
         <div class="controles-container">
           <mat-form-field>
-            <input matInput placeholder="montant*" [(ngModel)]="etatAjout.monant" [ngModelOptions]="{standalone: true}">
+            <input matInput placeholder="Montant*" [(ngModel)]="etatAjout.monant" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <!--
           <mat-form-field>
             <input matInput placeholder="RIB de Bank " [(ngModel)]="employe.compteBancaireRib" [ngModelOptions]="{standalone: true}">
           </mat-form-field>-->
           <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Date"[(ngModel)]="etatAjout.date" [ngModelOptions]="{standalone: true}">
+            <input matInput [matDatepicker]="picker" [(ngModel)]="etatAjout.date" [ngModelOptions]="{standalone: true}">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>

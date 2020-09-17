@@ -41,3 +41,8 @@ mat-sidenav {
 .then {
   padding-left: 15px;
 }
+/*Hnaya ila ma3jbkch le noir , dirru white -> */
+h6{
+  font-weight: bold;
+  color:#121213 ;
+}

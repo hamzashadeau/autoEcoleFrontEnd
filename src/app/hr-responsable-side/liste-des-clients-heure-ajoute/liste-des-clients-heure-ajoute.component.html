@@ -1,17 +1,17 @@
 <mat-toolbar>
   <mat-toolbar-row>
-    <span class="span"> <i class="fas fa-users   "></i> Listes des clients Ayant avoir des séeance de conduite Ajouté </span>
+    <span class="span"> <i class="fas fa-users   "></i> Liste des clients qui ont ajouté des heures de conduite </span>
   </mat-toolbar-row>
 </mat-toolbar>
 <div class="container-fluid" style="padding-top: 10px;">
   <div class="row">
     <div class="col-md-12">
-      <p-table #dt [columns]="cols" [value]="client" dataKey="cin" [paginator]="true" [rows]="5">
+      <p-table #dt [columns]="cols" [value]="client" dataKey="cin" [paginator]="true" [rows]="10">
         <ng-template pTemplate="caption">
           <button class="btn btn-add"style="background-color: white;color: black;float: left"
-                  matTooltip="Ce button permet de ajouter un client" (click)="ajouterUnClient()"
-          ><i class="fa fa-plus-circle" ></i>   Ajouter Un <strong>Client</strong> </button>
-          <div class="container-fluid"style="text-align: center">
+                  matTooltip="Ce button permet d'ajouter un client" (click)="ajouterUnClient()"
+          ><i class="fa fa-plus-circle" ></i>   Ajouter un <strong>client</strong> </button>
+          <!-- <div class="container-fluid"style="text-align: center">
             <div class="row" >
               <div class="col-md-4"></div>
               <div class="col-md-2">   <button class="btn"style="background-color: white;color: black;float: left"
@@ -25,12 +25,13 @@
               <div class="col-md-2"> <button class="btn"style="background-color: white;color: black;float: left"
                                              matTooltip="Ce button permet de chercher un client" (click)="findMoisApres()"
               > <i class="fa fa-calendar-week"></i>  Jour <strong>Apres</strong> </button></div>
-            </div>  </div>
-          <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
-          <input type="text" pInputText size="50" placeholder="Chercher ..."
-                 (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>  </div> -->
+                 <div style="text-align: right">
 
-
+                  <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+                  <input type="text" pInputText size="50" placeholder="Chercher par CIN ou Nom"
+                         (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+                </div>
 
 
           <!--            <i class="pi pi-search" style="margin:4px 4px 0 0"></i>-->
@@ -68,13 +69,13 @@
                 <div class="ui-g-12 ui-md-9" >
                   <div class="ui-g">
                     <div class="ui-g-4">
-                      <b>date de la séance :</b> {{rowData.date}}
+                      <b>Date de la séance :</b> {{rowData.date}}
                     </div>
                     <div class="ui-g-4">
-                      <b>durée de la séance :</b> {{rowData.duree}}
+                      <b>Durée de la séance :</b> {{rowData.duree}}
                     </div>
                     <div class="ui-g-4" >
-                      <b>montant :</b> {{rowData.montant}}
+                      <b>Montant :</b> {{rowData.montant}}
                     </div>
                   </div>
                 </div>

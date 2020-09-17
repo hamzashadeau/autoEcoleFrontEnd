@@ -28,10 +28,10 @@
           <h5>Nom AR: {{infoEmploye.nomAR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Prenom FR:{{infoEmploye.prenomFR}}</h5>
+          <h5>Prénom FR:{{infoEmploye.prenomFR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>Prenom AR:{{infoEmploye.prenomAR}}</h5>
+          <h5>Prénom AR:{{infoEmploye.prenomAR}}</h5>
         </div>
         <div class="col-md-6">
           <h5>Adresse FR:{{infoEmploye.addresseFR}}</h5>
@@ -40,16 +40,16 @@
           <h5>Adresse AR:{{infoEmploye.adresseAR}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>cin : {{infoEmploye.cin}}</h5>
+          <h5>CIN : {{infoEmploye.cin}}</h5>
         </div>
         <div class="col-md-6">
           <h5>Sexe : {{infoEmploye.gender}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>date de naissance :{{infoEmploye.dateNaissance}}</h5>
+          <h5>Date de naissance :{{infoEmploye.dateNaissance}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>lieu de naissance :{{infoEmploye.lieuNaissance}}</h5>
+          <h5>Lieu de naissance :{{infoEmploye.lieuNaissance}}</h5>
         </div>
         <div class="col-md-6">
           <h5>email :{{infoEmploye.email}}</h5>
@@ -58,20 +58,20 @@
           <h5>telephone :{{infoEmploye.telephone}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>situationFamiliale :{{infoEmploye.situationFamiliale}}</h5>
+          <h5>Situation Familiale :{{infoEmploye.situationFamiliale}}</h5>
         </div>
         <div class="col-md-6" *ngIf="infoEmploye.situationFamiliale=='Marie'">
-          <h5>nombre d'enfant :{{infoEmploye.nbrEnfant}}</h5>
+          <h5>Nombre d'enfant :{{infoEmploye.nbrEnfant}}</h5>
         </div>
         <div class="col-md-6">
-          <h5>date d'embauche :{{infoEmploye.dateEmbauche}}</h5>
+          <h5>Date d'embauche :{{infoEmploye.dateEmbauche}}</h5>
         </div>
       </div>
     </div>
   </p-tabPanel>
   <p-tabPanel>
     <ng-template pTemplate="header">
-      <i class="fas fa-money-check-alt"></i> Info sur l avance sur le
+      <i class="fas fa-money-check-alt"></i> Info sur l'avance du
       salaire</ng-template
     >
     <h6 style="text-align: center">Le mois : {{mois}}</h6>
@@ -93,7 +93,7 @@
           <mat-toolbar>
             <mat-toolbar-row>
         <span class="span" id="span">
-          <i class="fas fa-plus-square"></i> Affecter un avancement a un employe
+          <i class="fas fa-plus-square"></i> Affecter un avance à un employé
         </span>
             </mat-toolbar-row>
           </mat-toolbar>
@@ -103,7 +103,7 @@
                 <div class="col-md-6">
                   <div class="controles-container">
                     <mat-form-field>
-                      <input matInput type="number" placeholder="Prix d avance *" [(ngModel)]="avancementAjoute.monatant" [ngModelOptions]="{standalone: true}" />
+                      <input matInput type="number" placeholder="Prix d'avance *" [(ngModel)]="avancementAjoute.monatant" [ngModelOptions]="{standalone: true}" />
                     </mat-form-field>
                   </div>
                 </div>
@@ -113,7 +113,7 @@
                       <input
                         matInput
                         [matDatepicker]="picker5"
-                        placeholder="Date D'avance" [(ngModel)]="avancementAjoute.date" [ngModelOptions]="{standalone: true}"
+                        placeholder="Date d'avance" [(ngModel)]="avancementAjoute.date" [ngModelOptions]="{standalone: true}"
                       />
                       <mat-datepicker-toggle
                         matSuffix
@@ -140,7 +140,7 @@
         <div class="col-md-6">
           <p-table #dt [columns]="cols" [value]="paimentEmploye" dataKey="cin" [paginator]="true" [rows]="5">
             <ng-template pTemplate="caption">
-              Liste des avancement de mois:{{this.mois}}
+              Liste des avance de mois : {{this.mois}}
             </ng-template>
             <ng-template pTemplate="header" let-columns>
               <tr>
