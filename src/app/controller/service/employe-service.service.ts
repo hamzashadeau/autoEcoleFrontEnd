@@ -207,4 +207,12 @@ private _montantRest: number;
         console.log('eroro');
       });
   }
+  public  deleteById(id: number) {
+    this.http.delete<number>('http://localhost:8080/autoEcole-Api/Employe/deleteById/' + id).subscribe(
+      data => {
+        console.log('sucess');
+      }, eror => {
+        console.log('eroro');
+      });
+  }
 }
