@@ -159,7 +159,7 @@ export class clientService {
   private _heureConduiteAjout: HeureConduite;
   private _paimentClientAjout: PaimentDeClient;
 public uploadFile(form: FormData) {
-  this.http.post<number>('http://localhost:8080/autoEcole-Api/client/uploadFile' , form).subscribe(
+  this.http.post<number>(this.url+'uploadFile' , form).subscribe(
     data => {
       if (data != null ) {
         console.log('ha data' + data);
@@ -181,7 +181,7 @@ public uploadFile(form: FormData) {
       //);
   }
   public save() {
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/client/save' , this.clientAjout).subscribe(
+    this.http.post<number>(this.url+'save' , this.clientAjout).subscribe(
       data => {
         if (data != null ) {
           this.toast.success(`client est bien sauvgarder`, 'client sauvgarder', {
@@ -200,7 +200,7 @@ public uploadFile(form: FormData) {
   }
 
   public edit(cli: client) {
-  this.http.post<number>('http://localhost:8080/autoEcole-Api/client/edit' , cli).subscribe(
+  this.http.post<number>(this.url + 'edit' , cli).subscribe(
     data => {
       if (data == 1 ) {
         this.toast.info(`client est bien modified`, 'employe modified', {
@@ -276,7 +276,7 @@ public genererCodeClient() {
   }
 
   public exportInformationDuDemandeur(cin: string) {
-    this.http.get('http://localhost:8080/autoEcole-Api/client/exportInformationDuDemandeur/cin/' + cin , {
+    this.http.get(this.url+'exportInformationDuDemandeur/cin/' + cin , {
       responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
   }
   downLoad(data: any, type: string) {
@@ -288,15 +288,15 @@ public genererCodeClient() {
     }
   }
   public exportContrat(cin: string) {
-    this.http.get('http://localhost:8080/autoEcole-Api/client/exportContrat/cin/' + cin , {
+    this.http.get(this.url +'exportContrat/cin/' + cin , {
       responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
   }
   public exportAttestationdeformation(cin: string) {
-    this.http.get('http://localhost:8080/autoEcole-Api/client/exportAttestationdeformation/cin/' + cin , {
+    this.http.get(this.url+'exportAttestationdeformation/cin/' + cin , {
       responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
   }
   public exportcertificatMedicalAptitud(cin: string) {
-    this.http.get('http://localhost:8080/autoEcole-Api/client/exportcertificatMedicalAptitud/cin/' + cin , {
+    this.http.get(this.url+'exportcertificatMedicalAptitud/cin/' + cin , {
       responseType : 'arraybuffer'}).subscribe(response => this.downLoad(response, 'application/pdf'));
   }
 
@@ -311,7 +311,7 @@ public genererCodeClient() {
       });
   }
   public refreshClientInfo(id: number) {
-    this.http.get<client>('http://localhost:8080/autoEcole-Api/client/findById/' + id).subscribe(
+    this.http.get<client>(this.url+'findById/' + id).subscribe(
       data => {
         if (data != null ) {
           this.clientInfo = data;
@@ -321,9 +321,9 @@ public genererCodeClient() {
         console.log('eroro');
       });
   }
-
+url1 = 'http://localhost:8080/autoEcole-Api/paimentDeClient/';
   public findBYCinClient(cin: string) {
-    this.http.get<Array<PaimentDeClient>>('http://localhost:8080/autoEcole-Api/paimentDeClient/findByclientCin/' + cin).subscribe(
+    this.http.get<Array<PaimentDeClient>>(this.url1+'findByclientCin/' + cin).subscribe(
       data => {
         if (data != null ) {
           this.paimentsClient = data;
@@ -333,9 +333,9 @@ public genererCodeClient() {
         console.log('eroro');
       });
   }
-
+url2 = 'http://localhost:8080/autoEcole-Api/heureConduite/';
   public findBYHeureConduiteCinClient(cin: string) {
-    this.http.get<Array<HeureConduite>>('http://localhost:8080/autoEcole-Api/heureConduite/findByClientCin/' + cin).subscribe(
+    this.http.get<Array<HeureConduite>>(this.url2+'findByClientCin/' + cin).subscribe(
       data => {
         if (data != null ) {
           this.heureConduites = data;
@@ -347,7 +347,7 @@ public genererCodeClient() {
   }
   public saveHeureConduite() {
   this.heureConduiteAjout.client = this.clientInfo;
-  this.http.post<number>('http://localhost:8080/autoEcole-Api/heureConduite/save' , this.heureConduiteAjout).subscribe(
+  this.http.post<number>(this.url2+'save' , this.heureConduiteAjout).subscribe(
       data => {
         if (data != null ) {
           this.toast.info(`heure conduite de client est bien sauvgarder`, 'heure conduite sauvgarder', {
@@ -366,7 +366,7 @@ public genererCodeClient() {
   }
   public savePaimentClient() {
   this.paimentClientAjout.client = this.clientInfo;
-  this.http.post<number>('http://localhost:8080/autoEcole-Api/paimentDeClient/save' , this.paimentClientAjout).subscribe(
+  this.http.post<number>(this.url+'save' , this.paimentClientAjout).subscribe(
       data => {
         if (data != null ) {
           this.toast.success(`paiment client est bien sauvgarder`, 'paiment client sauvgarder', {
@@ -410,7 +410,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois1AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient1 = data.length;
         console.log('sucess');
@@ -430,7 +430,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois2AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient2 = data.length;
         console.log('sucess');
@@ -450,7 +450,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois3AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient3 = data.length;
         console.log('sucess');
@@ -470,7 +470,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois4AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient4 = data.length;
         console.log('sucess');
@@ -490,7 +490,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois5AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient5 = data.length;
         console.log('sucess');
@@ -510,7 +510,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois6AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient6 = data.length;
         console.log('sucess');
@@ -530,7 +530,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois7AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient7 = data.length;
         console.log('sucess');
@@ -550,7 +550,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois8AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient8 = data.length;
         console.log('sucess');
@@ -570,7 +570,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois9AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient9 = data.length;
         console.log('sucess');
@@ -590,7 +590,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois10AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url +'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient10 = data.length;
         console.log('sucess');
@@ -609,7 +609,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois11AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient11 = data.length;
         console.log('sucess');
@@ -629,7 +629,7 @@ public genererCodeClient() {
   }
 
   public  findAllClientsParMois12AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<client>>(this.url+'findAllClientsBymoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDeClient12 = data.length;
         console.log('sucess');
@@ -650,7 +650,7 @@ public genererCodeClient() {
   }
 
   public  findByPermisDemandeA(type: string) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+    this.http.get<Array<client>>(this.url+'findByPermisDemande/permisDemande/' + type).subscribe(
       data => {
         this._nombreDeClientA = data.length;
         console.log('sucess');
@@ -669,7 +669,7 @@ public genererCodeClient() {
   }
 
   public  findByPermisDemandeB(type: string) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+    this.http.get<Array<client>>(this.url+'findByPermisDemande/permisDemande/' + type).subscribe(
       data => {
         this._nombreDeClientB = data.length;
         console.log('sucess');
@@ -688,7 +688,7 @@ public genererCodeClient() {
   }
 
   public  findByPermisDemandeC(type: string) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+    this.http.get<Array<client>>(this.url+'findByPermisDemande/permisDemande/' + type).subscribe(
       data => {
         this._nombreDeClientC = data.length;
         console.log('sucess');
@@ -707,7 +707,7 @@ public genererCodeClient() {
   }
 
   public  findByPermisDemandeD(type: string) {
-    this.http.get<Array<client>>('http://localhost:8080/autoEcole-Api/client/findByPermisDemande/permisDemande/' + type).subscribe(
+    this.http.get<Array<client>>(this.url+'findByPermisDemande/permisDemande/' + type).subscribe(
       data => {
         this._nombreDeClientD = data.length;
         console.log('sucess');
@@ -717,7 +717,7 @@ public genererCodeClient() {
   }
 
   public  deleteById(id: number) {
-    this.http.delete<number>('http://localhost:8080/autoEcole-Api/client/deleteById/' + id).subscribe(
+    this.http.delete<number>(this.url+'deleteById/' + id).subscribe(
       data => {
         this.findAll();
         console.log('sucess');
