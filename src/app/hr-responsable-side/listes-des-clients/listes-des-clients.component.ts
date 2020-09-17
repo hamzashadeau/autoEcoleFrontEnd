@@ -8,17 +8,20 @@ import {client} from '../../controller/model/client.model';
 import {AjouterClientComponent} from "../absence-et-conge/ajouter-client/ajouter-client.component";
 import {ClientDetailComponent} from "./client-detail/client-detail.component";
 import {AbsenceEtCongeComponent} from "../absence-et-conge/absence-et-conge.component";
+import {ConfirmationService} from "primeng";
 
 @Component({
   selector: 'app-listes-des-clients',
   templateUrl: './listes-des-clients.component.html',
-  styleUrls: ['./listes-des-clients.component.css']
+  styleUrls: ['./listes-des-clients.component.css'],
+  providers: [ConfirmationService]
 })
 export class ListesDesClientsComponent implements OnInit {
 
   constructor(private employeService: EmployeServiceService,
               private clientService: clientService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private confirmationService: ConfirmationService) { }
   private _motif: string;
 
   get motif(): string {
@@ -27,6 +30,19 @@ export class ListesDesClientsComponent implements OnInit {
 
   set motif(value: string) {
     this._motif = value;
+  }
+  public confirm(id: number) {
+    console.log(id);
+    this.confirmationService.confirm({
+      message: 'Do you want to delete this record?',
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+        this.clientService.deleteById(id);
+      },
+      reject: () => {
+      }
+    });
   }
   cols: any;
   ngOnInit() {

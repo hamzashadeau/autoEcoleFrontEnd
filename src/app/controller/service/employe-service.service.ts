@@ -32,6 +32,7 @@ public save(){
           progressAnimation: 'increasing',
           positionClass: 'toast-top-right'
         });
+        this.findAll();
         console.log('ha data' + data);
         this.employeAjout = null;
       }
@@ -210,6 +211,7 @@ private _montantRest: number;
   public  deleteById(id: number) {
     this.http.delete<number>('http://localhost:8080/autoEcole-Api/Employe/deleteById/' + id).subscribe(
       data => {
+        this.findAll();
         console.log('sucess');
       }, eror => {
         console.log('eroro');

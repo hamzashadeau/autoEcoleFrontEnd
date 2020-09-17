@@ -38,7 +38,9 @@
             <td *ngFor="let col of columns" (click)="modifierUnClient(rowData)">
               {{rowData[col.field]}}
             </td>
-            <td><button class="btn btn-custom btn-danger btn-sm fa fa-trash" ></button>
+            <td>
+            <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
+            <button class="btn btn-custom btn-danger btn-sm fa fa-trash" (click)="confirm(rowData.id)" ></button>
               <button class="btn btn-custom btn-secondary btn-sm fa fa-edit" ></button>
               <button class="btn btn-custom btn-info btn-sm fa fa-info" (click)="InfoClient(rowData)"></button>
             </td>

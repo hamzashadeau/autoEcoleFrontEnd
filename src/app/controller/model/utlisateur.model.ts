@@ -5,6 +5,7 @@ export class Utlisateur {
   employe: Employe;
   login: string;
   modDePasse: string;
+  oldpassword: string;
   bloqued: boolean;
   nbrTentatifRestant: number;
   dateBloquage: Date;
