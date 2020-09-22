@@ -3,12 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Route, Router} from '@angular/router';
 import { fournisseur } from '../model/fournisseur.model';
 import { reserver } from '../model/reserver.model';
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class reservationService {
   url = 'http://localhost/confer/Admin/';
+  urlprod = environment.Url + 'autoEcole-Api/historiqueApplication/findAll';
 
   private _reservation: Array<reserver>;
   private _reservationSearch: reserver;

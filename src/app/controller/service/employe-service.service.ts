@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {Employe} from '../model/employe.model';
 import {PaimentDeEmploye} from "../model/paiment-de-employe.model";
 import {ToastrService} from "ngx-toastr";
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class EmployeServiceService {
   private _employeAjout: Employe;
   private _ajoutEmp: string;
   private _infoEmploye: Employe;
+  urlprod = environment.Url;
 
   public conpierInfoEmploye(emp: Employe){
     this.base64Data = emp.image;
@@ -23,7 +25,7 @@ export class EmployeServiceService {
     this.infoEmploye = emp;
   }
 public save(){
-  this.http.post<number>('http://localhost:8080/autoEcole-Api/Employe/save' , this.employeAjout).subscribe(
+  this.http.post<number>(this.urlprod + 'autoEcole-Api/Employe/save' , this.employeAjout).subscribe(
     data => {
       if (data != null ) {
         this.toast.success(` employe est bien sauvgarder`, 'employe sauvgarder', {
@@ -55,7 +57,7 @@ private _avancementAjoute: PaimentDeEmploye;
 
   public saveAvancement(){
     this.avancementAjoute.employe = this.infoEmploye;
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/paimentDeEmploye/save' , this.avancementAjoute).subscribe(
+    this.http.post<number>(this.urlprod +'autoEcole-Api/paimentDeEmploye/save' , this.avancementAjoute).subscribe(
       data => {
         if (data != null ) {
           this.toast.success(` Avancement employe est bien sauvgarder`, 'avancement sauvgarder', {
@@ -74,7 +76,7 @@ private _avancementAjoute: PaimentDeEmploye;
   }
 
   public uploadFile(form: FormData) {
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/Employe/uploadFile' , form).subscribe(
+    this.http.post<number>(this.urlprod+'autoEcole-Api/Employe/uploadFile' , form).subscribe(
       data => {
         if (data != null ) {
           console.log('ha data' + data);
@@ -84,7 +86,7 @@ private _avancementAjoute: PaimentDeEmploye;
       });
   }
   public edit(){
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/Employe/edit' , this.employeAjout).subscribe(
+    this.http.post<number>(this.urlprod +'autoEcole-Api/Employe/edit' , this.employeAjout).subscribe(
       data => {
         if (data != null ) {
           this.toast.info(` employe est bien modified`, 'employe modified', {
@@ -158,7 +160,7 @@ private _avancementAjoute: PaimentDeEmploye;
   }
 
   public  findAll() {
-    this.http.get<Array<Employe>>('http://localhost:8080/autoEcole-Api/Employe/findAll').subscribe(
+    this.http.get<Array<Employe>>(this.urlprod + 'autoEcole-Api/Employe/findAll').subscribe(
       data => {
         this.employes = data;
         console.log('sucess');
@@ -193,7 +195,7 @@ private _montantRest: number;
   }
 
   public  findpaimentEmployeByCInAndMois(cin: string, mois: number) {
-    this.http.get<Array<PaimentDeEmploye>>('http://localhost:8080/autoEcole-Api/paimentDeEmploye/findByEmployeCinAndMois/cin/' + cin + '/mois/' + mois).subscribe(
+    this.http.get<Array<PaimentDeEmploye>>(this.urlprod+'autoEcole-Api/paimentDeEmploye/findByEmployeCinAndMois/cin/' + cin + '/mois/' + mois).subscribe(
       data => {
         this.montantRest = 0;
         this.paimentEmploye = data;
@@ -209,7 +211,7 @@ private _montantRest: number;
       });
   }
   public  deleteById(id: number) {
-    this.http.delete<number>('http://localhost:8080/autoEcole-Api/Employe/deleteById/' + id).subscribe(
+    this.http.delete<number>(this.urlprod +'autoEcole-Api/Employe/deleteById/' + id).subscribe(
       data => {
         this.findAll();
         console.log('sucess');

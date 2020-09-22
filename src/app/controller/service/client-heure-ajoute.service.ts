@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {ClientHeureAjoute} from "../model/client-heure-ajoute.model";
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ClientHeureAjouteService {
               private router: Router,
               private toast: ToastrService
   ) { }
-
+  urlprod = environment.Url;
   private _clients: Array<ClientHeureAjoute>;
   private _clientAjout: ClientHeureAjoute;
   private _clientInfo: ClientHeureAjoute;
@@ -49,12 +50,12 @@ export class ClientHeureAjouteService {
     }
     return this._clientInfo;
   }
-
   set clientInfo(value: ClientHeureAjoute) {
     this._clientInfo = value;
   }
+
   public edit(cli: ClientHeureAjoute) {
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/edit' , cli).subscribe(
+    this.http.post<number>(this.urlprod + 'autoEcole-Api/ClientHeureAjoute/edit' , cli).subscribe(
       data => {
         if (data === 1 ) {
           this.toast.info(`client est bien modified`, 'employe modified', {
@@ -71,7 +72,7 @@ export class ClientHeureAjouteService {
       });
   }
   public save() {
-    this.http.post<number>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/save' , this.clientAjout).subscribe(
+    this.http.post<number>(this.urlprod +'autoEcole-Api/ClientHeureAjoute/save' , this.clientAjout).subscribe(
       data => {
         if (data === 1 ) {
           this.toast.success(`client est bien modified`, 'employe modified', {
@@ -90,7 +91,7 @@ export class ClientHeureAjouteService {
   }
 
   public findAll() {
-    this.http.get<Array<ClientHeureAjoute>>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/findAll').subscribe(
+    this.http.get<Array<ClientHeureAjoute>>(this.urlprod + 'autoEcole-Api/ClientHeureAjoute/findAll').subscribe(
       data => {
         if (data != null ) {
           this.clients = data;
@@ -108,7 +109,7 @@ export class ClientHeureAjouteService {
     this.clientAjout = cli;
   }
   public findAujourdHui() {
-    this.http.get<Array<ClientHeureAjoute>>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/findByDateAujourdHui').subscribe(
+    this.http.get<Array<ClientHeureAjoute>>(this.urlprod + 'autoEcole-Api/ClientHeureAjoute/findByDateAujourdHui').subscribe(
       data => {
         if (data != null ) {
           this.clients = data;
@@ -119,7 +120,7 @@ export class ClientHeureAjouteService {
       });
   }
   public findBydate(date: Date) {
-    this.http.get<Array<ClientHeureAjoute>>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/findByDate/date/'+ date).subscribe(
+    this.http.get<Array<ClientHeureAjoute>>(this.urlprod+'autoEcole-Api/ClientHeureAjoute/findByDate/date/'+ date).subscribe(
       data => {
         if (data != null ) {
           this.clients = data;
@@ -130,7 +131,7 @@ export class ClientHeureAjouteService {
       });
   }
   public findDayNext() {
-    this.http.get<Array<ClientHeureAjoute>>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/findByDateSuivant').subscribe(
+    this.http.get<Array<ClientHeureAjoute>>( this.urlprod +'autoEcole-Api/ClientHeureAjoute/findByDateSuivant').subscribe(
       data => {
         if (data != null ) {
           this.clients = data;
@@ -141,7 +142,7 @@ export class ClientHeureAjouteService {
       });
   }
   public findDayPrevious() {
-    this.http.get<Array<ClientHeureAjoute>>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/findByDateAvant').subscribe(
+    this.http.get<Array<ClientHeureAjoute>>(this.urlprod+'autoEcole-Api/ClientHeureAjoute/findByDateAvant').subscribe(
       data => {
         if (data != null ) {
           this.clients = data;
@@ -152,7 +153,7 @@ export class ClientHeureAjouteService {
       });
   }
   public  deleteById(id: number) {
-    this.http.delete<number>('http://localhost:8080/autoEcole-Api/ClientHeureAjoute/deleteById/' + id).subscribe(
+    this.http.delete<number>(this.urlprod+'autoEcole-Api/ClientHeureAjoute/deleteById/' + id).subscribe(
       data => {
         console.log('sucess');
       }, eror => {

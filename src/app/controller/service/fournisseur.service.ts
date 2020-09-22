@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Route, Router} from '@angular/router';
 import { fournisseur } from '../model/fournisseur.model';
 import { reserver } from '../model/reserver.model';
 import { client } from '../model/client.model';
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FournisseurService {
+  urlprod = environment.Url;
   private _fournisseur: Array<fournisseur>;
   private _fournisseurSearch: fournisseur;
   private _fournisseurFound: Array<fournisseur>;
   private _fournisseurAjout: fournisseur;
   constructor(private http: HttpClient,
               private router: Router) { }
-
+  private  options = {
+    headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+  };
 url = 'http://localhost/confer/Admin/';
   public findAll() {
     this.http.get<Array<fournisseur>>(this.url+'findAllFournisseur').subscribe(
@@ -25,9 +29,9 @@ url = 'http://localhost/confer/Admin/';
           this.fournisseur = data;
           console.log('ha fournisseur'+ this._fournisseur);
           this._fournisseur.forEach(forni =>{
-            console.log(forni.ADR_FRS);  
+            console.log(forni.ADR_FRS);
             console.log(forni.CATEGORIE_FRS);
-            console.log(forni.NOM_FRS);     
+            console.log(forni.NOM_FRS);
           });
           console.log('ha data' + data);
         }

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
 import {HistoriqueApp} from '../model/historique-app.model';
 import {EtatFinanciere} from '../model/etat-financiere.model';
+import {environment} from "../../../environments/environment.prod";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,10 @@ export class HistoriqueApplicationService {
               private router: Router,
               private toast: ToastrService
   ) { }
+  private  options = {
+    headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+  }
+  urlprod = environment.Url + 'autoEcole-Api/historiqueApplication/findAll';
   private url= 'http://localhost:8080/autoEcole-Api/historiqueApplication/findAll';
   private _historiqueList : Array<HistoriqueApp> ;
 
@@ -30,7 +35,7 @@ export class HistoriqueApplicationService {
   }
 
   public  findAllHistoriques() {
-    this.http.get<Array<HistoriqueApp>>(this.url).subscribe(
+    this.http.get<Array<HistoriqueApp>>(this.urlprod).subscribe(
       data => {
         this.historiqueList = data;
         console.log('sucess Historique');

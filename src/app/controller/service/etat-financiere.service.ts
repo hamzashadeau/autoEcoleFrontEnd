@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {EtatFinanciere} from '../model/etat-financiere.model';
 import {Employe} from '../model/employe.model';
 import {client} from '../model/client.model';
 import {ToastrService} from 'ngx-toastr';
+import {environment} from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EtatFinanciereService {
+  urlprod = environment.Url;
 
   constructor(private http: HttpClient,
               private toast: ToastrService) { }
@@ -262,6 +264,9 @@ export class EtatFinanciereService {
   private _listesDesGains: Array<EtatFinanciere>;
   private _etatAjout: EtatFinanciere;
 mois: number;
+  private  options = {
+    headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+  };
   private _totalGains: number;
 private _totaldespence: number;
   // nobmre de gains par mois statistique
@@ -312,7 +317,7 @@ public ajouterdespences() {
   this.etatAjout.type = 'despenses';
 }
 public save() {
-  this.http.post<number>('http://localhost:8080/autoEcole-Api/EtatFinanciere/save' , this.etatAjout).subscribe(
+  this.http.post<number>(this.urlprod + 'autoEcole-Api/EtatFinanciere/save' , this.etatAjout).subscribe(
     data => {
       if (data != null ) {
         if (this.etatAjout.type === 'gains') {
@@ -347,7 +352,7 @@ public save() {
 
   public  findAllGainsParMois(mois: number) {
   this.totalGains = 0.0,
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmois/' + mois).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmois/' + mois).subscribe(
       data => {
         this.listesDesGains = data;
         this.listesDesGains.forEach(liste => {
@@ -361,7 +366,7 @@ public save() {
 
   public  findAllDepensesParMois(mois: number) {
   this.totaldespence = 0.0;
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmois/' + mois).subscribe(
+  this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmois/' + mois).subscribe(
       data => {
         this.listesDesDepenses = data;
         this.listesDesDepenses.forEach(liste => {
@@ -373,7 +378,7 @@ public save() {
       });
   }
   public  findByDate(date: Date) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findByDate/' + date).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findByDate/' + date).subscribe(
       data => {
         this.listesDesDepenses = data;
         console.log('sucess');
@@ -382,7 +387,7 @@ public save() {
       });
   }
   public  findALLdespencesBytypeAndDate(date: Date, type: string) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findByTypeAndDate/type/' + type + '/date/' + date).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findByTypeAndDate/type/' + type + '/date/' + date).subscribe(
       data => {
         this.listesDesDepenses = data;
         console.log('sucess');
@@ -391,7 +396,7 @@ public save() {
       });
   }
   public  findALLgainssBytypeAndDate(date: Date, type: string) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findByTypeAndDate/type/' + type + '/date/' + date).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findByTypeAndDate/type/' + type + '/date/' + date).subscribe(
       data => {
         this.listesDesGains = data;
         console.log('sucess');
@@ -402,19 +407,19 @@ public save() {
 
   public  findAllGainsParMoisAndAnnee(mois: number, annee: number) {
   this.totalGains = 0.0;
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+  this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this.listesDesGains = data;
-        this.listesDesGains.forEach(liste =>{
+        this.listesDesGains.forEach(liste => {
           this.totalGains = this.totalGains + liste.monant;
-        })
+        });
         console.log('sucess');
       }, eror => {
         console.log('eroro');
       });
   }
   public  deleteById(id: number) {
-    this.http.delete<number>('http://localhost:8080/autoEcole-Api/EtatFinanciere/deleteById/' + id).subscribe(
+    this.http.delete<number>(this.urlprod + 'autoEcole-Api/EtatFinanciere/deleteById/' + id).subscribe(
       data => {
         this.mois = (new Date().getMonth() + 1);
         this.findAllDepensesParMois(this.mois);
@@ -426,7 +431,7 @@ public save() {
   }
 
   public  findAllGainsParMois1AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains1 = data.length;
         console.log('sucess');
@@ -436,7 +441,7 @@ public save() {
   }
 
   public  findAllGainsParMois2AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains2 = data.length;
         console.log('sucess');
@@ -446,7 +451,7 @@ public save() {
   }
 
   public  findAllGainsParMois3AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains3 = data.length;
         console.log('sucess');
@@ -456,7 +461,7 @@ public save() {
   }
 
   public  findAllGainsParMois4AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains4 = data.length;
         console.log('sucess');
@@ -466,7 +471,7 @@ public save() {
   }
 
   public  findAllGainsParMois5AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains5 = data.length;
         console.log('sucess');
@@ -476,7 +481,7 @@ public save() {
   }
 
   public  findAllGainsParMois6AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains6 = data.length;
         console.log('sucess');
@@ -486,7 +491,7 @@ public save() {
   }
 
   public  findAllGainsParMois7AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains7 = data.length;
         console.log('sucess');
@@ -496,7 +501,7 @@ public save() {
   }
 
   public  findAllGainsParMois8AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains8 = data.length;
         console.log('sucess');
@@ -506,7 +511,7 @@ public save() {
   }
 
   public  findAllGainsParMois9AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains9 = data.length;
         console.log('sucess');
@@ -516,7 +521,7 @@ public save() {
   }
 
   public  findAllGainsParMois10AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains10 = data.length;
         console.log('sucess');
@@ -526,7 +531,7 @@ public save() {
   }
 
   public  findAllGainsParMois11AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains11 = data.length;
         console.log('sucess');
@@ -536,7 +541,7 @@ public save() {
   }
 
   public  findAllGainsParMois12AndAnnee(mois: number, annee: number) {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllGainsByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreGains12 = data.length;
         console.log('sucess');
@@ -547,7 +552,7 @@ public save() {
 
   public  findAllDepensesParMoisAndAnnee(mois: number, annee: number): number {
   this.totaldespence = 0.0;
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+  this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this.listesDesDepenses = data;
         this.listesDesDepenses.forEach(liste => {
@@ -557,11 +562,11 @@ public save() {
       }, eror => {
         console.log('eroro');
       });
-    return this._nombreDespence1;
+  return this._nombreDespence1;
   }
 
   public  findAllDepensesParMois1AndAnnee(mois: number, annee: number): number {
-     this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+     this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence1 = data.length;
         console.log('sucess');
@@ -572,7 +577,7 @@ public save() {
   }
 
   public  findAllDepensesParMois2AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence2 = data.length;
         console.log('sucess');
@@ -583,7 +588,7 @@ public save() {
   }
 
   public  findAllDepensesParMois3AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence3 = data.length;
         console.log('sucess');
@@ -594,7 +599,7 @@ public save() {
   }
 
   public  findAllDepensesParMois4AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence4 = data.length;
         console.log('sucess');
@@ -605,7 +610,7 @@ public save() {
   }
 
   public  findAllDepensesParMois5AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence5 = data.length;
         console.log('sucess');
@@ -616,7 +621,7 @@ public save() {
   }
 
   public  findAllDepensesParMois6AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence6 = data.length;
         console.log('sucess');
@@ -627,7 +632,7 @@ public save() {
   }
 
   public  findAllDepensesParMois7AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence7 = data.length;
         console.log('sucess');
@@ -638,7 +643,7 @@ public save() {
   }
 
   public  findAllDepensesParMois8AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence8 = data.length;
         console.log('sucess');
@@ -649,7 +654,7 @@ public save() {
   }
 
   public  findAllDepensesParMois9AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence9 = data.length;
         console.log('sucess');
@@ -660,7 +665,7 @@ public save() {
   }
 
   public  findAllDepensesParMois10AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence10 = data.length;
         console.log('sucess');
@@ -671,7 +676,7 @@ public save() {
   }
 
   public  findAllDepensesParMois11AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence11 = data.length;
         console.log('sucess');
@@ -682,7 +687,7 @@ public save() {
   }
 
   public  findAllDepensesParMois12AndAnnee(mois: number, annee: number): number {
-    this.http.get<Array<EtatFinanciere>>('http://localhost:8080/autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
+    this.http.get<Array<EtatFinanciere>>(this.urlprod + 'autoEcole-Api/EtatFinanciere/findAllDespensesByTypeAndmoisAndAnnee/mois/' + mois + '/annee/' + annee).subscribe(
       data => {
         this._nombreDespence12 = data.length;
         console.log('sucess');
